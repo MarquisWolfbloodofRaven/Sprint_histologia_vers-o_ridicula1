@@ -1,0 +1,2513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚔ A Crônica da Queda — Dossiê 05-ATM | Equipe 1</title>
+<meta name="description" content="PBL Odontologia · Equipe 1 — trauma mandibular, dinâmica articular e o enigma tecidual em cinco semanas. Caso clínico interativo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{
+  --bg:#05070f; --bg2:#0a0f1e; --panel:rgba(148,163,184,.055); --panel2:rgba(148,163,184,.09);
+  --line:rgba(148,163,184,.16); --line2:rgba(148,163,184,.28);
+  --txt:#e8eefb; --mut:#94a7c4; --dim:#64789a;
+  --cy:#22d3ee; --cy2:#67e8f9; --vi:#a78bfa; --am:#fbbf24; --co:#fb7185; --gr:#34d399; --or:#fb923c; --sl:#94a3b8;
+  --fh:'Sora','Inter',system-ui,sans-serif; --fb:'Inter',system-ui,sans-serif; --fm:'JetBrains Mono',ui-monospace,monospace;
+  --rad:16px;
+}
+body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.6'/></svg>")}
+body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.55) 100%)}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{background:var(--bg);color:var(--txt);font-family:var(--fb);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(34,211,238,.35);color:#fff}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:#070b16}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#1e3a5f,#132743);border-radius:6px;border:2px solid #070b16}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#22d3ee,#0ea5b7)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+.sec{padding:104px 0;position:relative}
+.sec-alt{background:linear-gradient(180deg,transparent,rgba(15,23,42,.5) 12%,rgba(15,23,42,.5) 88%,transparent)}
+.kicker{font-family:var(--fm);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cy);display:inline-flex;align-items:center;gap:10px;margin-bottom:14px}
+.kicker::before{content:"";width:34px;height:1px;background:linear-gradient(90deg,var(--cy),transparent)}
+.sec-title{font-family:var(--fh);font-weight:800;font-size:clamp(28px,4.2vw,44px);line-height:1.12;letter-spacing:-.5px;margin-bottom:16px}
+.grad{background:linear-gradient(92deg,#67e8f9,#a78bfa 55%,#fb7185);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:gradShift 8s ease infinite}
+@keyframes gradShift{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
+.sec-sub{color:var(--mut);font-size:clamp(15px,1.6vw,17.5px);max-width:760px;margin-bottom:44px}
+.sec-sub b{color:var(--txt)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:999px;border:1px solid rgba(103,232,249,.45);background:linear-gradient(92deg,rgba(34,211,238,.16),rgba(167,139,250,.16));color:var(--cy2);font-family:var(--fh);font-weight:700;font-size:14.5px;cursor:pointer;text-decoration:none;transition:.3s;position:relative;overflow:hidden}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 34px -10px rgba(34,211,238,.45);border-color:rgba(103,232,249,.9)}
+.btn.warm{border-color:rgba(251,113,133,.5);color:#fda4af;background:linear-gradient(92deg,rgba(251,113,133,.14),rgba(251,146,60,.12))}
+.btn.warm:hover{box-shadow:0 12px 34px -10px rgba(251,113,133,.45)}
+.btn svg{width:16px;height:16px}
+/* ===== preloader ===== */
+#preloader{position:fixed;inset:0;z-index:300;background:radial-gradient(1100px 700px at 50% 38%,#0d1830 0%,#05070f 62%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity .65s ease,visibility .65s}
+body.loaded #preloader{opacity:0;visibility:hidden;pointer-events:none}
+.pre-ring{width:118px;height:118px;position:relative}
+.pre-ring svg{width:100%;height:100%;animation:spin 2.4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pre-ring .core{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:11px;letter-spacing:.18em;color:var(--cy2)}
+.pre-t{font-family:var(--fh);font-weight:700;font-size:15px;letter-spacing:.06em;color:var(--txt);text-align:center}
+.pre-s{font-family:var(--fm);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
+.pre-bar{width:220px;height:3px;background:rgba(148,163,184,.15);border-radius:99px;overflow:hidden}
+.pre-bar i{display:block;height:100%;width:40%;background:linear-gradient(90deg,var(--cy),var(--vi));border-radius:99px;animation:preSlide 1.1s ease-in-out infinite}
+@keyframes preSlide{0%{transform:translateX(-110%)}100%{transform:translateX(340%)}}
+/* ===== progress + nav ===== */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--cy),var(--vi),var(--co));z-index:150;box-shadow:0 0 12px rgba(103,232,249,.7)}
+#nav{position:fixed;top:0;left:0;right:0;z-index:140;background:rgba(5,8,16,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(148,163,184,.1);transition:.35s}
+#nav .nin{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 22px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--fh);font-weight:800;font-size:14.5px;color:var(--txt);white-space:nowrap;text-decoration:none}
+.brand .dot{width:30px;height:30px;border-radius:10px;background:conic-gradient(from 210deg,var(--cy),var(--vi),var(--co),var(--cy));display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(34,211,238,.5);animation:brandPulse 4s ease-in-out infinite}
+.brand .dot svg{width:15px;height:15px}
+@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(34,211,238,.35)}50%{box-shadow:0 0 22px rgba(167,139,250,.55)}}
+.nlinks{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;flex:1;justify-content:flex-end}
+.nlinks::-webkit-scrollbar{display:none}
+.nlink{font-family:var(--fm);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);text-decoration:none;padding:9px 12px;border-radius:9px;white-space:nowrap;position:relative;transition:.25s}
+.nlink::after{content:"";position:absolute;left:12px;right:12px;bottom:5px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--cy),var(--vi));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.nlink:hover{color:var(--txt)}
+.nlink.active{color:var(--cy2)}
+.nlink.active::after{transform:scaleX(1)}
+/* ===== particles ===== */
+#particles{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.85}
+/* ===== hero ===== */
+#inicio{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:130px 0 80px;position:relative;overflow:hidden}
+#inicio::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 78% 12%,rgba(34,211,238,.13),transparent 60%),radial-gradient(800px 520px at 15% 85%,rgba(167,139,250,.11),transparent 62%),radial-gradient(600px 400px at 60% 55%,rgba(251,113,133,.06),transparent 65%);pointer-events:none}
+.hero-ov{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.tag{font-family:var(--fm);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--mut);display:inline-flex;align-items:center;gap:8px}
+.tag.cy{color:var(--cy2);border-color:rgba(34,211,238,.4)}
+.tag.vi{color:#c4b5fd;border-color:rgba(167,139,250,.4)}
+.tag.co{color:#fda4af;border-color:rgba(251,113,133,.4)}
+.tag i{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block;animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+h1.hero-title{font-family:var(--fh);font-weight:800;font-size:clamp(42px,8.4vw,96px);line-height:1.02;letter-spacing:-2.5px;margin-bottom:26px}
+.hline{display:block;white-space:nowrap}
+.ltr{display:inline-block;opacity:0;transform:translateY(50px) rotate(8deg);transition:opacity .8s cubic-bezier(.2,.75,.2,1),transform .8s cubic-bezier(.2,.75,.2,1);transition-delay:calc(var(--i)*.04s + .2s)}
+body.loaded .ltr{opacity:1;transform:none}
+.ltr.sp{width:.32em}
+.hero-sub{font-size:clamp(16px,2vw,20px);color:var(--mut);max-width:680px;margin-bottom:34px}
+.hero-sub b{color:var(--txt)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:56px}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:820px}
+.hstat{border:1px solid var(--line);background:linear-gradient(180deg,rgba(148,163,184,.07),rgba(148,163,184,.028));border-radius:var(--rad);padding:18px 20px;position:relative;overflow:hidden;transition:.3s}
+.hstat::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--c1,#22d3ee),transparent)}
+.hstat:hover{transform:translateY(-4px);border-color:var(--line2);box-shadow:0 18px 40px -18px rgba(0,0,0,.8)}
+.hstat .n{font-family:var(--fm);font-weight:600;font-size:clamp(26px,3vw,36px);color:var(--c1,#22d3ee);line-height:1}
+.hstat .l{font-size:12px;color:var(--mut);margin-top:6px;letter-spacing:.04em}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--dim);font-family:var(--fm);font-size:10px;letter-spacing:.3em;text-transform:uppercase}
+.mouse{width:24px;height:38px;border:2px solid var(--dim);border-radius:14px;position:relative}
+.mouse::after{content:"";position:absolute;top:7px;left:50%;width:3px;height:7px;margin-left:-1.5px;border-radius:3px;background:var(--cy);animation:wheel 1.8s ease infinite}
+@keyframes wheel{0%{opacity:1;transform:translateY(0)}70%{opacity:0;transform:translateY(12px)}100%{opacity:0}}
+/* ===== panorama ===== */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pcard{border:1px solid var(--line);border-radius:var(--rad);padding:26px 24px;background:linear-gradient(180deg,rgba(148,163,184,.06),rgba(148,163,184,.02));position:relative;overflow:hidden;transition:.35s}
+.pcard:hover{transform:translateY(-5px);border-color:rgba(103,232,249,.4);box-shadow:0 22px 50px -22px rgba(34,211,238,.35)}
+.pcard .pnum{font-family:var(--fm);font-size:11px;color:var(--pc,#22d3ee);letter-spacing:.2em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.pcard .pnum::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--pc,#22d3ee),transparent)}
+.pcard h3{font-family:var(--fh);font-weight:700;font-size:19px;margin-bottom:10px;color:var(--txt)}
+.pcard p{font-size:14.5px;color:var(--mut)}
+.pcard p b{color:var(--cy2)}
+.pcard .pico{position:absolute;right:-16px;bottom:-18px;opacity:.09;font-family:var(--fh);font-weight:800;font-size:110px;line-height:1}
+
+/* ===== DIREÇÃO DE ARTE: atlas clínico / cinema analógico ===== */
+:root{
+  --ink:#07090d;--bone:#f0e9dc;--mut:#a9a397;--dim:#706e69;
+  --cy:#8ccfc7;--cy2:#b5e6dd;--vi:#a9a0c9;--am:#d6a85f;--co:#d87969;
+  --panel:rgba(226,215,195,.045);--panel2:rgba(226,215,195,.075);
+  --line:rgba(226,215,195,.15);--line2:rgba(226,215,195,.28);
+  --fh:'Barlow Condensed','Sora',sans-serif;--fb:'Inter',system-ui,sans-serif;
+}
+body{background:#07090d;color:var(--bone)}
+body::before{opacity:.085;mix-blend-mode:soft-light}
+body::after{background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,.72) 100%)}
+.grad{background:linear-gradient(105deg,#f4e8d2 0%,#d8a86b 38%,#d77f70 72%,#a8d6cc 100%);background-size:100% 100%;animation:none;-webkit-background-clip:text;background-clip:text;color:transparent}
+.sec{padding:clamp(82px,9vw,132px) 0;overflow:clip}
+.sec-alt{background:linear-gradient(180deg,transparent,rgba(25,25,27,.64) 12%,rgba(25,25,27,.64) 88%,transparent)}
+.sec-title{font-size:clamp(34px,5vw,58px);letter-spacing:-.015em;line-height:.98;font-weight:800;text-transform:uppercase;max-width:980px}
+.kicker{color:var(--am);font-size:10px;letter-spacing:.28em}
+.kicker::before{background:linear-gradient(90deg,var(--am),transparent)}
+.sec-sub{color:#b7b1a6;max-width:780px;font-size:clamp(15px,1.45vw,17px);line-height:1.8}
+#nav{background:rgba(7,9,13,.84);border-bottom-color:rgba(214,168,95,.16);backdrop-filter:blur(20px)}
+.brand{letter-spacing:.025em}.brand .dot{border-radius:50%;background:linear-gradient(145deg,#b5e6dd,#d6a85f);box-shadow:0 0 24px rgba(214,168,95,.22);animation:none}
+.nlink{font-size:10px;letter-spacing:.13em}.nlink.active{color:#e6c28c}.nlink::after{background:linear-gradient(90deg,#d6a85f,#d87969)}
+#progress{height:2px;background:linear-gradient(90deg,#8ccfc7,#d6a85f,#d87969);box-shadow:0 0 14px rgba(214,168,95,.45)}
+#inicio{min-height: min(980px,100svh);padding-top:160px;padding-bottom:112px;isolation:isolate}
+#inicio::before{inset:-10%;background:radial-gradient(ellipse at 75% 40%,rgba(140,207,199,.095),transparent 35%),radial-gradient(ellipse at 12% 82%,rgba(216,121,105,.1),transparent 34%),linear-gradient(115deg,transparent 48%,rgba(214,168,95,.035) 48.1%,transparent 48.3%);pointer-events:none}
+#inicio::after{content:"";position:absolute;inset:0;z-index:-1;height:auto;opacity:.35;background:linear-gradient(90deg,transparent 0,rgba(214,168,95,.12) 1px,transparent 1px);background-size:18.5% 100%;mask-image:linear-gradient(90deg,transparent,#000 20%,#000 80%,transparent)}
+#inicio .wrap{z-index:2}
+.hero-ov{position:relative;z-index:3;margin-bottom:32px}
+.tag{border-radius:2px;background:rgba(8,11,14,.62);font-size:9px;letter-spacing:.18em;padding:8px 12px}
+.tag.cy{color:#b5e6dd;border-color:rgba(140,207,199,.38)}.tag.vi{color:#c5bddf;border-color:rgba(169,160,201,.36)}.tag.co{color:#e8a092;border-color:rgba(216,121,105,.38)}
+h1.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(76px,12.2vw,164px);line-height:.77;letter-spacing:-.025em;font-weight:900;max-width:1000px;margin-bottom:34px;position:relative;z-index:2;text-shadow:0 10px 55px rgba(0,0,0,.55)}
+.hline{white-space:normal;display:block;width:max-content;max-width:100%}
+.hline:nth-child(2){padding-left:clamp(18px,5vw,82px)}
+.hline:nth-child(3){padding-left:clamp(40px,10vw,160px)}
+.ltr{transform:translateY(65px) rotate(4deg);transition-duration:1.05s;transition-timing-function:cubic-bezier(.16,1,.3,1)}
+.hero-sub{position:relative;z-index:3;max-width:620px;color:#bcb6aa;font-size:clamp(16px,1.6vw,19px);line-height:1.85;margin-bottom:32px}
+.hero-sub b{color:#f1e6d5}
+.hero-cta{position:relative;z-index:3;margin-bottom:52px}
+.btn{border-radius:3px;padding:14px 22px;background:rgba(140,207,199,.08);border-color:rgba(140,207,199,.42);color:#c1e8df;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 34px -12px rgba(140,207,199,.4)}
+.btn.warm{color:#f0c2a8;border-color:rgba(216,121,105,.45);background:rgba(216,121,105,.08)}
+.btn.warm:hover{box-shadow:0 12px 34px -12px rgba(216,121,105,.38)}
+.hero-figure{position:absolute;z-index:1;right:-1.5vw;top:13%;width:min(57vw,760px);aspect-ratio:1;pointer-events:none;opacity:.76;mix-blend-mode:screen;animation:specimenFloat 18s ease-in-out infinite}
+.hero-figure svg{width:100%;height:100%;overflow:visible;animation:specimenTurn 110s linear infinite}
+.figure-caption{position:absolute;right:12%;bottom:7%;font:9px var(--fm);letter-spacing:.2em;color:rgba(240,201,173,.62);white-space:nowrap}
+.figure-caption i{color:#d87969;font-style:normal}
+@keyframes specimenFloat{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-18px,0)}}
+@keyframes specimenTurn{to{transform:rotate(360deg)}}
+.hero-stats{position:relative;z-index:3;max-width:900px;gap:9px}
+.hstat{border-radius:3px;background:linear-gradient(145deg,rgba(226,215,195,.075),rgba(226,215,195,.018));border-color:rgba(226,215,195,.16);padding:17px 18px}
+.hstat::after{height:1px;background:linear-gradient(90deg,var(--c1),transparent 78%)}
+.hstat .n{font-size:clamp(30px,3.3vw,43px);font-weight:700}
+.hstat .l{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:#aaa398}
+.scroll-hint{font:9px var(--fm);letter-spacing:.3em;text-transform:uppercase;color:#9d9589}
+.mouse{border-color:rgba(214,168,95,.5)}
+/* cards: less glass, more editorial object */
+.pcard,.dcard,.tcard,.tl-card,.laudo-card,.hyp,.qcard,.crit,.floor,.comp,.vid-note,.bio-panel,.player,.yt,.closing{border-radius:5px;box-shadow:0 18px 60px -48px rgba(0,0,0,.95);backdrop-filter:none}
+.pcard,.dcard,.tcard,.qcard{background:linear-gradient(145deg,rgba(226,215,195,.065),rgba(226,215,195,.018));border-color:rgba(226,215,195,.16)}
+.pcard::before,.dcard::before,.tcard::before,.qcard::before{height:2px;opacity:.9}
+.pcard:hover,.dcard:hover,.tcard:hover,.qcard:hover{transform:translateY(-5px);border-color:rgba(214,168,95,.42);box-shadow:0 24px 60px -38px rgba(214,168,95,.2)}
+.pnum,.qcard .qn,.tl-when .wk{letter-spacing:.18em}
+.pico{font-family:'Barlow Condensed',sans-serif;font-size:104px;font-weight:900;color:rgba(240,233,220,.045)}
+.tl::before{background:linear-gradient(180deg,rgba(140,207,199,.75),rgba(214,168,95,.45),rgba(216,121,105,.65))}
+#tlFill{background:linear-gradient(180deg,#8ccfc7,#d6a85f,#d87969);box-shadow:0 0 16px rgba(214,168,95,.3)}
+.tl-dot{box-shadow:0 0 0 5px rgba(7,9,13,.96),0 0 0 6px color-mix(in srgb,var(--dc),transparent 25%),0 0 22px color-mix(in srgb,var(--dc),transparent 35%)}
+.tl-card{background:linear-gradient(145deg,rgba(28,29,30,.98),rgba(15,17,19,.98));border-color:rgba(226,215,195,.17);padding:24px 27px}
+.tl-card h3{font-family:'Barlow Condensed',sans-serif;font-size:clamp(21px,2.4vw,28px);font-weight:800;letter-spacing:.015em;text-transform:uppercase}
+.tl-card p{color:#b9b2a7;line-height:1.8}
+.ev{border-left:2px solid var(--am);border-radius:0;background:rgba(214,168,95,.055);color:#d5b98a}
+/* section framing */
+.sec::after{content:"DOSSIÊ  /  " attr(data-chapter);position:absolute;top:42px;right:max(24px,calc((100vw - 1180px)/2));font:9px var(--fm);letter-spacing:.22em;color:rgba(214,168,95,.42);writing-mode:vertical-rl;pointer-events:none}
+.sec::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(214,168,95,.24),rgba(140,207,199,.18),transparent);pointer-events:none}
+.sec .wrap{position:relative}
+.sec .kicker{position:relative}
+.sec .kicker::after{content:"";width:22px;height:1px;background:rgba(216,121,105,.55);margin-left:2px}
+/* interactive details */
+.btn,.pcard,.dcard,.tcard,.qcard,.comp,.mlg,.pmode,.pbtn{transition-duration:.38s}
+.btn::after{content:"";position:absolute;top:-80%;left:-35%;width:22%;height:260%;transform:rotate(24deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .8s cubic-bezier(.2,.7,.2,1)}
+.btn:hover::after{left:125%}
+.pcard,.dcard,.tcard,.qcard{isolation:isolate}
+.pcard::after,.dcard::after,.tcard::after,.qcard::after{content:"";position:absolute;inset:0;z-index:-1;opacity:0;background:radial-gradient(500px circle at var(--px,50%) var(--py,50%),rgba(214,168,95,.10),transparent 45%);transition:opacity .4s}
+.pcard:hover::after,.dcard:hover::after,.tcard:hover::after,.qcard:hover::after{opacity:1}
+#preloader{background:radial-gradient(ellipse at 50% 45%,#20201d 0%,#090a0b 68%)}
+.pre-ring svg{animation:spin 7s linear infinite}
+.pre-ring .core{color:#d6a85f}
+.pre-t{font-family:'Barlow Condensed',sans-serif;font-size:22px;letter-spacing:.12em;text-transform:uppercase}
+.pre-s{letter-spacing:.3em;color:#9c9385}
+.pre-bar i{background:linear-gradient(90deg,#8ccfc7,#d6a85f,#d87969)}
+.player,.bio-panel,.yt{background:#0b0d0f;border-color:rgba(214,168,95,.22)}
+.player-stage{background:radial-gradient(ellipse at 62% 40%,rgba(140,207,199,.08),transparent 65%),#080b0d}
+#atmSvg .lbl{fill:#c7bba8}
+#toTop{border-radius:3px;background:rgba(12,14,15,.92);border-color:rgba(214,168,95,.35);color:#d6a85f}
+footer{background:#080a0c;border-top-color:rgba(214,168,95,.22)}
+.ft-l p{color:#8f887e}
+@media(max-width:900px){.hero-figure{right:-18vw;width:70vw;opacity:.42}.hero-sub{max-width:640px}}
+@media(max-width:760px){
+  #inicio{min-height:auto;padding-top:132px;padding-bottom:96px}
+  .hero-figure{right:-36vw;top:18%;width:105vw;opacity:.24}
+  h1.hero-title{font-size:clamp(66px,17vw,112px);line-height:.82;letter-spacing:-.02em}
+  .hline:nth-child(2){padding-left:5vw}.hline:nth-child(3){padding-left:11vw}
+  .hero-sub{max-width:95%;font-size:15px}
+  .hero-stats{gap:8px}.hstat{padding:14px 13px}.hstat .l{font-size:9px}
+  .figure-caption{right:10%;bottom:4%;font-size:8px}
+  .tl-card{padding:18px 17px}
+}
+@media(max-width:520px){
+  .hero-ov{gap:7px}.tag{font-size:8px;padding:7px 9px}
+  .hero-cta .btn{width:100%;justify-content:center}
+  .hero-stats{max-width:100%}
+  .sec-title{font-size:clamp(32px,10vw,43px)}
+}
+@media(prefers-reduced-motion:reduce){.hero-figure,.hero-figure svg{animation:none!important}}
+
+</style>
+<style>
+/* ===== cronologia ===== */
+.tl{position:relative;max-width:1000px;margin:0 auto;padding:10px 0 30px;isolation:isolate}
+.tl-item{min-width:0}
+.tl-card{min-width:0;overflow-wrap:anywhere}
+.tl-item .tl-dot{z-index:2}
+#tlFill{pointer-events:none;z-index:0}
+.tl::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:rgba(148,163,184,.14)}
+#tlFill{position:absolute;left:50%;top:0;width:2px;height:0;margin-left:-1px;background:linear-gradient(180deg,var(--cy),var(--vi),var(--co));box-shadow:0 0 14px rgba(103,232,249,.65)}
+.tl-item{position:relative;width:50%;padding:0 48px 52px}
+.tl-item.right{margin-left:50%}
+.tl-item .tl-dot{position:absolute;top:6px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:3px solid var(--dc,#22d3ee);box-shadow:0 0 0 4px rgba(5,8,16,.9),0 0 18px var(--dc)}
+.tl-item.left .tl-dot{right:-7.5px}
+.tl-item.right .tl-dot{left:-7.5px}
+.tl-item .tl-dot::after{content:"";position:absolute;inset:-9px;border-radius:50%;border:1px solid var(--dc,#22d3ee);opacity:0;animation:dotPulse 2.6s ease-out infinite}
+@keyframes dotPulse{0%{transform:scale(.5);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+.tl-card{border:1px solid var(--line);border-left:3px solid var(--dc,#22d3ee);border-radius:14px;padding:20px 22px;background:linear-gradient(180deg,rgba(148,163,184,.07),rgba(148,163,184,.02));transition:.35s}
+.tl-card:hover{transform:translateY(-4px);border-color:var(--dc,#22d3ee);box-shadow:0 20px 44px -20px rgba(0,0,0,.85)}
+.tl-when{font-family:var(--fm);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dc,#22d3ee);margin-bottom:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tl-when .wk{background:color-mix(in srgb,var(--dc,#22d3ee) 16%,transparent);border:1px solid color-mix(in srgb,var(--dc,#22d3ee) 40%,transparent);padding:2px 10px;border-radius:99px}
+.tl-card h3{font-family:var(--fh);font-weight:700;font-size:18px;margin-bottom:8px}
+.tl-card p{font-size:14px;color:var(--mut)}
+.tl-card p b{color:var(--txt)}
+.tl-card p em{color:var(--cy2);font-style:normal;font-weight:600}
+.tl-card .ev{margin-top:12px;font-family:var(--fm);font-size:11.5px;color:var(--dc,#22d3ee);border-top:1px dashed color-mix(in srgb,var(--dc,#22d3ee) 30%,transparent);padding-top:10px}
+.tl-card .ev::before{content:"EVIDÊNCIA — ";letter-spacing:.14em;font-size:10px}
+/* ===== diagnóstico ===== */
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:26px}
+.dcard{border:1px solid var(--line);border-radius:var(--rad);padding:26px;position:relative;background:linear-gradient(180deg,rgba(148,163,184,.065),rgba(148,163,184,.02));transition:.35s;overflow:hidden}
+.dcard:hover{transform:translateY(-5px);border-color:rgba(103,232,249,.45);box-shadow:0 24px 50px -24px rgba(34,211,238,.35)}
+.dcard .dn{font-family:var(--fm);font-size:30px;color:rgba(103,232,249,.4);font-weight:600;line-height:1;margin-bottom:14px}
+.dcard h3{font-family:var(--fh);font-size:18px;font-weight:700;margin-bottom:10px}
+.dcard p{font-size:14px;color:var(--mut)}
+.dcard p b{color:var(--cy2)}
+.hyp{border:1px solid rgba(251,113,133,.35);border-radius:var(--rad);padding:30px 34px;position:relative;background:linear-gradient(120deg,rgba(251,113,133,.09),rgba(251,146,60,.05) 55%,rgba(148,163,184,.03));overflow:hidden}
+.hyp::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--co),var(--am),transparent)}
+.hyp .hl{font-family:var(--fm);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#fda4af;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.hyp .hl i{width:8px;height:8px;border-radius:50%;background:var(--co);animation:blink 1.6s infinite}
+.hyp h3{font-family:var(--fh);font-weight:800;font-size:clamp(19px,2.4vw,25px);margin-bottom:12px;background:linear-gradient(92deg,#fda4af,#fbbf24);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hyp p{color:var(--mut);font-size:15px;max-width:820px}
+.hyp p b{color:var(--txt)}
+.hyp .open-note{margin-top:14px;font-family:var(--fm);font-size:12.5px;color:#fbbf24}
+/* ===== anatomia ===== */
+.anat-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:stretch}
+.acomp{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start}
+.comp{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--panel);transition:.3s;cursor:default}
+.comp:hover{border-color:rgba(103,232,249,.5);background:rgba(34,211,238,.07);transform:translateY(-2px)}
+.comp .cn{font-size:13.5px;font-weight:600;color:var(--txt)}
+.comp .cd{font-size:11.5px;color:var(--dim);margin-top:2px}
+.comp .cdot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cy);margin-right:7px;box-shadow:0 0 8px var(--cy)}
+.floors{display:flex;flex-direction:column;gap:14px}
+.floor{border:1px solid var(--line);border-radius:var(--rad);padding:22px 24px;position:relative;background:linear-gradient(180deg,rgba(148,163,184,.07),rgba(148,163,184,.02));overflow:hidden}
+.floor.f2{margin-left:46px}
+.floor .fnum{position:absolute;right:16px;top:12px;font-family:var(--fh);font-weight:800;font-size:44px;opacity:.08}
+.floor h4{font-family:var(--fh);font-size:16px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.floor h4 .fb{font-family:var(--fm);font-size:10px;letter-spacing:.16em;padding:3px 9px;border-radius:99px;background:rgba(34,211,238,.14);color:var(--cy2);border:1px solid rgba(34,211,238,.35)}
+.floor.f2 h4 .fb{background:rgba(167,139,250,.14);color:#c4b5fd;border-color:rgba(167,139,250,.35)}
+.floor p{font-size:13.5px;color:var(--mut)}
+.floor p b{color:var(--txt)}
+.floor .fbar{height:5px;border-radius:99px;background:rgba(148,163,184,.14);margin-top:12px;overflow:hidden}
+.floor .fbar i{display:block;height:100%;border-radius:99px;width:var(--w);background:linear-gradient(90deg,var(--cy),var(--vi));transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
+.floor.f2 .fbar i{background:linear-gradient(90deg,var(--vi),var(--co))}
+.anat-note{margin-top:18px;border:1px dashed rgba(251,191,36,.4);border-radius:12px;padding:14px 18px;font-size:13.5px;color:var(--mut);background:rgba(251,191,36,.05)}
+.anat-note b{color:var(--am)}
+/* ===== player ATM (vídeo) ===== */
+.player{max-width:920px;margin:0 auto;border:1px solid var(--line2);border-radius:20px;background:#0b1120;overflow:hidden;box-shadow:0 30px 80px -30px rgba(34,211,238,.28),inset 0 1px 0 rgba(255,255,255,.05);position:relative}
+.player-top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 18px;border-bottom:1px solid rgba(148,163,184,.12);background:rgba(148,163,184,.04);flex-wrap:wrap}
+.rec{display:flex;align-items:center;gap:9px;font-family:var(--fm);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+.rec .rd{width:9px;height:9px;border-radius:50%;background:#f87171;box-shadow:0 0 10px #f87171;animation:blink 1.4s infinite}
+.pmodes{display:flex;gap:8px;flex-wrap:wrap}
+.pmode{font-family:var(--fm);font-size:11px;letter-spacing:.08em;padding:8px 14px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--mut);cursor:pointer;transition:.3s;text-transform:uppercase}
+.pmode:hover{border-color:rgba(103,232,249,.5);color:var(--txt)}
+.pmode.active{background:linear-gradient(92deg,rgba(34,211,238,.18),rgba(167,139,250,.18));border-color:rgba(103,232,249,.6);color:var(--cy2)}
+.pmode.restr.active{background:linear-gradient(92deg,rgba(251,113,133,.18),rgba(251,146,60,.15));border-color:rgba(251,113,133,.6);color:#fda4af}
+.player-stage{position:relative;background:radial-gradient(640px 420px at 62% 40%,rgba(34,211,238,.07),transparent 65%),#070c18}
+.player-stage::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(148,163,184,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.05) 1px,transparent 1px);background-size:36px 36px;pointer-events:none}
+#atmSvg{width:100%;height:auto;display:block;position:relative}
+#atmSvg .bone{fill:url(#boneGrad);stroke:rgba(226,232,240,.25);stroke-width:1.5}
+#atmSvg .bone-soft{fill:url(#boneGrad);stroke:rgba(226,232,240,.16);stroke-width:1}
+#atmSvg .mand-fill{fill:none;stroke:url(#mandGrad);stroke-width:30;stroke-linecap:round}
+#atmSvg .neck{stroke-width:27}
+#atmSvg .condyle{fill:url(#condGrad);stroke:rgba(226,232,240,.4);stroke-width:1.5;transition:filter .5s}
+#atmSvg .condyle.glow{filter:url(#glowF)}
+#atmSvg .disc{fill:url(#discGrad);stroke:rgba(226,232,240,.35);stroke-width:1}
+#atmSvg .lbl{font-family:var(--fm);font-size:11px;fill:#a5b8d4;letter-spacing:.04em}
+#atmSvg .lbl-bone{fill:#334155;font-weight:600;font-size:11.5px}
+#atmSvg .lbl-mv{font-family:var(--fm);font-weight:600}
+#atmSvg.hide-labels .lbl-mv,#atmSvg.hide-labels .lbl{opacity:0}
+#atmSvg text,#atmSvg .lbl{transition:opacity .4s}
+.pain{fill:#fb7185;filter:url(#glowF)}
+.pain-ring{fill:none;stroke:#fb7185;stroke-width:1.5;transform-box:fill-box;transform-origin:center;animation:dotPulse 1.8s ease-out infinite}
+.stage.restricted .pain{fill:#f87171}
+.hud{position:absolute;top:16px;left:16px;display:flex;flex-direction:column;gap:8px;pointer-events:none;z-index:3}
+.phase{font-family:var(--fm);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:99px;background:rgba(7,12,24,.85);border:1px solid rgba(34,211,238,.45);color:var(--cy2);backdrop-filter:blur(6px);max-width:270px}
+.phase.tl{border-color:rgba(167,139,250,.55);color:#c4b5fd}
+.mmbox{align-self:flex-start;font-family:var(--fm);background:rgba(7,12,24,.85);border:1px solid var(--line2);border-radius:10px;padding:5px 12px;color:var(--txt);font-size:15px;backdrop-filter:blur(6px)}
+.mmbox small{font-size:10.5px;color:var(--dim);letter-spacing:.14em}
+.mmbox b{color:var(--cy2);font-size:19px}
+.stage.restricted .mmbox b{color:#fda4af}
+.openbar{position:absolute;left:0;right:0;bottom:0;height:6px;background:rgba(148,163,184,.12)}
+.openbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cy),var(--vi));box-shadow:0 0 12px rgba(103,232,249,.6)}
+.player-ctrl{display:flex;align-items:center;gap:14px;padding:14px 18px;border-top:1px solid rgba(148,163,184,.12);background:rgba(148,163,184,.04);flex-wrap:wrap}
+.pbtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);background:rgba(148,163,184,.08);color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.25s;flex:none}
+.pbtn:hover{border-color:var(--cy);background:rgba(34,211,238,.14);transform:scale(1.06);box-shadow:0 0 18px rgba(34,211,238,.35)}
+.pbtn svg{width:17px;height:17px;fill:currentColor}
+.pbtn.small{width:auto;height:32px;border-radius:99px;padding:0 14px;font-family:var(--fm);font-size:11.5px;letter-spacing:.06em}
+.pbtn.small.on{border-color:rgba(103,232,249,.6);color:var(--cy2);background:rgba(34,211,238,.12)}
+.time{font-family:var(--fm);font-size:12px;color:var(--mut);white-space:nowrap}
+.time b{color:var(--txt)}
+#scrub{flex:1;min-width:140px;appearance:none;-webkit-appearance:none;height:5px;border-radius:99px;background:rgba(148,163,184,.2);outline:none;cursor:pointer}
+#scrub::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--cy);border:2px solid #071018;box-shadow:0 0 12px rgba(34,211,238,.8);cursor:grab}
+#scrub::-moz-range-thumb{width:15px;height:15px;border-radius:50%;background:var(--cy);border:2px solid #071018;box-shadow:0 0 12px rgba(34,211,238,.8)}
+.player-cap{padding:15px 20px;font-size:13.5px;color:var(--mut);border-top:1px dashed rgba(148,163,184,.14);min-height:56px}
+.player-cap b{color:var(--cy2)}
+.stage.restricted + .player-ctrl + .player-cap b{color:#fda4af}
+.vid-extra{max-width:920px;margin:22px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vid-note{border:1px solid var(--line);border-radius:14px;padding:16px 20px;background:var(--panel);font-size:13.5px;color:var(--mut)}
+.vid-note b{color:var(--txt)}
+.vid-note .vt{font-family:var(--fm);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--cy2);margin-bottom:8px}
+.yt{border:1px solid var(--line2);border-radius:18px;overflow:hidden;background:#030712;position:relative;box-shadow:0 30px 80px -30px rgba(34,211,238,.35),inset 0 0 0 1px rgba(255,255,255,.04)}
+.yt .yt-t{font-family:var(--fm);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);padding:12px 18px;border-bottom:1px solid rgba(148,163,184,.12);display:flex;align-items:center;gap:10px}
+.yt .yt-t::before{content:"";width:8px;height:8px;border-radius:50%;background:#f87171;box-shadow:0 0 10px #f87171;animation:blink 1.4s infinite}
+.yt .yt-f{position:relative;padding-top:56.25%;background:#000}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+/* ===== biomecânica ===== */
+.bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.bio-panel{border:1px solid var(--line2);border-radius:18px;background:#0b1120;overflow:hidden;position:relative}
+.bio-panel .bp-t{padding:12px 18px;font-family:var(--fm);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);border-bottom:1px solid rgba(148,163,184,.12);display:flex;justify-content:space-between;align-items:center}
+.bio-panel .live{display:flex;align-items:center;gap:7px;color:var(--cy2)}
+.bio-panel .live i{width:7px;height:7px;border-radius:50%;background:var(--cy);animation:blink 1.4s infinite}
+#bioSvg{width:100%;height:auto;display:block}
+#bioSvg .face{fill:none;stroke:rgba(148,163,184,.25);stroke-width:1.5;stroke-dasharray:5 7}
+#bioSvg .mandf{fill:none;stroke:url(#mandGrad2);stroke-width:17;stroke-linecap:round}
+#bioSvg .cond{stroke-width:2}
+#bioSvg .bl{font-family:var(--fm);font-size:11px;letter-spacing:.06em}
+#bioSvg .mid{stroke:rgba(148,163,184,.3);stroke-width:1;stroke-dasharray:3 5}
+#bioSvg .devlbl{font-family:var(--fm);font-size:12px;fill:#fda4af;font-weight:600}
+.bsteps{display:flex;flex-direction:column;gap:14px}
+.stepcard{border:1px solid var(--line);border-left:3px solid var(--sc,#22d3ee);border-radius:13px;padding:18px 20px;background:linear-gradient(180deg,rgba(148,163,184,.06),rgba(148,163,184,.02));transition:.3s}
+.stepcard:hover{transform:translateX(5px);border-color:var(--sc,#22d3ee);box-shadow:0 14px 34px -18px rgba(0,0,0,.8)}
+.stepcard .sn{font-family:var(--fm);font-size:11px;color:var(--sc,#22d3ee);letter-spacing:.2em;margin-bottom:6px}
+.stepcard h4{font-family:var(--fh);font-size:15.5px;font-weight:700;margin-bottom:5px}
+.stepcard p{font-size:13.5px;color:var(--mut)}
+.stepcard p b{color:var(--txt)}
+.bio-note{margin-top:16px;border:1px dashed rgba(103,232,249,.4);border-radius:12px;padding:14px 18px;font-size:13.5px;color:var(--mut);background:rgba(34,211,238,.05)}
+.bio-note b{color:var(--cy2)}
+</style>
+<style>
+/* ===== reparo tecidual ===== */
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:26px}
+.tcard{border:1px solid var(--line);border-radius:var(--rad);padding:26px 24px;position:relative;background:linear-gradient(180deg,rgba(148,163,184,.065),rgba(148,163,184,.02));transition:transform .35s,box-shadow .35s,border-color .35s;transform-style:preserve-3d;will-change:transform}
+.tcard:hover{border-color:var(--tc);box-shadow:0 26px 60px -26px color-mix(in srgb,var(--tc) 45%,transparent)}
+.tcard .tico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;border:1px solid color-mix(in srgb,var(--tc) 45%,transparent);background:color-mix(in srgb,var(--tc) 12%,transparent);margin-bottom:16px}
+.tcard .tico svg{width:26px;height:26px;stroke:var(--tc);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tcard .tk{font-family:var(--fm);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--tc);margin-bottom:8px}
+.tcard h3{font-family:var(--fh);font-weight:700;font-size:19px;margin-bottom:10px}
+.tcard p{font-size:13.8px;color:var(--mut);margin-bottom:12px}
+.tcard p b{color:var(--txt)}
+.tout{border-top:1px dashed color-mix(in srgb,var(--tc) 35%,transparent);padding-top:12px;font-size:13px;color:var(--mut)}
+.tout b{color:var(--tc)}
+.tout::before{content:"DESECHO";font-family:var(--fm);font-size:10px;letter-spacing:.24em;display:block;color:var(--dim);margin-bottom:4px}
+.tbars{margin-top:12px;display:flex;flex-direction:column;gap:9px}
+.tbar .tb-l{display:flex;justify-content:space-between;font-family:var(--fm);font-size:10.5px;color:var(--dim);margin-bottom:4px;letter-spacing:.06em}
+.tbar .tb-l b{color:var(--tc);font-weight:600}
+.tbar .tb-t{height:6px;border-radius:99px;background:rgba(148,163,184,.13);overflow:hidden}
+.tbar .tb-f{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--tc),color-mix(in srgb,var(--tc) 40%,#fff));transition:width 1.4s cubic-bezier(.2,.7,.2,1);box-shadow:0 0 10px color-mix(in srgb,var(--tc) 50%,transparent)}
+.rv.in .tb-f{width:var(--w)}
+/* ===== laudo ===== */
+.laudo-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}
+.laudo-card{border:1px solid var(--line2);border-radius:18px;background:linear-gradient(160deg,rgba(52,211,153,.06),#0b1120 55%);padding:30px 32px;position:relative;overflow:hidden}
+.laudo-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gr),var(--cy),transparent)}
+.laudo-card .lh{font-family:var(--fm);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gr);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.laudo-card .lh i{width:8px;height:8px;border-radius:50%;background:var(--gr);animation:blink 1.8s infinite}
+.laudo-card blockquote{font-size:15px;color:#cdd9ee;line-height:1.85;border-left:3px solid rgba(52,211,153,.45);padding-left:20px}
+.term{border-bottom:1.5px dashed rgba(52,211,153,.65);cursor:pointer;transition:.25s;padding:0 1px}
+.term:hover{background:rgba(52,211,153,.12);border-bottom-color:var(--gr);color:#fff}
+.term-lend{font-family:var(--fm);font-size:12.5px;color:var(--dim);margin-top:18px;border-top:1px dashed var(--line);padding-top:12px}
+#termPop{position:fixed;z-index:200;max-width:330px;background:#0d1526;border:1px solid rgba(52,211,153,.5);border-radius:14px;padding:18px 20px;font-size:13.5px;color:var(--mut);box-shadow:0 26px 60px -18px rgba(0,0,0,.9);opacity:0;visibility:hidden;transform:translateY(8px);transition:.3s;pointer-events:none}
+#termPop.show{opacity:1;visibility:visible;transform:none}
+#termPop b{color:var(--gr);display:block;margin-bottom:6px;font-family:var(--fh);font-size:14.5px}
+.lsteps{display:flex;flex-direction:column;gap:12px}
+.lstep{border:1px solid var(--line);border-radius:13px;padding:16px 18px;background:linear-gradient(180deg,rgba(148,163,184,.06),rgba(148,163,184,.02));cursor:pointer;transition:.3s;position:relative;overflow:hidden}
+.lstep::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gr),var(--cy));transform:scaleY(0);transform-origin:top;transition:.35s}
+.lstep:hover,.lstep.on{border-color:rgba(52,211,153,.5);transform:translateX(5px)}
+.lstep.on::before{transform:scaleY(1)}
+.lstep .ls-n{font-family:var(--fm);font-size:10.5px;letter-spacing:.2em;color:var(--gr);margin-bottom:5px;text-transform:uppercase}
+.lstep h4{font-family:var(--fh);font-size:15.5px;margin-bottom:5px}
+.lstep p{font-size:13px;color:var(--mut)}
+.marli{margin-top:16px;border:1px solid rgba(251,113,133,.4);border-radius:14px;padding:20px 22px;background:linear-gradient(150deg,rgba(251,113,133,.08),rgba(148,163,184,.03));position:relative}
+.marli::before{content:"?";position:absolute;right:14px;top:2px;font-family:var(--fh);font-weight:800;font-size:64px;color:rgba(251,113,133,.14)}
+.marli .mq{font-style:italic;color:#fda4af;font-size:14.5px;margin-bottom:10px}
+.marli .mq::before{content:"— "}
+.marli .ma{font-size:13.5px;color:var(--mut)}
+.marli .ma b{color:var(--txt)}
+/* ===== mapa mental ===== */
+.mm-shell{position:relative;height:720px;border:1px solid var(--line2);border-radius:20px;background:radial-gradient(700px 460px at 50% 42%,rgba(34,211,238,.06),transparent 70%),#070c18;overflow:hidden;touch-action:none}
+.mm-shell::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(148,163,184,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.045) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+#mmSvg{width:100%;height:100%;cursor:grab;display:block;touch-action:pan-y;user-select:none}
+#mmSvg.dragging{cursor:grabbing}
+.mm-edge{fill:none;stroke:rgba(148,163,184,.22);stroke-width:2;transition:stroke .35s,opacity .35s}
+.mm-branch .mm-edge{stroke:var(--bc);opacity:.5}
+.mm-edge.main{stroke-width:2.5}
+.mm-node{cursor:pointer;outline:none}.mm-node:focus .mm-crect,.mm-node:focus .mm-brect{stroke:#fff;stroke-width:3}
+.mm-crect{fill:rgba(9,15,30,.94);stroke:var(--bc);stroke-width:1.4;transition:.3s}
+.mm-node:hover .mm-crect{filter:drop-shadow(0 0 10px color-mix(in srgb,var(--bc) 60%,transparent));stroke-width:2}
+.mm-brect{fill:rgba(10,16,32,.96);stroke:var(--bc);stroke-width:2;transition:.3s}
+.mm-branch .mm-brect{fill:color-mix(in srgb,var(--bc) 14%,rgba(10,16,32,.9))}
+.mm-branch:hover .mm-brect{filter:drop-shadow(0 0 14px color-mix(in srgb,var(--bc) 70%,transparent))}
+.mm-btxt{font-family:var(--fh);font-weight:700;font-size:15px;fill:#eef4ff;text-anchor:middle}
+.mm-bcount{font-family:var(--fm);font-size:10px;fill:var(--bc);text-anchor:middle;letter-spacing:.14em}
+.mm-txt{font-family:var(--fb);font-size:12.3px;fill:#c3d2ea;text-anchor:middle}
+.mm-ctxt{font-family:var(--fm);font-size:10px;fill:var(--bc);text-anchor:middle}
+.mm-title{font-family:var(--fh);font-weight:800;font-size:19px;fill:#eef4ff;text-anchor:middle}
+.mm-sub{font-family:var(--fm);font-size:10.5px;fill:#8fb6d4;text-anchor:middle;letter-spacing:.14em}
+#mmSvg .branch-dim{opacity:.12}
+.mm-branch,#mmSvg g.mm-branch{transition:opacity .4s}.mm-branch.branch-dim{opacity:.12}
+.mm-ctrl{position:absolute;top:14px;right:14px;display:flex;gap:8px;z-index:5}
+.mbtn{width:38px;height:38px;border-radius:11px;border:1px solid var(--line2);background:rgba(7,12,24,.85);color:var(--mut);cursor:pointer;font-family:var(--fm);font-size:16px;transition:.25s;backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center}
+.mbtn:hover{border-color:var(--cy);color:var(--cy2);transform:translateY(-2px)}
+.mbtn.wide{width:auto;padding:0 14px;font-size:11px;letter-spacing:.1em}
+.mm-hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-family:var(--fm);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);background:rgba(7,12,24,.8);border:1px solid var(--line);padding:7px 16px;border-radius:99px;backdrop-filter:blur(6px);white-space:nowrap;z-index:5}
+.mm-pulse{opacity:0}
+.mmlegend{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;justify-content:center}
+.mlg{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:11.5px;color:var(--mut);border:1px solid var(--line);background:var(--panel);padding:8px 15px;border-radius:99px;cursor:pointer;transition:.3s;letter-spacing:.04em}
+.mlg:hover{color:var(--txt);transform:translateY(-2px)}
+.mlg i{width:9px;height:9px;border-radius:3px;background:var(--bc);box-shadow:0 0 9px var(--bc)}
+/* ===== matriz ===== */
+.mtx-tools{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:18px}
+.mtx-search{display:flex;align-items:center;gap:10px;border:1px solid var(--line2);border-radius:99px;padding:10px 18px;background:var(--panel);flex:1;min-width:230px;max-width:380px;transition:.3s}
+.mtx-search:focus-within{border-color:var(--cy);box-shadow:0 0 0 3px rgba(34,211,238,.15)}
+.mtx-search svg{width:16px;height:16px;stroke:var(--dim);fill:none;stroke-width:2;flex:none}
+.mtx-search input{background:transparent;border:0;outline:0;color:var(--txt);font-family:var(--fb);font-size:14px;width:100%}
+.mtx-search input::placeholder{color:var(--dim)}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:11.5px;letter-spacing:.04em;padding:9px 15px;border-radius:99px;border:1px solid var(--line);background:var(--panel);color:var(--mut);cursor:pointer;transition:.28s;position:relative}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--cc,#94a3b8);box-shadow:0 0 8px var(--cc,#94a3b8)}
+.chip .cnt{font-size:10px;background:rgba(148,163,184,.14);border-radius:99px;padding:1px 7px;color:var(--txt)}
+.chip:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--cc,#94a3b8) 55%,transparent);color:var(--txt)}
+.chip.active{border-color:color-mix(in srgb,var(--cc,#94a3b8) 70%,transparent);background:color-mix(in srgb,var(--cc,#94a3b8) 14%,transparent);color:#fff;box-shadow:0 0 22px -4px color-mix(in srgb,var(--cc,#94a3b8) 55%,transparent)}
+.chip.active .cnt{background:color-mix(in srgb,var(--cc,#94a3b8) 40%,transparent)}
+.switches{display:flex;gap:9px;flex-wrap:wrap}
+.swx{display:inline-flex;align-items:center;gap:9px;font-family:var(--fm);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:9px 15px;border-radius:99px;border:1px solid var(--line);background:var(--panel);color:var(--mut);cursor:pointer;transition:.28s;user-select:none}
+.swx .sw{width:30px;height:16px;border-radius:99px;background:rgba(148,163,184,.22);position:relative;transition:.3s;flex:none}
+.swx .sw::after{content:"";position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:#cbd5e1;transition:.3s}
+.swx.on{border-color:rgba(52,211,153,.55);color:#6ee7b7;background:rgba(52,211,153,.08)}
+.swx.on .sw{background:rgba(52,211,153,.45)}
+.swx.on .sw::after{left:16px;background:#34d399;box-shadow:0 0 8px rgba(52,211,153,.8)}
+.study-hud{display:none;align-items:center;gap:18px;flex-wrap:wrap;border:1px solid rgba(52,211,153,.4);border-radius:14px;padding:13px 20px;background:linear-gradient(92deg,rgba(52,211,153,.08),rgba(34,211,238,.06));margin-bottom:16px}
+body.study .study-hud{display:flex}
+.shud-i{font-family:var(--fm);font-size:13px;color:var(--mut)}
+.shud-i b{color:var(--txt);font-size:16px}
+.shud-i.ok b{color:var(--gr)}
+.shud-i.no b{color:var(--co)}
+.shud-bar{flex:1;min-width:120px;height:7px;border-radius:99px;background:rgba(148,163,184,.15);overflow:hidden}
+.shud-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gr),var(--cy));border-radius:99px;transition:width .5s ease;box-shadow:0 0 10px rgba(52,211,153,.7)}
+.shud-msg{font-family:var(--fm);font-size:11.5px;color:#6ee7b7;letter-spacing:.06em}
+.mtx-scroll{overflow-x:auto;border:1px solid var(--line2);border-radius:18px;background:linear-gradient(180deg,rgba(11,17,32,.9),rgba(7,12,24,.9))}
+table.mtx{width:100%;border-collapse:collapse;min-width:840px}
+.mtx thead th{position:sticky;top:0;z-index:2;background:rgba(9,14,28,.96);backdrop-filter:blur(8px);font-family:var(--fm);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);text-align:left;padding:15px 18px;border-bottom:1px solid var(--line2)}
+.mtx thead th:first-child{border-top-left-radius:18px}
+.mtx thead th:last-child{border-top-right-radius:18px}
+tr.mrow{cursor:pointer;transition:transform .3s,box-shadow .3s,background .3s;position:relative;background:rgba(148,163,184,.03)}
+tr.mrow:hover{background:radial-gradient(240px 130px at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--cc) 12%,transparent),rgba(148,163,184,.05) 70%)}
+tr.mrow:hover td{border-top-color:color-mix(in srgb,var(--cc) 55%,transparent);border-bottom-color:color-mix(in srgb,var(--cc) 55%,transparent)}
+tr.mrow:hover td:first-child{border-left-color:color-mix(in srgb,var(--cc) 55%,transparent)}
+tr.mrow:hover td:last-child{border-right-color:color-mix(in srgb,var(--cc) 55%,transparent)}
+tr.mrow td{padding:16px 18px;border-top:1px solid transparent;border-bottom:1px solid var(--line);border-left:1px solid transparent;border-right:1px solid transparent;transition:border-color .3s;vertical-align:middle}
+tr.mrow td:first-child{border-left:3px solid color-mix(in srgb,var(--cc) 75%,transparent)}
+.rownum{font-family:var(--fm);font-size:12px;color:var(--dim);width:52px}
+.fname{font-family:var(--fh);font-weight:700;font-size:15.5px;color:var(--txt);display:flex;align-items:center;gap:12px}
+.fname .fmark{background:transparent;color:inherit;font-weight:700}
+.fsub{font-size:12px;color:var(--dim);margin-top:3px;font-family:var(--fb)}
+.cat-badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--fm);font-size:11.5px;letter-spacing:.03em;padding:8px 14px;border-radius:99px;border:1px solid color-mix(in srgb,var(--cc) 50%,transparent);background:color-mix(in srgb,var(--cc) 13%,transparent);color:color-mix(in srgb,var(--cc) 85%,#fff);white-space:nowrap;transition:.35s}
+tr.mrow:hover .cat-badge{box-shadow:0 0 18px -4px color-mix(in srgb,var(--cc) 60%,transparent);transform:translateY(-1px)}
+.cat-badge svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.chev{width:30px;height:30px;border-radius:9px;border:1px solid var(--line);color:var(--dim);display:flex;align-items:center;justify-content:center;transition:.4s}
+.chev svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+tr.mrow.open .chev{transform:rotate(180deg);border-color:color-mix(in srgb,var(--cc) 60%,transparent);color:var(--cc)}
+tr.mdetail td{padding:0 18px;border-bottom:1px solid var(--line)}
+.di{max-height:0;overflow:hidden;transition:max-height .55s cubic-bezier(.2,.7,.2,1),opacity .45s .1s,padding .45s;opacity:0;padding:0 4px;display:grid;grid-template-columns:1.2fr .8fr;gap:18px;background:rgba(7,12,24,.55)}
+tr.mdetail.open .di{max-height:320px;opacity:1;padding:18px 4px}
+.di-box{border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-size:13.5px;color:var(--mut);background:rgba(148,163,184,.04)}
+.di-box .dt{font-family:var(--fm);font-size:10px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:7px;display:flex;align-items:center;gap:8px}
+.di-box.ev .dt{color:var(--cy2)}
+.di-box.mg .dt{color:var(--am)}
+.di-box b{color:var(--txt)}
+.guess{display:flex;flex-wrap:wrap;gap:7px;max-width:340px}
+.gbtn{font-family:var(--fm);font-size:10.5px;padding:7px 12px;border-radius:99px;border:1px solid color-mix(in srgb,var(--gc) 45%,transparent);background:color-mix(in srgb,var(--gc) 8%,transparent);color:color-mix(in srgb,var(--gc) 80%,#fff);cursor:pointer;transition:.25s;letter-spacing:.02em}
+.gbtn:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 6px 18px -6px color-mix(in srgb,var(--gc) 65%,transparent);background:color-mix(in srgb,var(--gc) 18%,transparent)}
+.gbtn.ok{background:color-mix(in srgb,var(--gc) 85%,#fff);color:#04210f;font-weight:700;box-shadow:0 0 22px -3px color-mix(in srgb,var(--gc) 75%,transparent)}
+.gbtn.no{background:rgba(244,63,94,.16);border-color:rgba(244,63,94,.6);color:#fda4af;animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+tr.mrow.row-ok{background:rgba(52,211,153,.07)}
+tr.mrow.row-ok td:first-child{border-left-color:var(--gr)}
+tr.mrow.row-ok .fname{color:#a7f3d0}
+tr.mrow.row-no{background:rgba(251,113,133,.06)}
+body.study .cat-badge{display:none}
+tr.cat-head td{padding:24px 18px 8px;background:transparent;border-bottom:1px solid transparent}
+tr.cat-head .ch-in{display:flex;align-items:center;gap:14px;font-family:var(--fh);font-weight:800;font-size:16px;color:color-mix(in srgb,var(--cc) 80%,#fff)}
+tr.cat-head .ch-in i{width:10px;height:10px;border-radius:50%;background:var(--cc);box-shadow:0 0 12px var(--cc)}
+tr.cat-head .ch-in .ln{flex:1;height:1px;background:linear-gradient(90deg,color-mix(in srgb,var(--cc) 45%,transparent),transparent)}
+tr.cat-head .ch-in .cc{font-family:var(--fm);font-weight:400;font-size:11px;color:var(--dim);letter-spacing:.14em}
+.mtx-empty{padding:44px;text-align:center;color:var(--dim);font-family:var(--fm);font-size:13px;display:none}
+.mtx-empty.show{display:block}
+tr.off,tbody tr.off{display:none}
+.gbtn.locked{pointer-events:none;opacity:.92;filter:saturate(.85)}
+.guess{display:none}
+body.study .guess{display:flex}
+.guess .gbtn{pointer-events:auto}
+.legend{border:1px solid var(--line);border-radius:16px;background:var(--panel);margin-bottom:22px;overflow:hidden}
+.legend .lg-head{display:flex;align-items:center;justify-content:space-between;padding:15px 20px;cursor:pointer;font-family:var(--fm);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+.legend .lg-head:hover{color:var(--cy2)}
+.legend .lg-body{max-height:0;overflow:hidden;transition:max-height .6s cubic-bezier(.2,.7,.2,1);display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--line)}
+.legend.open .lg-body{max-height:520px}
+.lg-item{background:#0a1120;padding:15px 17px;transition:.25s}
+.lg-item:hover{background:#0e1728}
+.lg-item .lg-c{display:flex;align-items:center;gap:9px;font-family:var(--fm);font-size:11.5px;color:color-mix(in srgb,var(--cc) 85%,#fff);margin-bottom:5px}
+.lg-item .lg-c i{width:8px;height:8px;border-radius:50%;background:var(--cc);box-shadow:0 0 8px var(--cc)}
+.lg-item .lg-d{font-size:12.5px;color:var(--mut)}
+.lg-rule{grid-column:1/-1;background:rgba(251,191,36,.06);border-top:1px dashed rgba(251,191,36,.35);padding:13px 17px;font-family:var(--fm);font-size:11.5px;color:var(--am);display:flex;align-items:center;gap:10px}
+.confetti-piece{position:fixed;top:-14px;z-index:290;border-radius:2px;pointer-events:none;animation:confFall linear forwards}
+@keyframes confFall{to{transform:translateY(105vh) rotate(720deg)}}
+/* ===== síntese / footer ===== */
+.sy-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+.sycard{border:1px solid var(--line);border-radius:var(--rad);padding:28px;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(148,163,184,.06),rgba(148,163,184,.02))}
+.sycard.ok{border-color:rgba(52,211,153,.35);background:linear-gradient(180deg,rgba(52,211,153,.07),rgba(52,211,153,.015))}
+.sycard.no{border-color:rgba(251,113,133,.35);background:linear-gradient(180deg,rgba(251,113,133,.07),rgba(251,113,133,.015))}
+.sycard h3{font-family:var(--fh);font-size:19px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.sycard .sic{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
+.sycard.ok .sic{background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.4)}
+.sycard.no .sic{background:rgba(251,113,133,.15);border:1px solid rgba(251,113,133,.4)}
+.sycard .sic svg{width:16px;height:16px}
+.sycard ul{list-style:none}
+.sycard li{padding:9px 0 9px 26px;position:relative;font-size:14.5px;color:var(--mut);border-bottom:1px dashed var(--line)}
+.sycard li:last-child{border-bottom:0}
+.sycard li b{color:var(--txt)}
+.sycard.ok li::before{content:"";position:absolute;left:2px;top:16px;width:13px;height:7px;border-left:2.5px solid var(--gr);border-bottom:2.5px solid var(--gr);transform:rotate(-45deg)}
+.sycard.no li::before{content:"";position:absolute;left:4px;top:13px;width:13px;height:13px;background:linear-gradient(45deg,transparent 44%,#fb7185 44%,#fb7185 56%,transparent 56%),linear-gradient(-45deg,transparent 44%,#fb7185 44%,#fb7185 56%,transparent 56%)}
+.qgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
+.qcard{border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--panel);transition:.3s;position:relative;overflow:hidden}
+.qcard:hover{transform:translateY(-4px);border-color:rgba(167,139,250,.5)}
+.qcard .qn{font-family:var(--fm);font-size:11px;color:var(--vi);letter-spacing:.2em;margin-bottom:8px}
+.qcard h4{font-family:var(--fh);font-size:15px;font-weight:700;margin-bottom:8px}
+.qcard p{font-size:12.8px;color:var(--mut)}
+.crit-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:30px}
+.crit{border:1px solid var(--line);border-radius:13px;padding:16px 18px;background:linear-gradient(180deg,rgba(148,163,184,.055),rgba(148,163,184,.015));display:flex;align-items:center;gap:14px;transition:.3s}
+.crit:hover{transform:translateY(-3px);border-color:var(--line2)}
+.crit .cpct{font-family:var(--fm);font-weight:600;font-size:17px;color:var(--cy2);white-space:nowrap}
+.crit .cnm{font-size:12.5px;color:var(--mut);line-height:1.45}
+.crit .cnm b{display:block;color:var(--txt);font-size:13px}
+.closing{border:1px solid rgba(167,139,250,.4);border-radius:var(--rad);padding:30px 34px;background:linear-gradient(120deg,rgba(167,139,250,.1),rgba(34,211,238,.05));text-align:center}
+.closing p{font-family:var(--fh);font-weight:700;font-size:clamp(16px,2.2vw,21px);color:var(--txt);max-width:820px;margin:0 auto}
+.closing p span{background:linear-gradient(92deg,#67e8f9,#c4b5fd);-webkit-background-clip:text;background-clip:text;color:transparent}
+footer{border-top:1px solid var(--line);padding:44px 0 60px;background:rgba(5,8,16,.8)}
+.ft{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center}
+.ft-l .brand{margin-bottom:10px}
+.ft-l p{font-size:12.5px;color:var(--dim);max-width:420px}
+.ft-links{display:flex;gap:16px;flex-wrap:wrap}
+.ft-links a{color:var(--mut);font-size:12.5px;text-decoration:none;transition:.25s;font-family:var(--fm)}
+.ft-links a:hover{color:var(--cy2)}
+#toTop{position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:14px;border:1px solid var(--line2);background:rgba(7,12,24,.85);backdrop-filter:blur(8px);color:var(--mut);cursor:pointer;z-index:120;opacity:0;visibility:hidden;transform:translateY(12px);transition:.35s;display:flex;align-items:center;justify-content:center}
+#toTop.show{opacity:1;visibility:visible;transform:none}
+#toTop:hover{border-color:var(--cy);color:var(--cy2);box-shadow:0 0 20px rgba(34,211,238,.4)}
+#toTop svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+/* ===== reveal ===== */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--rd,0s)}
+.rv.in{opacity:1;transform:none}
+/* ===== responsivo ===== */
+@media(max-width:1020px){
+  .pgrid,.dgrid,.tgrid,.qgrid,.crit-strip{grid-template-columns:1fr 1fr}
+  .anat-grid,.bio-grid,.laudo-wrap,.vid-extra{grid-template-columns:1fr}
+  .floor.f2{margin-left:26px}
+}
+@media(max-width:760px){
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .pgrid,.dgrid,.tgrid,.qgrid,.crit-strip{grid-template-columns:1fr}
+  .hline{white-space:normal}
+  .tl::before,#tlFill{left:8px}
+  .tl-item{width:100%;padding:0 0 46px 38px}
+  .tl-item.right{margin-left:0}
+  .tl-item.left .tl-dot,.tl-item.right .tl-dot{left:.5px;right:auto}
+  .mm-shell{height:620px;overflow-x:auto;overflow-y:hidden} #mmSvg{min-width:980px}
+  .di{grid-template-columns:1fr}
+  tr.mdetail.open .di{max-height:520px}
+  .mtx thead th{padding:13px 14px}
+  tr.mrow td{padding:14px}
+  .sy-grid{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .nlink{padding:8px 8px;font-size:10px}
+  .sec{padding:78px 0}
+  .player-ctrl{gap:10px}
+  .hud{top:10px;left:10px}
+  .mm-hint{display:none} .mm-ctrl{position:sticky;float:right;margin-bottom:-48px;right:8px;top:8px} .mmlegend{justify-content:flex-start}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+
+/* ===== acabamento editorial / cinematográfico ===== */
+:focus-visible{outline:2px solid var(--cy2);outline-offset:4px}
+.sec{isolation:isolate}
+.sec-title{text-wrap:balance}
+.sec-sub{ text-wrap:pretty }
+#inicio{background:
+  radial-gradient(ellipse at 82% 42%,rgba(34,211,238,.08),transparent 36%),
+  radial-gradient(ellipse at 12% 72%,rgba(167,139,250,.08),transparent 38%)}
+#inicio::after{content:"";position:absolute;inset:12% 0 auto;height:1px;background:linear-gradient(90deg,transparent,rgba(103,232,249,.35),transparent);opacity:.65}
+.pcard,.dcard,.tcard,.tl-card,.laudo-card,.hyp{backdrop-filter:blur(10px)}
+.tl-item:nth-child(odd) .tl-card{box-shadow:0 18px 55px -42px rgba(34,211,238,.45)}
+.tl-item:nth-child(even) .tl-card{box-shadow:0 18px 55px -42px rgba(167,139,250,.4)}
+.mm-shell{box-shadow:0 30px 90px -55px rgba(34,211,238,.42),inset 0 0 0 1px rgba(255,255,255,.025)}
+.mmlegend .mlg[aria-pressed="true"]{background:rgba(34,211,238,.12);border-color:var(--cy);color:var(--txt)}
+@media(max-width:760px){
+  .tl{padding-left:0}
+  .tl-item{padding-right:0}
+  .tl-card{padding:18px 17px}
+  .tl-card h3{font-size:16px}
+  .tl-card p{font-size:13.5px}
+}
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1!important;transform:none!important}
+  .ltr{opacity:1!important;transform:none!important}
+  #particles{display:none}
+}
+
+
+/* ===== DOSSIÊ DE CAMPO: humor anatômico, caos com método ===== */
+:root{--bone:#e8dfcb;--rust:#c66a4a;--ink:#080b0d;--acid:#b9d58b;--paper:#d8cbb0}
+body{background-color:#080a0b;background-image:radial-gradient(ellipse at 50% 0%,rgba(177,91,60,.12),transparent 42%),radial-gradient(ellipse at 4% 48%,rgba(153,177,119,.055),transparent 34%),linear-gradient(180deg,#090b0c,#0b0e0d 48%,#080a0b)}
+body:before{opacity:.095;mix-blend-mode:screen}
+body:after{background:radial-gradient(ellipse at center,transparent 48%,rgba(0,0,0,.72) 100%)}
+#progress{height:4px;background:linear-gradient(90deg,#b8c98c,#d7a66b,#b65d45,#e7d6b5);box-shadow:0 0 18px rgba(198,106,74,.55)}
+#nav{background:rgba(8,10,10,.86);border-bottom:1px solid rgba(216,203,176,.2)}
+.brand .dot{border-radius:50% 50% 44% 56%;background:conic-gradient(from 20deg,#d8cbb0,#b65d45,#758b67,#d8cbb0);box-shadow:0 0 20px rgba(198,106,74,.3)}
+.nlink.active{color:#e5c99b}.nlink::after{background:linear-gradient(90deg,#b8c98c,#c66a4a)}
+.kicker{color:#c8a879}.kicker:before{background:linear-gradient(90deg,#c66a4a,transparent)}
+.grad{background:linear-gradient(100deg,#e8dfcb 0%,#c68b65 34%,#a9bd8b 68%,#e8dfcb 100%);background-size:220% 100%;animation:gradShift 12s ease infinite;-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{border-radius:3px;border-color:rgba(198,106,74,.62);background:linear-gradient(115deg,rgba(198,106,74,.2),rgba(169,189,139,.1));color:#e8dfcb;letter-spacing:.025em;text-transform:uppercase;font-size:12px}
+.btn.warm{border-color:rgba(232,223,203,.42);color:#e8dfcb;background:rgba(232,223,203,.06)}
+.btn:hover{box-shadow:0 14px 38px -15px rgba(198,106,74,.45)}
+.hstat,.pcard,.dcard,.tcard,.qcard,.tl-card,.laudo-card,.hyp,.crit,.floor,.comp,.vid-note,.bio-panel,.player,.yt,.closing{border-radius:3px!important;border-color:rgba(216,203,176,.19)!important;background-color:rgba(21,23,21,.82)!important;box-shadow:0 18px 50px -38px rgba(0,0,0,.95),inset 0 1px rgba(255,255,255,.035)!important}
+.hstat:before,.pcard:before,.dcard:before,.tcard:before,.qcard:before{background:linear-gradient(90deg,#b65d45,#d7b47b,#9cac7a)!important}
+.hstat:hover,.pcard:hover,.dcard:hover,.tcard:hover,.qcard:hover{border-color:rgba(198,106,74,.55)!important;box-shadow:0 22px 60px -35px rgba(198,106,74,.24)!important}
+.hstat .n{color:#d7b47b!important}
+#inicio{background:radial-gradient(ellipse at 80% 38%,rgba(198,106,74,.14),transparent 38%),radial-gradient(ellipse at 12% 80%,rgba(169,189,139,.09),transparent 34%)}
+#inicio:before{background:radial-gradient(ellipse at 74% 45%,rgba(198,106,74,.13),transparent 48%),radial-gradient(ellipse at 16% 82%,rgba(169,189,139,.08),transparent 46%)}
+.hero-figure{filter:sepia(.16) saturate(.78)}
+.figure-caption{color:#d1b88e!important;letter-spacing:.2em}
+.sec{position:relative}
+.sec:not(#inicio):not(#sintese):before{content:attr(data-dossier);position:absolute;right:max(22px,calc((100vw - 1180px)/2));top:42px;color:rgba(216,203,176,.16);font:10px var(--fm);letter-spacing:.2em;writing-mode:vertical-rl;pointer-events:none}
+.sec-title{font-family:'Barlow Condensed',var(--fh);font-size:clamp(36px,5vw,62px);font-weight:900;letter-spacing:-.025em;text-transform:uppercase;line-height:.98;max-width:1000px}
+.sec-sub{color:#b9b19f}
+.kicker,.pnum,.qcard .qn,.tl-when .wk{font-size:10px;letter-spacing:.24em}
+/* expediente horizontal: humor seco, sem transformar o paciente em piada */
+#field-note{position:relative;z-index:4;max-width:1180px;margin:-18px auto 0;padding:0 24px}
+.field-strip{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;padding:13px 18px;border:1px solid rgba(198,106,74,.34);background:linear-gradient(100deg,rgba(198,106,74,.13),rgba(20,23,20,.92) 36%,rgba(169,189,139,.07));box-shadow:0 18px 55px -40px #000;position:relative;overflow:hidden}
+.field-strip:after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(115deg,transparent 0 24px,rgba(232,223,203,.018) 25px 26px)}
+.field-stamp{font:900 10px var(--fm);letter-spacing:.16em;color:#e3a17e;border:1px solid rgba(198,106,74,.58);padding:7px 9px;transform:rotate(-2deg);white-space:nowrap}
+.field-copy{font:12px/1.5 var(--fm);letter-spacing:.045em;color:#d8cbb0}
+.field-copy b{color:#e6a27d}
+.field-id{font:10px var(--fm);color:#9ba888;text-align:right;white-space:nowrap}
+/* marginalia: pequenas notas de um patologista com humor péssimo */
+.margin-note{position:relative;margin:22px 0 8px auto;max-width:370px;padding:13px 16px 13px 42px;border-left:2px solid #b65d45;background:linear-gradient(90deg,rgba(182,93,69,.12),transparent);color:#c9bda7;font:11px/1.6 var(--fm);transform:rotate(-.35deg)}
+.margin-note:before{content:"✳";position:absolute;left:14px;top:12px;color:#c66a4a;font-size:17px}
+.margin-note:after{content:"NOTA À MARGEM";display:block;color:#9cac7a;font-size:8px;letter-spacing:.2em;margin-top:5px}
+/* selos de arquivo, fita e microtipografia */
+.dossier-sticker{position:absolute;z-index:3;top:20px;right:18px;border:1px solid rgba(198,106,74,.55);color:#d68a6a;padding:6px 9px;font:9px var(--fm);letter-spacing:.16em;transform:rotate(3deg);background:rgba(8,10,10,.72);pointer-events:none}
+.pcard,.dcard,.tcard,.qcard,.tl-card{position:relative;overflow:hidden}
+.pcard:after,.dcard:after,.tcard:after,.qcard:after{background:radial-gradient(350px circle at var(--px,50%) var(--py,50%),rgba(198,106,74,.14),transparent 48%)}
+/* régua de laboratório no rodapé das secções */
+.section-ruler{height:13px;margin:38px 0 0;opacity:.36;background:repeating-linear-gradient(90deg,#c7b99f 0 1px,transparent 1px 12px);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);position:relative}
+.section-ruler:after{content:"0 ───── 10 ───── 20 ───── 30 ───── 40 mm";position:absolute;right:0;top:15px;color:#b8a98e;font:8px var(--fm);letter-spacing:.12em}
+/* fita de advertência, comedida */
+.warning-tape{display:inline-block;margin:8px 0 18px;padding:5px 10px;color:#161612;background:repeating-linear-gradient(135deg,#d6c18e 0 9px,#b5a16f 9px 18px);font:900 9px var(--fm);letter-spacing:.17em;transform:rotate(-1deg);box-shadow:2px 4px 0 rgba(0,0,0,.3)}
+/* scroll reveal mais orgânico */
+.rv{transition-timing-function:cubic-bezier(.18,.72,.18,1)}
+@media(max-width:760px){#field-note{padding:0 16px}.field-strip{grid-template-columns:1fr;gap:8px}.field-id{text-align:left}.sec:not(#inicio):not(#sintese):before{display:none}.margin-note{margin:16px 0 8px;max-width:100%}.sec-title{font-size:clamp(34px,10vw,48px)}.dossier-sticker{top:8px;right:8px;font-size:8px}}
+@media(prefers-reduced-motion:reduce){.field-strip:after{display:none}}
+
+</style>
+<!-- ===================== PRELOADER ===================== -->
+<div id="preloader">
+  <div class="pre-ring">
+    <svg viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="46" stroke="rgba(34,211,238,.18)" stroke-width="3"/>
+      <circle cx="50" cy="50" r="46" stroke="#22d3ee" stroke-width="3" stroke-dasharray="70 220" stroke-linecap="round"/>
+      <circle cx="50" cy="50" r="34" stroke="rgba(167,139,250,.45)" stroke-width="1.5" stroke-dasharray="24 90" stroke-linecap="round"/>
+    </svg>
+    <div class="core">ATM</div>
+  </div>
+  <div class="pre-t">O que cresce depois da queda</div>
+  <div class="pre-s">Equipe 1 · PBL Odontologia</div>
+  <div class="pre-bar"><i></i></div>
+</div>
+<div id="progress"></div>
+<canvas id="particles"></canvas>
+<canvas id="fairy" aria-hidden="true"></canvas>
+
+<div id="deckHud" aria-label="Controles da Crônica">
+  <button class="dh-arrow" id="dhPrev" aria-label="Ato anterior">‹</button>
+  <button class="dh-arrow" id="dhNext" aria-label="Próximo ato">›</button>
+  <div id="dhZoom">
+    <button class="dh-btn" id="dhZoomOut" aria-label="Menos zoom" title="Zoom −">−</button>
+    <button class="dh-btn" id="dhZoomReset" aria-label="Redefinir zoom" title="Zoom original (0)">100%</button>
+    <button class="dh-btn" id="dhZoomIn" aria-label="Mais zoom" title="Zoom +">+</button>
+    <button class="dh-btn" id="dhFull" aria-label="Tela cheia (F)" title="Tela cheia (F)">⛶</button>
+    <button class="dh-btn dh-wide" id="dhMap" aria-label="Mapa do Reino (G)" title="Mapa do Reino (G)">⚔ Mapa do Reino</button>
+    <button class="dh-btn" id="dhHelp" aria-label="Ajuda (?)" title="Ajuda (?)">?</button>
+  </div>
+  <div id="dhDots" aria-label="Ir para ato"></div>
+</div>
+
+<div id="herald" aria-live="polite">
+  <span id="heraldNum">PRÓLOGO</span>
+  <span id="heraldLine">…</span>
+</div>
+
+<div id="realmMap" hidden aria-label="Mapa do Reino — índice dos atos">
+  <div class="rm-head">
+    <span class="rm-crown">⚜</span>
+    <div style="text-align:center">
+      <h3>Mapa do Reino</h3>
+      <p>onze atos · um queixo · zero certeza coroada</p>
+    </div>
+    <button class="dh-btn" id="rmClose">✕ fechar</button>
+  </div>
+  <div class="rm-grid" id="rmGrid"></div>
+</div>
+
+<div id="deckToast" hidden></div>
+
+
+<!-- ===================== NAV ===================== -->
+<nav id="nav">
+  <div class="nin">
+    <a class="brand" href="#inicio">
+      <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#04121a" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M5 12h9M6 17h6"/></svg></span>
+      Queda<span style="color:var(--cy2)">·Cresce</span>
+    </a>
+    <div class="nlinks">
+      <a class="nlink" href="#inicio">Caso</a>
+      <a class="nlink" href="#cronologia">Cronologia</a>
+      <a class="nlink" href="#diagnostico">Diagnóstico</a>
+      <a class="nlink" href="#atm">ATM</a>
+      <a class="nlink" href="#video">Vídeo</a>
+      <a class="nlink" href="#biomecanica">Biomecânica</a>
+      <a class="nlink" href="#reparo">Reparo</a>
+      <a class="nlink" href="#laudo">Laudo</a>
+      <a class="nlink" href="#mapa">Mapa</a>
+      <a class="nlink" href="#matriz">Matriz</a>
+      <a class="nlink" href="#sintese">Síntese</a>
+    </div>
+  </div>
+</nav>
+<div id="field-note" aria-label="Nota de abertura do dossiê">
+  <div class="field-strip">
+    <span class="field-stamp">ARQUIVO CLÍNICO Nº 05-ATM</span>
+    <div class="field-copy"><b>AVISO AO INVESTIGADOR:</b> há trauma, inflamação, reparo e uma quantidade socialmente inaceitável de perguntas. Não entre em pânico. Entre com método.</div>
+    <span class="field-id">STATUS: SOB INVESTIGAÇÃO</span>
+  </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section id="inicio">
+  <div class="wrap">
+    <div class="hero-ov">
+      <span class="tag cy"><i></i>PBL · 1º Semestre de Odontologia</span>
+      <span class="tag vi">Equipe 1 · Uma queda, três tecidos</span>
+      <span class="tag co">Outubro de 2026</span>
+    </div>
+    <h1 class="hero-title" id="heroTitle">
+      <span class="hline" data-line="O QUE CRESCE"></span>
+      <span class="hline" data-line="DEPOIS DA"></span>
+      <span class="hline grad" data-line="QUEDA"></span>
+    </h1>
+    <div class="hero-figure" aria-hidden="true">
+      <svg viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="specGlow"><stop stop-color="#d7f7f2" stop-opacity=".22"/><stop offset=".52" stop-color="#fb7185" stop-opacity=".08"/><stop offset="1" stop-color="#070b14" stop-opacity="0"/></radialGradient>
+          <linearGradient id="specLine" x1="90" y1="120" x2="620" y2="630"><stop stop-color="#a8f0e8"/><stop offset=".48" stop-color="#f6b7a8"/><stop offset="1" stop-color="#d6a85f"/></linearGradient>
+          <filter id="specBlur"><feGaussianBlur stdDeviation="12"/></filter>
+        </defs>
+        <circle cx="360" cy="360" r="320" fill="url(#specGlow)"/>
+        <g stroke="url(#specLine)" stroke-width="1.2" opacity=".55">
+          <circle cx="360" cy="360" r="278" stroke-dasharray="2 12"/>
+          <circle cx="360" cy="360" r="230" stroke-dasharray="80 18 3 18"/>
+          <circle cx="360" cy="360" r="172" opacity=".55"/>
+          <path d="M360 44V676M44 360H676M137 137L583 583M583 137L137 583" opacity=".2"/>
+          <path d="M178 239C220 156 298 126 365 155C416 177 432 230 477 250C526 272 565 246 592 283C624 326 588 380 552 405C514 432 496 468 462 516C422 572 350 592 294 556C249 527 242 476 199 448C154 418 112 385 126 331C135 295 156 279 178 239Z" stroke-width="2.2"/>
+          <path d="M208 278C248 222 303 200 356 220C400 237 416 276 452 293C491 312 530 303 545 333C563 369 523 398 493 418C460 440 442 475 414 503C375 541 322 536 286 507C254 481 249 441 214 414C177 386 157 347 176 314C184 299 195 288 208 278Z" opacity=".75"/>
+          <path d="M230 360C267 322 297 299 341 301C388 303 407 344 447 354C475 361 496 351 511 369C526 388 501 408 477 423C447 442 427 466 398 481C361 501 323 480 304 451C285 423 252 412 230 390C218 378 218 370 230 360Z" opacity=".5"/>
+          <path d="M360 82L371 132L360 182L349 132Z M638 360L588 371L538 360L588 349Z M360 638L349 588L360 538L371 588Z M82 360L132 349L182 360L132 371Z" fill="#d6a85f" stroke="none" opacity=".8"/>
+        </g>
+        <g fill="#f0c9ad">
+          <circle cx="178" cy="239" r="4"/><circle cx="592" cy="283" r="4"/><circle cx="462" cy="516" r="4"/><circle cx="199" cy="448" r="4"/>
+        </g>
+        <circle cx="360" cy="360" r="190" stroke="#f0c9ad" stroke-opacity=".18" stroke-width="24" filter="url(#specBlur)"/>
+        <g fill="#d6a85f" font-family="monospace" font-size="11" letter-spacing="3" opacity=".72">
+          <text x="360" y="30" text-anchor="middle">TISSUE / REPAIR / TIME</text>
+          <text x="360" y="704" text-anchor="middle">SPECIMEN 001 — 47 DAYS</text>
+        </g>
+      </svg>
+      <span class="figure-caption">FIG. 01 <i>·</i> MATÉRIA EM TRANSFORMAÇÃO</span>
+    </div>
+    <p class="hero-sub">Uma queda de moto, <b>três tecidos atingidos</b> e <b>cinco semanas</b> para investigar o que aconteceu. O objetivo não é adivinhar um diagnóstico — é analisar dados, construir hipóteses, buscar evidências e reconhecer o que <b>ainda não é possível concluir</b>.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5.5v13l11-6.5z"/></svg>Ver a ATM em movimento</a>
+      <a class="btn warm" href="#matriz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h7"/></svg>Explorar a matriz de decisão</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat rv" style="--c1:#67e8f9"><div class="n"><span data-count="5">0</span></div><div class="l">semanas de investigação</div></div>
+      <div class="hstat rv" style="--c1:#a78bfa;--rd:.08s"><div class="n"><span data-count="3">0</span></div><div class="l">tecidos atingidos</div></div>
+      <div class="hstat rv" style="--c1:#fbbf24;--rd:.16s"><div class="n"><span data-count="10">0</span></div><div class="l">achados classificados</div></div>
+      <div class="hstat rv" style="--c1:#fb7185;--rd:.24s"><div class="n"><span data-count="7">0</span></div><div class="l">categorias de análise</div></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="mouse"></div>role</div>
+</section>
+
+<!-- ===================== PANORAMA ===================== -->
+<section class="sec sec-alt" id="panorama">
+  <div class="wrap">
+    <div class="kicker rv">Caso clínico · Cronologia & achados</div>
+    <h2 class="sec-title rv">O caso reúne <span class="grad">três tecidos e cinco semanas</span></h2>
+    <p class="sec-sub rv">Jorge, 39 anos, tratorista, sofreu trauma direto no queixo ao cair de moto em estrada de cascalho. Cinco semanas depois, sinais articulares e teciduais coexistem — e a investigação precisa explicá-los juntos, sem análises isoladas.</p>
+    <div class="pgrid">
+      <div class="pcard rv" style="--pc:#22d3ee">
+        <div class="pnum">01 · IMPACTO E ATM</div>
+        <h3>Dor pré-auricular direita</h3>
+        <p>Sensibilidade intensa à palpação anterior à orelha direita, <b>abertura máxima reduzida</b> e <b>desvio lateral imediato do mento</b> durante a função mastigatória — o lado do impacto não é o lado da dor, e isso é uma pista, não um paradoxo.</p>
+        <div class="pico">01</div>
+      </div>
+      <div class="pcard rv" style="--pc:#fb7185;--rd:.1s">
+        <div class="pnum">02 · FERIDA E EVOLUÇÃO</div>
+        <h3>Laceração e o "caroço"</h3>
+        <p>Laceração irregular no lábio inferior, <b>cicatrizada sem sutura</b> por segunda intenção; após 5 semanas surge <b>nódulo firme, elevado e indolor</b> — o achado que dá nome ao caso e o enigma central do laudo.</p>
+        <div class="pico">02</div>
+      </div>
+      <div class="pcard rv" style="--pc:#a78bfa;--rd:.2s">
+        <div class="pnum">03 · MISSÃO INVESTIGATIVA</div>
+        <h3>Conectar sem precipitar</h3>
+        <p>Relacionar <b>anatomia funcional</b>, <b>biologia epitelial e conjuntiva</b> e <b>processo de esterilização</b> — sem precipitar diagnósticos definitivos além do que as evidências sustentam. Dado nunca é interpretação.</p>
+        <div class="pico">03</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===================== CRONOLOGIA ===================== -->
+<section class="sec" id="cronologia">
+  <div class="wrap">
+    <div class="kicker rv">Cinco semanas · 47 dias</div>
+    <h2 class="sec-title rv">Cronologia & <span class="grad">achados clínicos</span></h2>
+    <p class="sec-sub rv">Cada semana entrega um dado novo — e cada dado muda o peso das hipóteses. Siga a linha do tempo e observe como <b>evidência, interpretação e lacuna</b> se alternam na história de Jorge.</p>
+    <div class="tl" id="tl">
+      <div id="tlFill"></div>
+      <div class="tl-item left rv" style="--dc:#22d3ee">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-when"><span class="wk">D0 · Sábado</span>A queda</div>
+          <h3>Estrada de cascalho, queixo no chão</h3>
+          <p>A roda da moto afunda numa vala; o queixo bate direto no chão, com capacete aberto. No queixo, <b>corte reto de ~2 cm</b>; no lábio inferior, <b>ferida irregular</b>, com pedrinhas incrustadas e um pedaço de mucosa arrancado. Dra. Helena sutura o queixo, mas <em>não fecha o lábio</em>: as bordas não podem ser aproximadas sem repuxar — cicatrização por segunda intenção. Rosângela improvisa a esterilização: <b>estufa com termômetro quebrado</b> e imersão em álcool; ninguém anota de qual caixa saíram a pinça e a cureta. Ao abrir a boca: <b>abertura limitada, dor na frente da orelha direita e queixo desviando para a direita</b>. À palpação, deslizamento suave à esquerda — quase nada à direita.</p>
+          <div class="ev">trauma + ferida contaminada + cadeia de esterilização comprometida + sinais articulares imediatos</div>
+        </div>
+      </div>
+      <div class="tl-item right rv" style="--dc:#94a3b8">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-when"><span class="wk">D2 · Segunda</span>A radiografia que não veio</div>
+          <h3>Chuva, ônibus e a dor que "melhorou"</h3>
+          <p>Chove, o ônibus não passa e Jorge acha que, como <b>a dor diminuiu um pouco</b>, a radiografia pode esperar. O exame pedido nunca é realizado — e essa ausência vai percorrer o caso inteiro, transformando cada sinal articular em <b>hipótese sem confirmação por imagem</b>.</p>
+          <div class="ev">primeira grande lacuna documental do caso</div>
+        </div>
+      </div>
+      <div class="tl-item left rv" style="--dc:#fbbf24">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-when"><span class="wk">D4 · Quarta</span>A camada branco-amarelada</div>
+          <h3>Marli traz Jorge de volta: "está saindo pus"</h3>
+          <p>A ferida do lábio está coberta por <b>camada úmida branco-amarelada</b>, que se solta em parte com a gaze, expondo superfície <b>vermelho-viva e granulosa</b> que sangra ao menor toque. No queixo, casquinha seca — mas <b>um ponto avermelhado com secreção</b>. Sem febre. Há chimarrão quente encostando no lábio, pomada caseira e cigarro "diminuído". São coletadas <b>duas amostras</b> (queixo e lábio); o caderno de controle da esterilização está <b>em branco</b>.</p>
+          <div class="ev">fibrina? exsudato? infecção? — a cultura ainda não responde</div>
+        </div>
+      </div>
+      <div class="tl-item right rv" style="--dc:#a78bfa">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-when"><span class="wk">D8 · Terça</span>O resultado da cultura</div>
+          <h3>"Então tinha bactéria. Foi o material sem esterilizar?"</h3>
+          <p>Amostra 1 (queixo): <b>cocos Gram-positivos em cachos</b> e bactérias habituais da pele. Amostra 2 (lábio): <b>flora mista oral</b>. Enquanto Marli procura um culpado, as feridas <b>melhoram</b>: o local do ponto inflamado perde a vermelhidão e a camada amarelada afina. A autoclave é consertada e o técnico deixa um teste: <b>"só volta a usar depois que esse teste der certo"</b>.</p>
+          <div class="ev">presença de bactérias ≠ causa da lesão — melhora clínica segue seu curso</div>
+        </div>
+      </div>
+      <div class="tl-item left rv" style="--dc:#fb7185">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-when"><span class="wk">D35 · 5 semanas</span>O caroço</div>
+          <h3>"Ficou um caroço" — e o vermelhão antigo</h3>
+          <p>No lugar da ferida, <b>área firme, esbranquiçada, elevada e indolor</b>, que repuxa o lábio ao sorrir. O desvio mandibular persiste discretamente à direita. No vermelhão, <b>faixa esbranquiçada e ressecada</b> "que faz anos", atribuída ao sol. Marli lembra: o pai de Jorge teve <b>câncer de lábio</b> operado. Helena registra tudo em linhas separadas e retira um fragmento do nódulo para análise.</p>
+          <div class="ev">nódulo de reparo? lesão pré-maligna? — duas linhas, dois problemas distintos</div>
+        </div>
+      </div>
+      <div class="tl-item right rv" style="--dc:#34d399">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-when"><span class="wk">D47 · +12 dias</span>O laudo e a pergunta</div>
+          <h3>"Tem célula se dividindo aí?"</h3>
+          <p>O laudo descreve <b>epitélio espessado, mitoses basais e parabasais, maturação progressiva, núcleos regulares, membrana basal contínua</b> e colágeno denso paralelo à superfície. Antes de virar a folha para a conclusão, Helena propõe: <b>entender o que está escrito</b> — porque a palavra que assusta Marli ("mitose") é a mesma que explica a cicatrização.</p>
+          <div class="ev">a resposta da Equipe 1 começa exatamente nesta página</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DIAGNÓSTICO ===================== -->
+<section class="sec sec-alt" id="diagnostico">
+  <div class="wrap">
+    <div class="kicker rv">02 · Diagnóstico funcional provisório</div>
+    <h2 class="sec-title rv">As evidências apontam para a <span class="grad">ATM direita</span></h2>
+    <p class="sec-sub rv">A palpação pré-auricular revela uma assimetria biomecânica nítida entre os dois lados. Três achados sustentam a hipótese de trabalho da equipe — sempre com a ressalva de que <b>falta o exame de imagem</b>.</p>
+    <div class="dgrid">
+      <div class="dcard rv tilt">
+        <div class="dn">01</div>
+        <h3>Dor localizada</h3>
+        <p>Sensibilidade intensa à palpação na região <b>anterior à orelha direita</b>, acompanhada de <b>abertura máxima reduzida</b>. A dor não é no ouvido — é na frente dele, exatamente onde a ATM vive.</p>
+      </div>
+      <div class="dcard rv tilt" style="--rd:.1s">
+        <div class="dn">02</div>
+        <h3>Assimetria condilar</h3>
+        <p>Helena percebe <b>deslizamento anterior suave à esquerda</b>, mas <b>quase nenhuma translação perceptível no côndilo direito</b> — o lado lesionado simplesmente não acompanha o movimento.</p>
+      </div>
+      <div class="dcard rv tilt" style="--rd:.2s">
+        <div class="dn">03</div>
+        <h3>Trajetória e oclusão</h3>
+        <p>O queixo <b>escorrega para a direita</b> na abertura e a sensação de encaixe dental habitual foi perdida — "os dentes estão batendo esquisito", como o próprio Jorge descreveu.</p>
+      </div>
+    </div>
+    <div class="hyp rv">
+      <div class="hl"><i></i>Hipótese de trabalho · Equipe 1</div>
+      <h3>Comprometimento do complexo côndilo-disco direito</h3>
+      <p>O impacto no mento <b>desacelerou ou bloqueou o movimento de translação</b> do lado direito. Como as duas ATMs trabalham juntas na abertura, a assimetria de deslizamento empurra o trajeto do queixo para o lado restrito — <b>por isso o desvio é para a direita</b>, o mesmo lado da dor. O mecanismo exato (fratura, lesão discal, derrame ou proteção muscular) permanece aberto enquanto não houver imagem.</p>
+      <div class="open-note">→ Radiografia / TC / RM e avaliação cinemática da mandíbula são necessárias para testar a hipótese. <a href="#video" style="color:var(--cy2)">Veja a mecânica em movimento abaixo.</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ANATOMIA ===================== -->
+<section class="sec" id="atm">
+  <div class="wrap">
+    <div class="kicker rv">03 · Articulação gínglimo-artroidal</div>
+    <h2 class="sec-title rv">A ATM é uma articulação sinovial <span class="grad">com dois andares de movimento</span></h2>
+    <p class="sec-sub rv">As duas articulações atuam simultaneamente: a abertura combina <b>rotação inicial</b> e <b>translação anterior</b> — e é essa dupla mecânica que explica tanto o exame de Helena quanto o desvio do queixo.</p>
+    <div class="anat-grid">
+      <div class="acomp rv">
+        <div class="comp"><span class="cdot"></span><div><div class="cn">Côndilo mandibular</div><div class="cd">superfície articular coberta por fibrocartilagem</div></div></div>
+        <div class="comp"><span class="cdot"></span><div><div class="cn">Fossa mandibular</div><div class="cd">recesso do osso temporal que recebe o côndilo</div></div></div>
+        <div class="comp"><span class="cdot"></span><div><div class="cn">Tubérculo / eminência articular</div><div class="cd">rampa anterior por onde o côndilo desliza</div></div></div>
+        <div class="comp"><span class="cdot"></span><div><div class="cn">Disco articular biconcavo</div><div class="cd">fibrocartilagem interposta — divide a articulação em dois andares</div></div></div>
+        <div class="comp"><span class="cdot"></span><div><div class="cn">Cápsula e ligamentos colaterais</div><div class="cd">estabilizam e limitam o complexo côndilo-disco</div></div></div>
+        <div class="comp"><span class="cdot"></span><div><div class="cn">Revestimento sinovial</div><div class="cd">produz líquido sinovial e nutre a fibrocartilagem avascular</div></div></div>
+      </div>
+      <div class="floors rv" style="--rd:.12s">
+        <div class="floor">
+          <div class="fnum">R</div>
+          <h4>Andar inferior <span class="fb">ROTAÇÃO</span></h4>
+          <p>Nos primeiros <b>20 a 25 mm de abertura</b>, predomina a rotação pura do côndilo sob a face inferior do disco — um giro de dobradiça, com o complexo ainda dentro da fossa.</p>
+          <div class="fbar"><i style="--w:38%"></i></div>
+        </div>
+        <div class="floor f2">
+          <div class="fnum">T</div>
+          <h4>Andar superior <span class="fb">TRANSLAÇÃO</span></h4>
+          <p>Na abertura ampla, o complexo <b>côndilo-disco desliza para frente e para baixo</b> pela eminência articular, permitindo a amplitude completa. É esse deslizamento que está comprometido à direita.</p>
+          <div class="fbar"><i style="--w:100%"></i></div>
+        </div>
+        <div class="anat-note">O trauma pode envolver <b>osso, fibrocartilagem, disco e tecidos sinoviais</b>. Possíveis consequências: dor, assimetria, má oclusão e limitação funcional — o catálogo de sinais que Jorge apresenta ao longo das cinco semanas.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===================== VÍDEO ATM ===================== -->
+<section class="sec sec-alt" id="video">
+  <div class="wrap">
+    <div class="kicker rv">A articulação em movimento · Vista sagital</div>
+    <h2 class="sec-title rv">A ATM <span class="grad">se movimentando</span></h2>
+    <p class="sec-sub rv">Simulação cinemática do complexo côndilo-disco: <b>rotação</b> no andar inferior, depois <b>translação</b> sobre a eminência articular. Alterne entre o lado esquerdo (preservado) e o direito (restrito) para ver a diferença que produz o desvio do queixo.</p>
+    <div class="player rv">
+      <div class="player-top">
+        <div class="rec"><span class="rd"></span>ATM · Sagital · Loop 6s</div>
+        <div class="pmodes">
+          <button class="pmode active" id="modeE">Lado esquerdo · normal</button>
+          <button class="pmode restr" id="modeD">Lado direito · restrito</button>
+        </div>
+      </div>
+      <div class="player-stage stage" id="atmStage">
+        <svg id="atmSvg" viewBox="0 0 640 560" role="img" aria-label="Animação da articulação temporomandibular em vista sagital">
+          <defs>
+            <linearGradient id="boneGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#e9e4d2"/><stop offset="1" stop-color="#b3ac93"/>
+            </linearGradient>
+            <linearGradient id="mandGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f5f1e4"/><stop offset="1" stop-color="#c8c1a6"/>
+            </linearGradient>
+            <linearGradient id="condGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#fbf7ea"/><stop offset="1" stop-color="#d8d1b6"/>
+            </linearGradient>
+            <linearGradient id="discGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#0d9488"/>
+            </linearGradient>
+            <filter id="glowF" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="4" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- osso temporal -->
+          <path class="bone" d="M150,150 H250 C255,150 252,200 300,200 C348,200 345,150 358,150 C364,150 372,152 380,168 C420,196 470,224 505,250 L520,242 C548,226 556,182 552,132 C546,76 470,52 400,58 C330,64 190,82 150,150 Z"/>
+          <!-- maxila / zigoma (sulco anterior) -->
+          <path class="bone-soft" d="M486,262 C528,268 562,294 570,322 C558,348 518,356 490,344 C474,306 470,282 486,262 Z"/>
+          <!-- orelha -->
+          <path d="M168,150 C136,152 132,204 162,216" fill="none" stroke="rgba(148,163,184,.5)" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- mandíbula (grupo móvel) -->
+          <g id="g-mand">
+            <path class="mand-fill" d="M300,304 L296,354"/>
+            <path class="mand-fill" d="M296,354 C302,428 380,462 468,462"/>
+            <ellipse class="condyle" cx="300" cy="264" rx="46" ry="40"/>
+            <text class="lbl-mv" x="300" y="268" text-anchor="middle" font-size="11" fill="#334155">côndilo</text>
+            <text class="lbl-mv" x="395" y="447" text-anchor="middle" font-size="11.5" fill="#334155" font-weight="600">mandíbula</text>
+          </g>
+          <!-- disco (grupo móvel) -->
+          <g id="g-disc">
+            <path class="disc" d="M252,220 C268,197 332,197 348,220 C332,243 268,243 252,220 Z"/>
+            <text class="lbl-mv" x="300" y="216" text-anchor="middle" font-size="9.5" fill="#042f2e" font-weight="700">disco</text>
+          </g>
+          <!-- dor pré-auricular -->
+          <g id="g-pain">
+            <circle class="pain-ring" cx="240" cy="244" r="11"/>
+            <circle class="pain" cx="240" cy="244" r="5"/>
+            <text class="lbl" x="122" y="292" text-anchor="middle">dor pré-auricular</text>
+            <path d="M212,278 L233,251" stroke="rgba(251,113,133,.55)" stroke-width="1.2" fill="none"/>
+          </g>
+          <!-- rótulas estáticas -->
+          <text class="lbl lbl-bone" x="430" y="98" text-anchor="middle">osso temporal</text>
+          <text class="lbl lbl-bone" x="282" y="188" text-anchor="middle">fossa mandibular</text>
+          <text class="lbl lbl-bone" x="448" y="182" text-anchor="middle">eminência articular</text>
+          <g class="lbl">
+            <path d="M560,96 L598,96" stroke="#94a3b8" stroke-width="1.6"/>
+            <path d="M590,91 L599,96 L590,101" fill="none" stroke="#94a3b8" stroke-width="1.6"/>
+            <text x="579" y="86" text-anchor="middle" font-size="10">anterior</text>
+          </g>
+        </svg>
+        <div class="hud">
+          <div class="phase" id="phasePill">Fase 1 · Rotação do côndilo</div>
+          <div class="mmbox"><small>ABERTURA</small> <b><span id="mmRead">0</span></b> <small>MM</small></div>
+        </div>
+        <div class="openbar"><i id="openFill"></i></div>
+      </div>
+      <div class="player-ctrl">
+        <button class="pbtn" id="btnPlay" aria-label="Reproduzir ou pausar">
+          <svg id="icPause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+          <svg id="icPlay" viewBox="0 0 24 24" style="display:none"><path d="M8 5.5v13l11-6.5z"/></svg>
+        </button>
+        <div class="time"><b id="timeRead">0:00</b> / 0:06</div>
+        <input type="range" id="scrub" min="0" max="1000" value="0" aria-label="Linha do tempo da animação">
+        <button class="pbtn small" id="btnSpeed">1×</button>
+        <button class="pbtn small on" id="btnLabels">Legendas</button>
+      </div>
+      <div class="player-cap" id="vidCaption"><b>Lado esquerdo — normal:</b> rotação inicial e depois deslizamento suave do complexo côndilo-disco sobre a eminência articular. A translação é o que permite a abertura ampla e indolor.</div>
+    </div>
+    <div class="vid-extra">
+      <div class="vid-note rv">
+        <div class="vt">Como ler a animação</div>
+        Até ~25 mm, o côndilo apenas <b>gira</b> sob o disco (andar inferior). Depois, o complexo côndilo-disco <b>desliza para frente e para baixo</b> (andar superior). No lado restrito, esse deslizamento quase não acontece — e o queixo é puxado para o lado que não translada.
+      </div>
+      <div class="yt rv" style="--rd:.1s">
+        <div class="yt-t">Vídeo complementar · ATM em 3D</div>
+        <div class="yt-f"><iframe src="https://www.youtube-nocookie.com/embed/mRhSUnTy3bw?rel=0&modestbranding=1" title="ATM em 3D — Articulação temporomandibular" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen playsinline></iframe></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BIOMECÂNICA ===================== -->
+<section class="sec" id="biomecanica">
+  <div class="wrap">
+    <div class="kicker rv">04 · Biomecânica do desvio</div>
+    <h2 class="sec-title rv">Por que o desvio é <span class="grad">para a direita?</span></h2>
+    <p class="sec-sub rv">Na abertura, o lado são translada empurra a mandíbula para frente. Quando <b>um lado desliza e o outro fica preso</b>, a mandíbula gira em torno do lado restrito — e o trajeto termina desviado <b>para o lado que não translada</b>.</p>
+    <div class="bio-grid">
+      <div class="bio-panel rv">
+        <div class="bp-t"><span>Vista frontal · simulação ao vivo</span><span class="live"><i></i>loop contínuo</span></div>
+        <svg id="bioSvg" viewBox="0 0 560 470" role="img" aria-label="Vista frontal da mandíbula desviando para a direita na abertura">
+          <defs>
+            <linearGradient id="mandGrad2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f5f1e4"/><stop offset="1" stop-color="#b7b096"/>
+            </linearGradient>
+          </defs>
+          <ellipse class="face" cx="280" cy="248" rx="152" ry="188"/>
+          <line class="mid" x1="280" y1="84" x2="280" y2="452"/>
+          <text class="bl" x="280" y="74" text-anchor="middle" fill="#64748a">linha média de repouso</text>
+          <!-- côndilo esquerdo (paciente) = lado são -->
+          <g id="g-condE">
+            <circle class="cond" cx="350" cy="175" r="24" fill="rgba(34,211,238,.14)" stroke="#22d3ee"/>
+            <path d="M350,207 C350,238 342,254 332,262" fill="none" stroke="#22d3ee" stroke-width="2.2" stroke-linecap="round" id="eArrow"/>
+            <path d="M330,255 L331,263 L339,261" fill="none" stroke="#22d3ee" stroke-width="2.2" stroke-linecap="round"/>
+          </g>
+          <text class="bl" x="350" y="128" text-anchor="middle" fill="#67e8f9">ATM E · normal</text>
+          <!-- côndilo direito = restrito -->
+          <g id="g-condD">
+            <circle class="cond" cx="210" cy="175" r="24" fill="rgba(251,113,133,.14)" stroke="#fb7185"/>
+            <path d="M202,168 l16,16 M218,168 l-16,16" stroke="#fb7185" stroke-width="2.4" stroke-linecap="round" id="dBlock"/>
+          </g>
+          <text class="bl" x="210" y="128" text-anchor="middle" fill="#fda4af">ATM D · restrita</text>
+          <text class="bl" x="210" y="146" text-anchor="middle" fill="#f87171" font-size="9.5">translação bloqueada</text>
+          <!-- mandíbula (grupo que gira em torno de D) -->
+          <g id="g-mandF">
+            <path class="mandf" d="M210,199 C212,300 240,375 280,385 C320,375 348,300 350,199"/>
+            <rect x="258" y="366" width="44" height="34" rx="10" fill="url(#mandGrad2)" stroke="rgba(226,232,240,.4)"/>
+            <circle cx="280" cy="362" r="5.5" fill="#fda4af" id="chinDot"/>
+          </g>
+          <text class="devlbl" id="bioDev" x="280" y="452" text-anchor="middle">desvio ≈ 0 mm</text>
+        </svg>
+      </div>
+      <div class="bsteps rv" style="--rd:.12s">
+        <div class="stepcard" style="--sc:#22d3ee">
+          <div class="sn">PASSO 1</div>
+          <h4>O lado são translada</h4>
+          <p>Na abertura, o lado <b>esquerdo</b> desliza o complexo côndilo-disco para frente e para baixo pela eminência — o movimento esperado de uma ATM saudável.</p>
+        </div>
+        <div class="stepcard" style="--sc:#fb7185">
+          <div class="sn">PASSO 2</div>
+          <h4>O lado direito fica preso</h4>
+          <p>Se o complexo direito <b>desliza pouco</b>, a mandíbula gira em torno desse lado restrito — como uma porta que abre em torno da dobradiça emperrada.</p>
+        </div>
+        <div class="stepcard" style="--sc:#a78bfa">
+          <div class="sn">PASSO 3</div>
+          <h4>O trajeto termina desviado</h4>
+          <p>O resultado é um trajeto que termina <b>desviado para a direita</b> — coerente com a assimetria observada, mas <b>ainda insuficiente</b> para distinguir fratura, lesão discal, derrame ou proteção muscular.</p>
+        </div>
+        <div class="bio-note"><b>O que confirmaria o mecanismo:</b> exame de imagem (TC / RM) e avaliação funcional cinemática da mandíbula. Até lá, o desvio é uma consequência funcional provável — não um diagnóstico.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===================== REPARO TECIDUAL ===================== -->
+<section class="sec sec-alt" id="reparo">
+  <div class="wrap">
+    <div class="kicker rv">05 · Histofisiologia do reparo</div>
+    <h2 class="sec-title rv">O epitélio fecha a superfície; <span class="grad">o conjuntivo remodela o suporte</span></h2>
+    <p class="sec-sub rv">Três tecidos distintos no mesmo traumatismo, cada um com <b>tempo e desfecho biológico próprios</b>. Compare a velocidade de recuperação e o risco de sequela — a chave para prever o que os cinco semanas de Jorge vão mostrar.</p>
+    <div class="tgrid">
+      <div class="tcard rv tilt" style="--tc:#22d3ee">
+        <div class="tico"><svg viewBox="0 0 24 24"><path d="M4 6c0-2 3.5-3 8-3s8 1 8 3l-1 7c-.3 2.5-3 5-7 5s-6.7-2.5-7-5z"/><path d="M4 6l1 7M20 6l-1 7"/><path d="M9 10v1M15 10v1"/></svg></div>
+        <div class="tk">EPITÉLIO MUCOSO</div>
+        <h3>Barreira e reepitelização</h3>
+        <p><b>Proliferação e migração rápida</b> de queratinócitos basais sobre o leito de granulação. Na mucosa oral — <b>aquecida e vascularizada</b> — a cobertura se fecha em poucos dias.</p>
+        <div class="tbars">
+          <div class="tbar"><div class="tb-l"><span>velocidade de reparo</span><b>dias</b></div><div class="tb-t"><i class="tb-f" style="--w:92%"></i></div></div>
+          <div class="tbar"><div class="tb-l"><span>risco de sequela</span><b>baixo</b></div><div class="tb-t"><i class="tb-f" style="--w:12%"></i></div></div>
+        </div>
+        <div class="tout">Restabelecimento <b>veloz</b> da barreira física protetora.</div>
+      </div>
+      <div class="tcard rv tilt" style="--tc:#a78bfa;--rd:.1s">
+        <div class="tico"><svg viewBox="0 0 24 24"><path d="M4 8l16-4M4 14l16-4M4 20l16-4"/><path d="M7 6v14M12 10v10M17 4v14"/></svg></div>
+        <div class="tk">TECIDO CONJUNTIVO</div>
+        <h3>Matriz e remodelamento</h3>
+        <p><b>Fibroblastos e miofibroblastos</b> secretam colágeno tipo III, gradualmente substituído por <b>colágeno tipo I denso e paralelo</b> — processo lento que forma massa palpável firme.</p>
+        <div class="tbars">
+          <div class="tbar"><div class="tb-l"><span>velocidade de reparo</span><b>semanas</b></div><div class="tb-t"><i class="tb-f" style="--w:55%"></i></div></div>
+          <div class="tbar"><div class="tb-l"><span>risco de sequela</span><b>médio</b></div><div class="tb-t"><i class="tb-f" style="--w:45%"></i></div></div>
+        </div>
+        <div class="tout">Área cicatricial <b>densa</b> que pode permanecer elevada — o "caroço" de Jorge.</div>
+      </div>
+      <div class="tcard rv tilt" style="--tc:#fb7185;--rd:.2s">
+        <div class="tico"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="10" rx="8" ry="4.5"/><ellipse cx="12" cy="16" rx="8" ry="4.5"/><path d="M12 10v6"/></svg></div>
+        <div class="tk">FIBROCARTILAGEM ATM</div>
+        <h3>Recuperação biomecânica</h3>
+        <p>Matriz <b>avascular</b>, rica em colágeno e proteoglicanos, sujeita a <b>carga cíclica contínua</b>. Remodelação muito vagarosa, vulnerável a sequelas funcionais e fibrose.</p>
+        <div class="tbars">
+          <div class="tbar"><div class="tb-l"><span>velocidade de reparo</span><b>meses +</b></div><div class="tb-t"><i class="tb-f" style="--w:18%"></i></div></div>
+          <div class="tbar"><div class="tb-l"><span>risco de sequela</span><b>alto</b></div><div class="tb-t"><i class="tb-f" style="--w:85%"></i></div></div>
+        </div>
+        <div class="tout">Alto risco de <b>disfunção articular persistente</b> sem terapia.</div>
+      </div>
+    </div>
+    <div class="hyp rv" style="border-color:rgba(167,139,250,.4);background:linear-gradient(120deg,rgba(167,139,250,.09),rgba(34,211,238,.05) 55%,rgba(148,163,184,.03))">
+      <div class="hl" style="color:#c4b5fd"><i style="background:#a78bfa"></i>Síntese comparada · Equipe 1</div>
+      <h3 style="background:linear-gradient(92deg,#c4b5fd,#67e8f9);-webkit-background-clip:text;background-clip:text">Qual se recupera mais rápido — e qual deixa sequela?</h3>
+      <p>O <b>epitélio</b> é o mais rápido: reepiteliza o lábio em dias. O <b>conjuntivo</b> vem depois: semanas de deposição e remodelamento de colágeno — e deixa como assinatura o <b>nódulo firme e indolor</b> da 5ª semana. A <b>fibrocartilagem da ATM</b> é a mais lenta e a mais exposta: avascular e sob carga constante, tem o maior risco de sequela funcional persistente — exatamente o desvio que ainda persiste na abertura.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LAUDO ===================== -->
+<section class="sec" id="laudo">
+  <div class="wrap">
+    <div class="kicker rv">06 · Análise anatomopatológica</div>
+    <h2 class="sec-title rv">A cicatrização explica o caroço <span class="grad">sem provar câncer</span></h2>
+    <p class="sec-sub rv">O laudo é um mapa de palavras: cada termo técnico é uma evidência. <b>Clique nos termos destacados</b> para entender o que cada achado significa — e por que, juntos, eles contam uma história de reparo.</p>
+    <div class="laudo-wrap">
+      <div class="laudo-card rv">
+        <div class="lh"><i></i>Laudo anatomopatológico · Fragmento de mucosa · D47</div>
+        <blockquote>"Fragmento de mucosa revestido por <span class="term" data-term="epitelio">epitélio estratificado pavimentoso não queratinizado</span>, com <span class="term" data-term="espessado">espessura aumentada</span> em alguns pontos. <span class="term" data-term="mitose">Figuras de mitose</span> nas camadas <span class="term" data-term="basal">basal e parabasal</span>. As células <span class="term" data-term="maturacao">amadurecem progressivamente</span> em direção à superfície e apresentam <span class="term" data-term="nucleos">núcleos de tamanho e forma regulares</span>. <span class="term" data-term="membrana">Membrana basal contínua</span>. No tecido conjuntivo subjacente, feixes densos de <span class="term" data-term="colageno">fibras colágenas dispostas paralelamente à superfície</span>, com <span class="term" data-term="vasos">poucos vasos sanguíneos e raras células inflamatórias</span>."</blockquote>
+        <div class="term-lend">Interpretação da Equipe 1: o conjunto é compatível com <b>reparo / remodelamento</b>. A conclusão definitiva depende da correlação clínica e da avaliação da área do vermelhão — que nunca foi biopsiada.</div>
+      </div>
+      <div class="rv" style="--rd:.12s">
+        <div class="lsteps">
+          <div class="lstep on" data-step="0">
+            <div class="ls-n">Etapa 1 · minutos–horas</div>
+            <h4>Hemostasia</h4>
+            <p>Coágulo tampona o leito da ferida. No caso, a ferida do lábio sangrava ao toque na semana 1 — sinal de que o processo ativo já estava em curso.</p>
+          </div>
+          <div class="lstep" data-step="1">
+            <div class="ls-n">Etapa 2 · 1–4 dias</div>
+            <h4>Inflamação</h4>
+            <p>Limpeza do leito: bordas avermelhadas e inchadas, secreção do ponto inflamado — e a camada amarelada que pode ser fibrina, exsudato ou ambos.</p>
+          </div>
+          <div class="lstep" data-step="2">
+            <div class="ls-n">Etapa 3 · dias–semanas</div>
+            <h4>Proliferação</h4>
+            <p>Tecido de granulação vermelho-vivo, reepitelização da mucosa e colágeno tipo III — a fase que explica a superfície granulosa e sangrante do D4.</p>
+          </div>
+          <div class="lstep" data-step="3">
+            <div class="ls-n">Etapa 4 · semanas–meses</div>
+            <h4>Remodelamento</h4>
+            <p>Colágeno tipo I denso e paralelo substitui o tipo III: a cicatriz contrai, endurece e forma o nódulo firme do D35 — exatamente o que o laudo descreve.</p>
+          </div>
+        </div>
+        <div class="marli">
+          <div class="mq">Tem célula se dividindo aí? Não é isso que o câncer faz — crescer sem parar?</div>
+          <div class="ma"><b>Resposta da Equipe 1:</b> mitose é ferramenta da vida tecidual — o corpo inteiro a usa para renovar e reparar. O que diferencia <b>reparo</b> de <b>neoplasia maligna</b> não é a presença de mitoses, é a <b>ordem</b>: aqui há mitoses apenas nas camadas basais, maturação progressiva, núcleos regulares e <b>membrana basal contínua</b>. Displasia e carcinoma in situ mostrariam desorganização da maturação e atipias; o carcinoma invasor, ruptura da membrana basal. Nada disso está descrito — mas a página da conclusão ainda não foi lida, e o vermelhão nunca foi examinado.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===================== MAPA MENTAL ===================== -->
+<section class="sec sec-alt" id="mapa">
+  <div class="wrap">
+    <div class="kicker rv">Mapa de evidências · interativo</div>
+    <h2 class="sec-title rv">O <span class="grad">mapa mental</span> do caso</h2>
+    <p class="sec-sub rv">Toda a investigação da Equipe 1 em um único mapa: <b>passe o mouse</b> para destacar um ramo, <b>clique</b> para focar (os demais escurecem), <b>arraste</b> para navegar e use os botões para dar zoom. Os pulsos luminosos mostram o centro das conexões.</p>
+    <div class="mm-shell rv">
+      <div class="mm-ctrl">
+        <button class="mbtn" id="mmZin" aria-label="Aproximar">+</button>
+        <button class="mbtn" id="mmZout" aria-label="Afastar">−</button>
+        <button class="mbtn wide" id="mmReset">recentralizar</button>
+      </div>
+      <svg id="mmSvg" viewBox="0 0 1600 1120" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Mapa de evidências do caso, organizado em seis eixos: trauma e ATM, ferida labial, reparo tecidual, microbiologia, laudo histopatológico e lacunas."></svg>
+      <noscript><p class="mm-hint" style="white-space:normal;max-width:90%">Ative JavaScript para explorar o mapa interativo. Os seis eixos do caso estão descritos nas seções de cronologia, anatomia, reparo, laudo e matriz.</p></noscript>
+      <div class="mm-hint">arraste para mover · roda/controles para zoom · clique para isolar um ramo</div>
+    </div>
+    <div class="mmlegend" id="mmLegend"></div>
+  </div>
+</section>
+
+<!-- ===================== MATRIZ ===================== -->
+<section class="sec" id="matriz">
+  <div class="wrap">
+    <div class="kicker rv">08 · Matriz de decisão clínica · Questão final comum</div>
+    <h2 class="sec-title rv">Classifique cada achado — <span class="grad">sem confundir evidência e hipótese</span></h2>
+    <p class="sec-sub rv">A pergunta comum exige classificar <b>10 achados</b> entre causa, consequência, resposta fisiológica, alteração patológica, achado incidental, condição de processo — ou declarar <b>"ainda não é possível classificar"</b>. Use os filtros, a busca, o agrupamento e clique em qualquer linha para ver a evidência que sustenta cada classificação. Ative o <b>Modo Estudo</b> para se testar.</p>
+    <div class="stats-strip rv" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px">
+      <div class="hstat rv" style="--c1:#67e8f9"><div class="n"><span data-count="10">0</span></div><div class="l">achados na matriz</div></div>
+      <div class="hstat rv" style="--c1:#34d399;--rd:.08s"><div class="n"><span data-count="3">0</span></div><div class="l">respostas fisiológicas</div></div>
+      <div class="hstat rv" style="--c1:#94a3b8;--rd:.16s"><div class="n"><span data-count="2">0</span></div><div class="l">ainda não classificáveis</div></div>
+      <div class="hstat rv" style="--c1:#fbbf24;--rd:.24s"><div class="n"><span data-count="1">0</span></div><div class="l">falha de processo</div></div>
+    </div>
+    <div class="legend rv" id="legend">
+      <div class="lg-head" id="legendHead"><span>Critérios de classificação · toque para expandir</span><span id="legendIc">+</span></div>
+      <div class="lg-body" id="legendBody"></div>
+    </div>
+    <div class="mtx-tools rv">
+      <div class="mtx-search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" id="mtxSearch" placeholder="Buscar achado, evidência ou lacuna…">
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="switches">
+        <button class="swx" id="btnGroup"><span class="sw"></span>Agrupar por categoria</button>
+        <button class="swx" id="btnStudy"><span class="sw"></span>Modo estudo</button>
+      </div>
+    </div>
+    <div class="study-hud" id="studyHud">
+      <div class="shud-i ok">acertos <b id="shOk">0</b></div>
+      <div class="shud-i no">erros <b id="shNo">0</b></div>
+      <div class="shud-i">restam <b id="shLeft">10</b></div>
+      <div class="shud-bar"><i id="shBar"></i></div>
+      <div class="shud-msg" id="shMsg">classifique os 10 achados</div>
+    </div>
+    <div class="mtx-scroll rv">
+      <table class="mtx" id="mtx">
+        <thead>
+          <tr><th>Nº</th><th>Achado</th><th>Classificação da equipe</th><th style="width:52px"></th></tr>
+        </thead>
+        <tbody id="mtxBody"></tbody>
+      </table>
+      <div class="mtx-empty" id="mtxEmpty">Nenhum achado corresponde aos filtros ativos.</div>
+    </div>
+  </div>
+</section>
+<!-- ===================== SÍNTESE ===================== -->
+<section class="sec sec-alt" id="sintese">
+  <div class="wrap">
+    <div class="kicker rv">09 · Síntese & conduta da Equipe 1</div>
+    <h2 class="sec-title rv">O que a investigação <span class="grad">consegue afirmar</span> — e o que não consegue</h2>
+    <p class="sec-sub rv">O ponto forte de uma investigação não é ter todas as respostas: é saber exatamente <b>onde termina o que a evidência sustenta</b> — e qual informação viraria o jogo.</p>
+    <div class="sy-grid">
+      <div class="sycard ok rv">
+        <h3><span class="sic"><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>O que conseguimos afirmar</h3>
+        <ul>
+          <li>Houve <b>trauma</b> e <b>lesão contaminada</b> — narrados e documentados desde o D0.</li>
+          <li>A ATM direita apresentou <b>restrição funcional</b>: pouca translação, dor pré-auricular e desvio na abertura.</li>
+          <li>O fragmento analisado mostra <b>reparo / remodelamento</b>, sem os critérios descritos de <b>invasão</b>.</li>
+        </ul>
+      </div>
+      <div class="sycard no rv" style="--rd:.1s">
+        <h3><span class="sic"><svg viewBox="0 0 24 24" fill="none" stroke="#fb7185" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>O que não conseguimos afirmar</h3>
+        <ul>
+          <li>Que a <b>falha da autoclave</b> causou o resultado de cada cultura.</li>
+          <li>Que a <b>camada amarelada</b> era infecção — e não fibrina ou exsudato de reparo.</li>
+          <li>Que o <b>vermelhão</b> compartilha o mesmo processo do fragmento biopsiado.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="qgrid">
+      <div class="qcard rv"><div class="qn">P1</div><h4>O que conseguimos explicar?</h4><p>Trauma, desvio funcional, cicatrização por segunda intenção e a formação do nódulo — integrando anatomia, biomecânica e histologia.</p></div>
+      <div class="qcard rv" style="--rd:.07s"><div class="qn">P2</div><h4>O que ainda não conseguimos?</h4><p>O mecanismo exato da ATM direita (fratura? disco? derrame?) e a natureza da área esbranquiçada do vermelhão.</p></div>
+      <div class="qcard rv" style="--rd:.14s"><div class="qn">P3</div><h4>Qual informação seria mais importante?</h4><p>Exame de imagem da mandíbula e ATM + biópsia do vermelhão: as duas lacunas que sustentariam (ou derrubariam) as hipóteses restantes.</p></div>
+      <div class="qcard rv" style="--rd:.21s"><div class="qn">P4</div><h4>O que nos faria mudar de ideia?</h4><p>Atipias ou ruptura da membrana basal no material; imagem mostrando fratura; evolução desfavorável do desvio apesar da terapia.</p></div>
+    </div>
+    <div class="kicker rv" style="margin-top:38px">Critérios de avaliação · peso igual</div>
+    <div class="crit-strip">
+      <div class="crit rv"><span class="cpct">25%</span><span class="cnm"><b>Integração interdisciplinar</b>relaciona disciplinas para explicar um mesmo fenômeno</span></div>
+      <div class="crit rv" style="--rd:.07s"><span class="cpct">25%</span><span class="cnm"><b>Raciocínio científico</b>separa dado de interpretação e reconhece lacunas</span></div>
+      <div class="crit rv" style="--rd:.14s"><span class="cpct">25%</span><span class="cnm"><b>Argumentação com evidências</b>conclusões sustentadas na narrativa e em fontes</span></div>
+      <div class="crit rv" style="--rd:.21s"><span class="cpct">25%</span><span class="cnm"><b>Colaboração e comunicação</b>considera hipóteses diferentes e comunica com clareza</span></div>
+    </div>
+    <div class="closing rv">
+      <p>Uma hipótese forte precisa explicar <span>sinais, tempo, anatomia e evolução</span> — e continuar aberta à revisão.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap ft">
+    <div class="ft-l">
+      <a class="brand" href="#inicio">
+        <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#04121a" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M5 12h9M6 17h6"/></svg></span>
+        Queda<span style="color:var(--cy2)">·Cresce</span>
+      </a>
+      <p>Equipe 1 — Uma queda, três tecidos · PBL Odontologia · 1º semestre · Outubro de 2026. Fontes consultadas: narrativa do caso, exame clínico descrito, cultura microbiológica e laudo anatomopatológico.</p>
+    </div>
+    <div class="ft-links">
+      <a href="#cronologia">Cronologia</a><a href="#video">Vídeo ATM</a><a href="#mapa">Mapa mental</a><a href="#matriz">Matriz</a><a href="#sintese">Síntese</a>
+    </div>
+  </div>
+</footer>
+<button id="toTop" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script>
+/* ================= BASE ================= */
+(function(){
+  const $=(s,c)=>(c||document).querySelector(s), $$=(s,c)=>[...(c||document).querySelectorAll(s)];
+  window.MM$=$; window.MM$$=$$;
+  const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+  window.MMclamp=clamp;
+
+  /* preloader */
+  const done=()=>document.body.classList.add('loaded');
+  if(document.readyState==='complete') setTimeout(done,650); else window.addEventListener('load',()=>setTimeout(done,650));
+  setTimeout(done,2600); /* fallback */
+
+  /* poeira suspensa: partículas discretas, sem a malha tecnológica genérica */
+  const cv=$('#particles');
+  if(cv && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const ctx=cv.getContext('2d'); let W,H,pts=[],vis=!document.hidden,raf=0;
+    const rs=()=>{const dpr=Math.min(devicePixelRatio||1,1.5);W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;cv.style.width=W+'px';cv.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0);};
+    rs();addEventListener('resize',rs,{passive:true});
+    const N=Math.min(46,Math.round(innerWidth/30));
+    for(let i=0;i<N;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.16,vy:-Math.random()*.19-.025,r:Math.random()*1.15+.25,a:Math.random()*.34+.08,phase:Math.random()*6.28,warm:Math.random()>.7});
+    document.addEventListener('visibilitychange',()=>vis=!document.hidden);
+    const tick=()=>{raf=requestAnimationFrame(tick);if(!vis)return;ctx.clearRect(0,0,W,H);
+      for(const p of pts){p.x+=p.vx+Math.sin(p.phase+=.003)*.025;p.y+=p.vy;if(p.y<-8){p.y=H+8;p.x=Math.random()*W}if(p.x<-8)p.x=W+8;if(p.x>W+8)p.x=-8;
+        const pulse=.7+.3*Math.sin(p.phase*1.7);ctx.beginPath();ctx.fillStyle=p.warm?`rgba(214,168,95,${p.a*pulse})`:`rgba(160,211,202,${p.a*pulse})`;ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();}
+      /* filamentos raros e muito curtos, como fibras em suspensão */
+      for(let i=0;i<pts.length;i+=3){const a=pts[i],b=pts[(i+7)%pts.length],dx=a.x-b.x,dy=a.y-b.y,d=dx*dx+dy*dy;if(d<3600){ctx.strokeStyle=`rgba(205,185,150,${.035*(1-d/3600)})`;ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+    };tick();
+  }
+
+  /* progresso + toTop */
+  const prog=$('#progress'),toTop=$('#toTop');
+  addEventListener('scroll',()=>{
+    const h=document.documentElement,sc=h.scrollTop/(h.scrollHeight-h.clientHeight||1);
+    prog.style.width=(sc*100)+'%';
+    toTop.classList.toggle('show',h.scrollTop>700);
+    /* timeline fill */
+    const tl=$('#tl'),tlf=$('#tlFill');
+    if(tl){const r=tl.getBoundingClientRect();
+      const p=clamp((innerHeight*.8-r.top)/(r.height),0,1);
+      tlf.style.height=(p*100)+'%';}
+  },{passive:true});
+  toTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+  requestAnimationFrame(()=>window.dispatchEvent(new Event('scroll')));
+
+  /* nav scrollspy */
+  const links=$$('.nlink');
+  const secs=links.map(a=>$(a.getAttribute('href'))).filter(Boolean);
+  const spy=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){
+      links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));
+    }});
+  },{rootMargin:'-38% 0px -55% 0px'});
+  secs.forEach(s=>spy.observe(s));
+
+  /* reveal on scroll */
+  if('IntersectionObserver' in window){
+    const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}})},{threshold:.12});
+    $$('.rv').forEach(el=>ro.observe(el));
+  } else $$('.rv').forEach(el=>el.classList.add('in'));
+  setTimeout(()=>$$('.rv').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)el.classList.add('in');}),1500);/* fallback apenas para o 1o viewport; o resto fica p/ o IO animar */
+
+  /* contadores */
+  const co=new IntersectionObserver(es=>{es.forEach(e=>{ if(!e.isIntersecting)return; co.unobserve(e.target);
+    const el=e.target,t=+el.dataset.count,t0=performance.now(),dur=1300;
+    (function anim(now){const p=clamp((now-t0)/dur,0,1),v=Math.round(t*(1-Math.pow(1-p,3)));
+      el.textContent=v; if(p<1)requestAnimationFrame(anim);})(t0);
+  })},{threshold:.6});
+  $$('[data-count]').forEach(el=>co.observe(el));
+
+  /* tilt 3D nos cards */
+  $$('.tilt').forEach(c=>{
+    c.addEventListener('mousemove',e=>{
+      const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      c.style.transform=`perspective(900px) rotateX(${(-y*6).toFixed(2)}deg) rotateY(${(x*7).toFixed(2)}deg) translateY(-4px)`;
+    });
+    c.addEventListener('mouseleave',()=>{c.style.transform='';});
+  });
+
+  /* hero: split de letras */
+  let li=0;
+  $$('#heroTitle .hline').forEach(line=>{
+    const txt=line.dataset.line; line.textContent='';
+    [...txt].forEach(ch=>{
+      if(ch===' '){const sp=document.createElement('span');sp.className='ltr sp';sp.innerHTML='&nbsp;';sp.style.setProperty('--i',li++);line.appendChild(sp);return;}
+      const s=document.createElement('span');s.className='ltr';s.textContent=ch;s.style.setProperty('--i',li++);line.appendChild(s);
+    });
+  });
+
+  /* laudo: steps */
+  $$('.lstep').forEach(st=>st.addEventListener('click',()=>{
+    $$('.lstep').forEach(s=>s.classList.remove('on')); st.classList.add('on');
+  }));
+
+  /* legend collapsible */
+  const legend=$('#legend');
+  if(legend){$('#legendHead').addEventListener('click',()=>{
+    const open=legend.classList.toggle('open'); $('#legendIc').textContent=open?'−':'+';
+  });}
+})();
+</script>
+<script>
+/* ================= PLAYER ATM (vídeo animado) ================= */
+(function(){
+  const $=window.MM$, clamp=window.MMclamp;
+  const svg=$('#atmSvg'); if(!svg) return;
+  const gMand=$('#g-mand'), gDisc=$('#g-disc'), stage=$('#atmStage'),
+        mmRead=$('#mmRead'), phasePill=$('#phasePill'), openFill=$('#openFill'),
+        timeRead=$('#timeRead'), scrub=$('#scrub'), btnPlay=$('#btnPlay'),
+        icPlay=$('#icPlay'), icPause=$('#icPause'), btnSpeed=$('#btnSpeed'),
+        btnLabels=$('#btnLabels'), modeE=$('#modeE'), modeD=$('#modeD'),
+        vidCaption=$('#vidCaption'), condyle=svg.querySelector('.condyle');
+  const CYCLE=6; /* duração do loop em segundos */
+  const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches; let userPlaying=!reduceMotion,inView=true,playing=userPlaying,p=0,speed=1,mode='E',last=performance.now();
+  const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+  const openAmt=v=>v<.5?ease(v*2):ease((1-v)*2);
+
+  function pose(){
+    const o=openAmt(p);
+    const rotF=clamp((o-.05)/.95,0,1), tlF=clamp((o-.42)/.58,0,1);
+    const rot=rotF*(mode==='E'?24:18);
+    const dx=tlF*(mode==='E'?150:22), dy=tlF*(mode==='E'?24:3.5);
+    gMand.setAttribute('transform',`translate(${dx.toFixed(1)} ${dy.toFixed(1)}) rotate(${rot.toFixed(1)} 300 264)`);
+    gDisc.setAttribute('transform',`translate(${dx.toFixed(1)} ${dy.toFixed(1)}) rotate(${(rot*.22).toFixed(1)} 300 220)`);
+    mmRead.textContent=Math.round(o*46);
+    const tl=tlF>.08;
+    phasePill.textContent=tl?'Fase 2 · Translação côndilo–disco':'Fase 1 · Rotação do côndilo';
+    phasePill.classList.toggle('tl',tl);
+    openFill.style.width=(o*100).toFixed(1)+'%';
+    const s=Math.floor(p*CYCLE);
+    timeRead.textContent='0:0'+s;
+    scrub.value=Math.round(p*1000);
+    condyle.classList.toggle('glow',tlF>.12);
+  }
+  function loop(now){
+    const dt=Math.min(.05,(now-last)/1000); last=now;
+    if(playing){p=(p+dt*speed/CYCLE)%1; pose();}
+    requestAnimationFrame(loop);
+  }
+  const syncPlay=()=>{playing=userPlaying&&inView;icPause.style.display=playing?'':'none';icPlay.style.display=playing?'none':'';};
+  btnPlay.addEventListener('click',()=>{userPlaying=!userPlaying;syncPlay();});
+  scrub.addEventListener('input',()=>{p=scrub.value/1000; pose();});
+  const speeds=[1,2,.5]; let si=0;
+  btnSpeed.addEventListener('click',()=>{si=(si+1)%3; speed=speeds[si]; btnSpeed.textContent=(speed+'×').replace('.',',');});
+  btnLabels.addEventListener('click',()=>{
+    const on=btnLabels.classList.toggle('on');
+    svg.classList.toggle('hide-labels',!on);
+  });
+  function setMode(m){
+    mode=m; pose();
+    modeE.classList.toggle('active',m==='E');
+    modeD.classList.toggle('active',m==='D');
+    stage.classList.toggle('restricted',m==='D');
+    vidCaption.innerHTML=m==='E'
+      ?'<b>Lado esquerdo — normal:</b> rotação inicial e depois deslizamento suave do complexo côndilo-disco sobre a eminência articular. A translação é o que permite a abertura ampla e indolor.'
+      :'<b>Lado direito — restrito:</b> o côndilo gira, mas quase não translada — o complexo permanece preso na fossa, com dor pré-auricular. É essa assimetria que puxa o queixo para a direita na abertura.';
+  }
+  modeE.addEventListener('click',()=>setMode('E'));
+  modeD.addEventListener('click',()=>setMode('D'));
+  /* pausa quando fora da tela (economia) */
+  new IntersectionObserver(es=>{es.forEach(e=>{inView=e.isIntersecting;syncPlay();});},{threshold:.05}).observe(svg);
+  syncPlay();
+  pose(); requestAnimationFrame(loop);
+})();
+
+/* ================= BIOMECÂNICA FRONTAL ================= */
+(function(){
+  const $=window.MM$;
+  const svg=$('#bioSvg'); if(!svg) return;
+  const gMandF=$('#g-mandF'), gE=$('#g-condE'), dev=$('#bioDev'), eArrow=$('#eArrow'), chin=$('#chinDot');
+  const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+  let p=0,last=performance.now();
+  const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const CYCLE=6.5;
+  function pose(){
+    const o=ease(p<.5?p*2:(1-p)*2); /* abertura 0→1→0 */
+    gMandF.setAttribute('transform',`rotate(${(o*10).toFixed(2)} 210 175)`);
+    gE.setAttribute('transform',`translate(0 ${(o*46).toFixed(1)})`);
+    eArrow.style.opacity=o*.95;
+    dev.textContent='desvio ≈ '+Math.round(o*7)+' mm → direita';
+    chin.setAttribute('fill',o>.25?'#f87171':'#fda4af');
+  }
+  let bioVisible=true,bioFrame=0;
+  function loop(now){
+    const dt=Math.min(.05,(now-last)/1000); last=now;
+    if(!reduceMotion&&bioVisible&&!document.hidden){p=(p+dt/CYCLE)%1;pose();}
+    if(!reduceMotion)bioFrame=requestAnimationFrame(loop);
+  }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(entries=>{bioVisible=entries.some(e=>e.isIntersecting);}).observe(svg);
+  }
+  document.addEventListener('visibilitychange',()=>{last=performance.now();});
+  pose();if(!reduceMotion)bioFrame=requestAnimationFrame(loop);
+})();
+</script>
+<script>
+/* ================= MAPA MENTAL — layout responsivo e interação robusta ================= */
+(function(){
+  const $=window.MM$, svg=$('#mmSvg'); if(!svg) return;
+  const NS='http://www.w3.org/2000/svg', W=1600,H=1120,CX=800,CY=560;
+  const DATA={
+    center:['O que cresce','depois da queda'],
+    sub:'CASO JORGE · 5 SEMANAS · EQUIPE 1',
+    branches:[
+      {id:'trauma',color:'#22d3ee',title:'Trauma & ATM',children:['Impacto direto no mento','Dor pré-auricular direita','Desvio do queixo à direita','Limitação de abertura','Hipótese: complexo côndilo-disco','Lacuna: sem radiografia / TC']},
+      {id:'ferida',color:'#fb7185',title:'Ferida labial',children:['Laceração irregular · 2ª intenção','Camada branco-amarelada (fibrina?)','Tecido de granulação sangrante','Nódulo firme e indolor (5 sem.)','Repuxa o lábio ao sorrir']},
+      {id:'reparo',color:'#a78bfa',title:'Reparo tecidual',children:['Epitélio: reepitelização em dias','Conjuntivo: colágeno I denso','Fibrocartilagem ATM: remodelação lenta','Maior risco de sequela: ATM']},
+      {id:'micro',color:'#fbbf24',title:'Microbiologia',children:['Queixo: cocos Gram+ da pele','Lábio: flora oral mista','Autoclave fora · estufa sem termômetro','Cultura não prova causalidade']},
+      {id:'laudo',color:'#34d399',title:'Laudo histopatológico',children:['Epitélio espessado','Mitoses basais e parabasais','Maturação progressiva ordenada','Membrana basal contínua','Colágeno denso paralelo','Compatível com reparo']},
+      {id:'lacunas',color:'#94a3b8',title:'Lacunas & alertas',children:['Radiografia nunca realizada','Vermelhão sem avaliação microscópica','2 achados ainda não classificáveis','Próximo passo: imagem + biópsia']}
+    ]
+  };
+  const el=(tag,attrs={},text='')=>{
+    const n=document.createElementNS(NS,tag);
+    Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,String(v)));
+    if(text!==''&&text!=null)n.textContent=text;
+    return n;
+  };
+  const wrap=(text,max=31)=>{
+    const words=text.split(/\s+/),out=[]; let line='';
+    for(const word of words){
+      const next=line?line+' '+word:word;
+      if(next.length>max&&line){out.push(line);line=word;}else line=next;
+    }
+    if(line)out.push(line);
+    return out;
+  };
+  const world=el('g',{id:'mmWorld'}); svg.replaceChildren(world);
+  const defs=el('defs');
+  const glow=el('filter',{id:'mmGlow',x:'-50%',y:'-50%',width:'200%',height:'200%'});
+  glow.append(el('feGaussianBlur',{stdDeviation:'5',result:'blur'}));
+  const merge=el('feMerge'); merge.append(el('feMergeNode',{in:'blur'}),el('feMergeNode',{in:'SourceGraphic'})); glow.append(merge); defs.append(glow);
+  svg.append(defs);
+  const branches={}; let focused=null, locked=null;
+  const center=el('g',{class:'mm-center'});center.style.setProperty('--bc','#22d3ee');
+  center.append(el('rect',{x:CX-190,y:CY-70,width:380,height:140,rx:22,class:'mm-brect',fill:'rgba(34,211,238,.08)'}));
+  center.append(el('text',{x:CX,y:CY-17,class:'mm-title'},DATA.center[0]));
+  center.append(el('text',{x:CX,y:CY+10,class:'mm-title'},DATA.center[1]));
+  center.append(el('text',{x:CX,y:CY+43,class:'mm-sub'},DATA.sub));
+  world.append(center);
+
+  const slots=[
+    {x:500,y:205,side:'left'},{x:1100,y:205,side:'right'},
+    {x:470,y:560,side:'left'},{x:1130,y:560,side:'right'},
+    {x:500,y:915,side:'left'},{x:1100,y:915,side:'right'}
+  ];
+  DATA.branches.forEach((b,i)=>{
+    const p=slots[i],g=el('g',{class:'mm-branch','data-b':b.id,role:'group','aria-label':b.title});
+    g.style.setProperty('--bc',b.color);
+    const branchW=244,branchH=76,childW=300,childX=p.side==='left'?160:1440;
+    const bx=p.x,by=p.y;
+    const mainPath=p.side==='left'
+      ?`M${CX-185},${CY-15} C${CX-280},${CY-100} ${bx+130},${by} ${bx},${by}`
+      :`M${CX+185},${CY-15} C${CX+280},${CY-100} ${bx-130},${by} ${bx},${by}`;
+    g.append(el('path',{d:mainPath,class:'mm-edge main',stroke:b.color}));
+    const bNode=el('g',{class:'mm-node mm-bnode',tabindex:'0',role:'button','aria-label':b.title+', '+b.children.length+' tópicos'});
+    bNode.append(el('rect',{x:bx-branchW/2,y:by-branchH/2,width:branchW,height:branchH,rx:15,class:'mm-brect'}));
+    bNode.append(el('text',{x:bx,y:by-5,class:'mm-btxt'},b.title));
+    bNode.append(el('text',{x:bx,y:by+20,class:'mm-bcount'},b.children.length+' PISTAS'));
+    g.append(bNode);
+    const n=b.children.length,step=62;
+    b.children.forEach((label,j)=>{
+      const cy=by+(j-(n-1)/2)*step,lines=wrap(label,31),nodeH=Math.max(54,lines.length*17+22);
+      const rectX=childX-childW/2,rectY=cy-nodeH/2;
+      const edgeStart=p.side==='left'?bx-branchW/2:bx+branchW/2;
+      const edgeEnd=p.side==='left'?rectX+childW:rectX;
+      g.insertBefore(el('path',{d:`M${edgeStart},${by} C${(edgeStart+edgeEnd)/2},${by} ${(edgeStart+edgeEnd)/2},${cy} ${edgeEnd},${cy}`,class:'mm-edge'}),bNode);
+      const node=el('g',{class:'mm-node',tabindex:'0',role:'img','aria-label':label});
+      node.append(el('rect',{x:rectX,y:rectY,width:childW,height:nodeH,rx:12,class:'mm-crect'}));
+      const startY=cy-((lines.length-1)*17)/2+4;
+      lines.forEach((line,k)=>node.append(el('text',{x:childX,y:startY+k*17,class:'mm-txt'},line)));
+      g.append(node);
+    });
+    world.append(g); branches[b.id]=g;
+  });
+
+  const applyFocus=()=>{
+    Object.entries(branches).forEach(([id,g])=>{
+      g.classList.toggle('branch-dim',!!focused&&id!==focused);
+      g.classList.toggle('branch-hot',!!focused&&id===focused);
+    });
+    $('#mmLegend')?.querySelectorAll('.mlg').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.branch===locked)));
+  };
+  Object.values(branches).forEach(g=>{
+    g.addEventListener('pointerenter',()=>{if(!locked){focused=g.dataset.b;applyFocus();}});
+    g.addEventListener('pointerleave',()=>{if(!locked){focused=null;applyFocus();}});
+    g.addEventListener('click',()=>{locked=locked===g.dataset.b?null:g.dataset.b;focused=locked;applyFocus();});
+    g.querySelector('.mm-bnode').addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();locked=locked===g.dataset.b?null:g.dataset.b;focused=locked;applyFocus();}
+    });
+  });
+
+  /* controles: zoom ancorado no cursor, pan com pointer capture e clique sem arrasto */
+  let scale=1,tx=0,ty=0,drag=null,suppressClick=false;
+  const applyTransform=()=>world.setAttribute('transform',`translate(${tx} ${ty}) scale(${scale})`);
+  const zoomAt=(factor,px=W/2,py=H/2)=>{
+    const next=Math.max(.62,Math.min(2.35,scale*factor)),ratio=next/scale;
+    tx=px-(px-tx)*ratio;ty=py-(py-ty)*ratio;scale=next;applyTransform();
+  };
+  const point=e=>{
+    const p=svg.createSVGPoint();p.x=e.clientX;p.y=e.clientY;
+    const q=p.matrixTransform(svg.getScreenCTM().inverse());return {x:q.x,y:q.y};
+  };
+  $('#mmZin')?.addEventListener('click',()=>zoomAt(1.2));
+  $('#mmZout')?.addEventListener('click',()=>zoomAt(1/1.2));
+  $('#mmReset')?.addEventListener('click',()=>{scale=1;tx=0;ty=0;applyTransform();locked=null;focused=null;applyFocus();});
+  svg.addEventListener('wheel',e=>{
+    e.preventDefault();const q=point(e);zoomAt(e.deltaY<0?1.1:1/1.1,q.x,q.y);
+  },{passive:false});
+  svg.addEventListener('pointerdown',e=>{
+    if(e.button!==0)return;
+    drag={x:e.clientX,y:e.clientY,tx,ty,moved:false};
+    svg.setPointerCapture?.(e.pointerId);
+  });
+  svg.addEventListener('pointermove',e=>{
+    if(!drag)return;
+    const dx=e.clientX-drag.x,dy=e.clientY-drag.y;
+    if(Math.abs(dx)+Math.abs(dy)>5)drag.moved=true;
+    if(drag.moved){
+      const m=svg.getScreenCTM();
+      tx=drag.tx+dx/(m.a||1)/scale;ty=drag.ty+dy/(m.d||1)/scale;applyTransform();
+    }
+  });
+  const endDrag=()=>{if(drag?.moved)suppressClick=true;drag=null;};
+  svg.addEventListener('pointerup',endDrag);svg.addEventListener('pointercancel',endDrag);
+  svg.addEventListener('click',e=>{
+    if(suppressClick){suppressClick=false;e.stopPropagation();}
+    else if(!e.target.closest('.mm-branch')){locked=null;focused=null;applyFocus();}
+  },true);
+
+  const legend=$('#mmLegend');
+  DATA.branches.forEach(b=>{
+    const btn=document.createElement('button');btn.type='button';btn.className='mlg';btn.dataset.branch=b.id;
+    btn.style.setProperty('--bc',b.color);btn.setAttribute('aria-pressed','false');
+    const sw=document.createElement('i');btn.append(sw,document.createTextNode(b.title));
+    btn.addEventListener('click',()=>{locked=locked===b.id?null:b.id;focused=locked;applyFocus();});
+    legend.append(btn);
+  });
+  applyTransform();
+})();
+</script>
+<script>
+/* ================= MATRIZ DE DECISÃO CLÍNICA ================= */
+(function(){
+  const $=window.MM$,$$=window.MM$$;
+  const body=$('#mtxBody'); if(!body) return;
+  const CATS={
+    causa:{l:'Causa',c:'#fb7185',d:'Evento ou condição que desencadeia o achado.'},
+    consequencia:{l:'Consequência',c:'#fb923c',d:'Efeito observável após a causa.'},
+    fisio:{l:'Resposta fisiológica',c:'#34d399',d:'Reparo ou adaptação esperada do organismo.'},
+    patologica:{l:'Alteração patológica',c:'#a78bfa',d:'Desvio estrutural ou funcional que exige investigação.'},
+    incidental:{l:'Achado incidental',c:'#22d3ee',d:'Existe, mas não está demonstrado que pertence ao acidente.'},
+    nao:{l:'Não classificável',c:'#94a3b8',d:'Falta imagem, tempo, exame ou correlação — declarar a lacuna é método.'},
+    processo:{l:'Condição de processo',c:'#fbbf24',d:'Falha de processo ou de registro que configura lacuna de rastreabilidade.'}
+  };
+  const ORDER=['causa','consequencia','fisio','patologica','incidental','nao','processo'];
+  const ICONS={
+    causa:'<svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>',
+    consequencia:'<svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>',
+    fisio:'<svg viewBox="0 0 24 24"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg>',
+    patologica:'<svg viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><path d="M12 10v4M12 17.5v.01"/></svg>',
+    incidental:'<svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v5l-5.2 8.2A2 2 0 006.5 19h11a2 2 0 001.7-2.8L14 8V3"/></svg>',
+    nao:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg>',
+    processo:'<svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2h6v2M9 10h6M9 14h6"/></svg>'
+  };
+  const F=[
+    {id:1,name:'Queda com impacto no queixo',sub:'o marco zero de toda a narrativa',cat:'causa',
+     ev:'A roda afundou na vala e o queixo bateu direto no chão. Todos os sinais surgem <b>depois</b> desse evento — ele precede a dor pré-auricular, a ferida e o desvio.',
+     miss:'Imagem e exame documentado da mandíbula e da ATM — sem eles, nem a fratura nem a lesão discal podem ser confirmadas ou excluídas.'},
+    {id:2,name:'Casquinha no queixo',sub:'crosta seca e escura sobre o corte',cat:'fisio',
+     ev:'Cobertura seca sobre a ferida cutânea em evolução — <b>crosta protegendo a reepitelização</b>, coerente com o curso benigno do corte de ~2 cm.',
+     miss:'Evolução completa e exame local registrados no prontuário.'},
+    {id:3,name:'Camada branco-amarelada no lábio',sub:'úmida, soltava em parte com a gaze',cat:'nao',
+     ev:'Material que se soltava parcialmente, expondo superfície granulosa sangrante. Pode ser <b>fibrina/exsudato</b> do reparo — ou sinal de infecção. A melhora espontânea sugere o primeiro, mas não prova.',
+     miss:'Sinais clínicos sistemáticos, cultura direcionada e evolução documentada da ferida.'},
+    {id:4,name:'Ponto avermelhado com secreção',sub:'inflamação focada em um único ponto',cat:'patologica',
+     ev:'Inflamação localizada ao redor de um ponto, com secreção, que <b>melhorou após a retirada</b> — reação local, sem febre ou disseminação.',
+     miss:'A cultura do queixo não prova causalidade para esse foco; não houve coleta direcionada.'},
+    {id:5,name:'Bactérias na cultura',sub:'cocos Gram+ no queixo · flora mista no lábio',cat:'incidental',
+     ev:'Queixo: cocos Gram-positivos em cachos + flora da pele. Lábio: flora oral mista. As bactérias estavam lá — mas <b>presença não é causa</b>, e as feridas melhoraram sem antibiótico.',
+     miss:'Carga microbiana, técnica de coleta, sinais clínicos e relevância clínica do isolado.'},
+    {id:6,name:'Desvio da mandíbula',sub:'queixo escorrega para a direita na abertura',cat:'consequencia',
+     ev:'Dor pré-auricular direita, abertura limitada e <b>quase nenhuma translação à direita</b> desde o trauma: a mandíbula gira em torno do lado restrito.',
+     miss:'Radiografia/TC e avaliação funcional cinemática — a radiografia foi pedida e nunca realizada.'},
+    {id:7,name:'Área firme no lábio',sub:'nódulo elevado, esbranquiçado e indolor (5ª sem.)',cat:'fisio',
+     ev:'Área elevada e firme após 5 semanas; o laudo mostra <b>colágeno denso paralelo</b> — a assinatura do remodelamento conjuntivo sobre a ferida por segunda intenção.',
+     miss:'Acompanhamento serial e correlação clínica completa (o nódulo pode perdurar ou regredir).'},
+    {id:8,name:'Mitoses no laudo',sub:'figuras de divisão nas camadas basal e parabasal',cat:'fisio',
+     ev:'Mitoses <b>apenas nas camadas germinativas</b>, com maturação progressiva, núcleos regulares e membrana basal contínua — proliferação ordenada de reparo, não crescimento descontrolado.',
+     miss:'Conclusão anatomopatológica completa do caso (a página seguinte do laudo).'},
+    {id:9,name:'Área esbranquiçada no vermelhão',sub:'faixa ressecada "que faz anos"',cat:'nao',
+     ev:'Faixa esbranquiçada com limite lábio-pele impreciso, <b>existente há anos</b> e nunca examinada ao microscópio — pai com câncer de lábio aumenta a vigilância, mas não substitui a biópsia.',
+     miss:'Biópsia e avaliação de risco (potencial de malignidade é desconhecido).'},
+    {id:10,name:'Estufa sem termômetro',sub:'esterilização sem controle documentado',cat:'processo',
+     ev:'Instrumentos entre uma estufa sem controle de temperatura e imersão em álcool; o caderno de esterilização da semana está <b>em branco</b> e não se sabe de qual caixa veio cada instrumento.',
+     miss:'Teste biológico, registros e rastreabilidade dos lotes — o técnico já deixou a recomendação do teste.'}
+  ];
+  const st=document.createElement('style'); st.textContent='mark{background:rgba(251,191,36,.35);color:#fde68a;border-radius:3px;padding:0 2px}';
+  document.head.appendChild(st);
+
+  const state={filter:'all',q:'',grouped:false,study:false};
+  const answered=new Set(); let ok=0,no=0;
+  const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  const hl=s=>{ if(!state.q)return esc(s);
+    const i=s.toLowerCase().indexOf(state.q); if(i<0)return esc(s);
+    return esc(s.slice(0,i))+'<mark>'+esc(s.slice(i,i+state.q.length))+'</mark>'+esc(s.slice(i+state.q.length)); };
+
+  const rowHTML=f=>{const cat=CATS[f.cat];return `<tr class="mrow" data-id="${f.id}" data-cat="${f.cat}" style="--cc:${cat.c}">
+    <td class="rownum">${String(f.id).padStart(2,'0')}</td>
+    <td><div class="fname">${hl(f.name)}</div><div class="fsub">${f.sub}</div></td>
+    <td><span class="cat-badge">${ICONS[f.cat]}${cat.l}</span><div class="guess" data-g="${f.id}"></div></td>
+    <td><span class="chev"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></td>
+  </tr>
+  <tr class="mdetail" data-id="${f.id}"><td colspan="4"><div class="di">
+    <div class="di-box ev"><div class="dt">EVIDÊNCIA QUE SUSTENTA</div>${f.ev}</div>
+    <div class="di-box mg"><div class="dt">O QUE AINDA FALTA</div>${f.miss}</div>
+  </div></td></tr>`;};
+
+  function render(){
+    if(state.grouped){
+      let h='';
+      ORDER.forEach(cid=>{
+        const fs=F.filter(f=>f.cat===cid); if(!fs.length)return;
+        h+=`<tr class="cat-head" data-cat="${cid}" style="--cc:${CATS[cid].c}"><td colspan="4"><div class="ch-in"><i></i>${CATS[cid].l}<span class="cc">${fs.length} ${fs.length>1?'achados':'achado'}</span><span class="ln"></span></div></td></tr>`;
+        fs.forEach(f=>h+=rowHTML(f));
+      });
+      body.innerHTML=h;
+    } else body.innerHTML=F.map(rowHTML).join('');
+    if(state.study) buildGuesses();
+    syncAnsweredStyles();
+    apply();
+  }
+
+  function apply(){
+    let shown=0;
+    body.querySelectorAll('tr.mrow').forEach(r=>{
+      const cat=r.dataset.cat, id=+r.dataset.id, f=F.find(x=>x.id===id);
+      const q=state.q.toLowerCase();
+      const matchQ=!q||f.name.toLowerCase().includes(q)||f.ev.toLowerCase().includes(q)||f.miss.toLowerCase().includes(q)||f.sub.toLowerCase().includes(q);
+      const matchC=state.filter==='all'||cat===state.filter;
+      const show=matchQ&&matchC;
+      r.classList.toggle('off',!show); if(show)shown++;
+      const d=body.querySelector(`tr.mdetail[data-id="${id}"]`);
+      if(d){d.classList.toggle('off',!show); if(!show)d.classList.remove('open');r.classList.remove('open');}
+    });
+    body.querySelectorAll('tr.cat-head').forEach(ch=>{
+      const cid=ch.dataset.cat;
+      const any=[...body.querySelectorAll('tr.mrow')].some(r=>!r.classList.contains('off')&&r.dataset.cat===cid);
+      ch.classList.toggle('off',!any);
+    });
+    $('#mtxEmpty').classList.toggle('show',shown===0);
+  }
+
+  /* chips */
+  const chips=$('#chips');
+  const mkChip=(id,label,color,count)=>{
+    const b=document.createElement('button'); b.className='chip'; b.dataset.cat=id;
+    b.style.setProperty('--cc',color||'#94a3b8');
+    b.innerHTML=`<i></i>${label}<span class="cnt">${count}</span>`;
+    b.addEventListener('click',()=>{state.filter=id;syncChips();apply();});
+    chips.appendChild(b);
+  };
+  mkChip('all','Todos','#22d3ee',F.length);
+  ORDER.forEach(cid=>mkChip(cid,CATS[cid].l,CATS[cid].c,F.filter(f=>f.cat===cid).length));
+  function syncChips(){chips.querySelectorAll('.chip').forEach(c=>c.classList.toggle('active',c.dataset.cat===state.filter));}
+  syncChips();
+
+  /* busca */
+  $('#mtxSearch').addEventListener('input',e=>{state.q=e.target.value.trim();render();});
+
+  /* agrupar */
+  $('#btnGroup').addEventListener('click',function(){
+    state.grouped=!state.grouped; this.classList.toggle('on',state.grouped);
+    if(state.grouped&&state.study){state.study=false;$('#btnStudy').classList.remove('on');document.body.classList.remove('study');resetStudy();}
+    render();
+  });
+
+  /* expandir linha */
+  body.addEventListener('click',e=>{
+    const gb=e.target.closest('.gbtn'); if(gb)return;
+    const r=e.target.closest('tr.mrow'); if(!r)return;
+    const id=r.dataset.id, d=body.querySelector(`tr.mdetail[data-id="${id}"]`);
+    const open=!r.classList.contains('open');
+    body.querySelectorAll('tr.mrow.open').forEach(x=>x.classList.remove('open'));
+    body.querySelectorAll('tr.mdetail.open').forEach(x=>x.classList.remove('open'));
+    if(open){r.classList.add('open');d.classList.add('open');}
+  });
+
+  /* spotlight */
+  body.addEventListener('mousemove',e=>{
+    const r=e.target.closest('tr.mrow'); if(!r)return;
+    const rect=r.getBoundingClientRect();
+    r.style.setProperty('--mx',(e.clientX-rect.left)+'px');
+    r.style.setProperty('--my',(e.clientY-rect.top)+'px');
+  });
+
+  /* modo estudo */
+  function buildGuesses(){
+    body.querySelectorAll('.guess').forEach(g=>{
+      g.innerHTML=ORDER.map(cid=>`<button class="gbtn" data-cat="${cid}" style="--gc:${CATS[cid].c}">${CATS[cid].l}</button>`).join('');
+    });
+  }
+  function resetStudy(){
+    answered.clear(); ok=0; no=0;
+    body.querySelectorAll('.gbtn').forEach(b=>b.classList.remove('ok','no'));
+    body.querySelectorAll('tr.mrow').forEach(r=>r.classList.remove('row-ok','row-no','locked'));
+    hud();
+  }
+  function hud(){
+    $('#shOk').textContent=ok; $('#shNo').textContent=no;
+    $('#shLeft').textContent=F.length-answered.size;
+    $('#shBar').style.width=(answered.size/F.length*100)+'%';
+    if(answered.size===F.length){
+      const msg=$('#shMsg');
+      if(ok===F.length){msg.textContent='impecável — matriz dominada!';}
+      else{msg.textContent='concluído — '+ok+'/'+F.length+' acertos';}
+    } else $('#shMsg').textContent='classifique os 10 achados';
+  }
+  $('#btnStudy').addEventListener('click',function(){
+    state.study=!state.study;
+    this.classList.toggle('on',state.study);
+    document.body.classList.toggle('study',state.study);
+    if(state.study){
+      if(state.grouped){state.grouped=false;$('#btnGroup').classList.remove('on');}
+      resetStudy(); buildGuesses();
+    } else {resetStudy();}
+    render();
+  });
+  body.addEventListener('click',e=>{
+    const gb=e.target.closest('.gbtn'); if(!gb)return;
+    const row=gb.closest('tr.mrow'); const id=+row.dataset.id;
+    if(answered.has(id))return;
+    const f=F.find(x=>x.id===id);
+    const good=gb.dataset.cat===f.cat;
+    if(good){
+      gb.classList.add('ok'); answered.add(id); ok++;
+      row.classList.add('row-ok'); row.classList.remove('row-no');
+      row.querySelectorAll('.gbtn').forEach(b=>b.classList.add('locked'));
+      if(answered.size===F.length)confetti(ok===F.length?120:70);
+    } else {
+      no++; gb.classList.add('no');
+      setTimeout(()=>gb.classList.remove('no'),650);
+      row.classList.add('row-no');
+      setTimeout(()=>row.classList.remove('row-no'),900);
+    }
+    hud();
+  });
+  function syncAnsweredStyles(){
+    answered.forEach(id=>{
+      const row=body.querySelector(`tr.mrow[data-id="${id}"]`);
+      if(row){
+        const f=F.find(x=>x.id===id);
+        row.classList.add('row-ok');row.classList.remove('row-no');
+        row.querySelectorAll('.gbtn').forEach(b=>{
+          b.classList.toggle('ok',b.dataset.cat===f.cat);
+          b.classList.add('locked');
+        });
+      }
+    });
+  }
+
+  /* legenda de critérios */
+  const lb=$('#legendBody');
+  lb.innerHTML=ORDER.map(cid=>`<div class="lg-item" style="--cc:${CATS[cid].c}"><div class="lg-c"><i></i>${CATS[cid].l}</div><div class="lg-d">${CATS[cid].d}</div></div>`).join('')
+    +`<div class="lg-rule">REGRA DE OURO — declarar "ainda não é possível classificar" quando faltam imagem, tempo, exame ou correlação não é fraqueza: é o que separa dado de interpretação.</div>`;
+
+  render(); hud();
+
+  /* confete */
+  function confetti(n){
+    const colors=['#22d3ee','#a78bfa','#fb7185','#34d399','#fbbf24','#67e8f9'];
+    for(let i=0;i<n;i++){
+      const p=document.createElement('div'); p.className='confetti-piece';
+      const sz=5+Math.random()*7;
+      p.style.cssText=`left:${Math.random()*100}vw;width:${sz}px;height:${sz*1.5}px;background:${colors[i%colors.length]};animation-duration:${2+Math.random()*2.2}s;animation-delay:${Math.random()*.5}s;opacity:.95`;
+      document.body.appendChild(p);
+      setTimeout(()=>p.remove(),4800);
+    }
+  }
+
+  /* tooltips do laudo */
+  const TERMS={
+    epitelio:['Epitélio estratificado pavimentoso não queratinizado','O revestimento normal da mucosa oral: camadas de células achatadas sobrepostas, sem queratina. É o tecido que fecha a superfície da ferida primeiro.'],
+    espessado:['Espessura aumentada (hiperplasia reativa)','Mais camadas de células sendo produzidas para cobrir o defeito — o epitélio "trabalhando overtime" sobre o leito da ferida. Comum no reparo.'],
+    mitose:['Figuras de mitose','Células em divisão — aqui restritas às camadas basal e parabasal, onde a renovação é esperada. Mitose é ferramenta de reparo; o que distingue neoplasia é a desordem, não a presença.'],
+    basal:['Camadas basal e parabasal','A zona germinativa do epitélio: só ela deveria proliferar. Mitoses fora desse compartimento é que levantariam suspeita.'],
+    maturacao:['Maturação progressiva','As células amadurecem da base para a superfície em ordem. Na displasia essa arquitetura se perde — aqui ela está preservada.'],
+    nucleos:['Núcleos de tamanho e forma regulares','Sem atipias citológicas: um argumento forte contra neoplasia maligna no fragmento analisado.'],
+    membrana:['Membrana basal contínua','O limite entre epitélio e conjuntivo está íntegro. Sua ruptura é o critério que define carcinoma invasor — não é o que o laudo descreve.'],
+    colageno:['Colágeno denso e paralelo à superfície','Assinatura do remodelamento conjuntivo: colágeno tipo I maduro, organizado — o que forma a cicatriz firme e palpável.'],
+    vasos:['Poucos vasos e raras células inflamatórias','Fase tardia de remodelamento, não inflamação ativa: o processo já saiu da etapa proliferativa.']
+  };
+  const pop=document.createElement('div'); pop.id='termPop'; document.body.appendChild(pop);
+  let hideT;
+  document.addEventListener('click',e=>{
+    const t=e.target.closest('.term'); if(!t){pop.classList.remove('show');return;}
+    const d=TERMS[t.dataset.term]; if(!d)return;
+    pop.innerHTML='<b>'+d[0]+'</b>'+d[1];
+    pop.classList.add('show');
+    const r=t.getBoundingClientRect(),popW=Math.min(330,innerWidth-24);
+    const px=Math.max(8,Math.min(innerWidth-popW-8,r.left-20));
+    pop.style.maxWidth=popW+'px';
+    const py=r.bottom+12+scrollY>innerHeight+scrollY-220?Math.max(8,r.top+scrollY-160):r.bottom+12+scrollY;
+    pop.style.left=px+'px';
+    pop.style.top=Math.max(8,Math.min(innerHeight+scrollY-190,py))+'px';
+    clearTimeout(hideT); hideT=setTimeout(()=>pop.classList.remove('show'),9000);
+  });
+  addEventListener('scroll',()=>pop.classList.remove('show'),{passive:true});
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+/* ================= CAMADA CINEMATOGRÁFICA ================= */
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cards=document.querySelectorAll('.pcard,.dcard,.tcard,.qcard');
+  if(!reduce){
+    cards.forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();card.style.setProperty('--px',(e.clientX-r.left)+'px');card.style.setProperty('--py',(e.clientY-r.top)+'px');},{passive:true});});
+    const figure=document.querySelector('.hero-figure');
+    if(figure && matchMedia('(pointer:fine)').matches){let frame=0;window.addEventListener('pointermove',e=>{if(frame)return;frame=requestAnimationFrame(()=>{const x=(e.clientX/innerWidth-.5)*9,y=(e.clientY/innerHeight-.5)*7;figure.style.marginLeft=x+'px';figure.style.marginTop=y+'px';frame=0;});},{passive:true});}
+  }
+  /* Marcadores de capítulo discretos: a navegação passa a funcionar como índice editorial. */
+  const ids=['panorama','cronologia','diagnostico','atm','video','biomecanica','reparo','laudo','mapa','matriz','sintese'];
+  ids.forEach((id,i)=>{const sec=document.getElementById(id);if(sec){sec.dataset.chapter=String(i+1).padStart(2,'0');}});
+})();
+</script>
+
+
+<script>
+/* ================= MARGINALIA: O HUMOR NEGRO DO LABORATÓRIO ================= */
+(()=>{
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const notes={
+  panorama:['O impacto foi instantâneo. A papelada, infelizmente, é de evolução crônica.','Três tecidos envolvidos. Nenhum deles preencheu formulário de consentimento.'],
+  cronologia:['A linha do tempo é precisa. A memória humana, nem sempre; por isso existem datas.','Cinco semanas de evolução. O calendário não tem empatia, mas ajuda bastante.'],
+  diagnostico:['Hipótese não é sentença. O estetoscópio da imaginação não conta como exame.','A evidência foi convidada. A certeza absoluta ficou na lista de espera.'],
+  atm:['A ATM: duas articulações trabalhando em conjunto e, ainda assim, sem grupo de WhatsApp funcional.','Movimento complexo. Tolerância a simplificações: praticamente nula.'],
+  video:['Demonstração mecânica. A articulação não aceitou dar entrevista.'],
+  biomecanica:['A mandíbula desvia. A explicação não pode desviar junto.','A física não negocia com a nossa vontade de terminar o slide.'],
+  reparo:['O organismo iniciou a obra sem licitação, sem engenheiro responsável e sem cronograma público.','Reparar não é apagar o ocorrido. É reconstruir com o material que sobrou.'],
+  laudo:['Mitose não é vilã por existir. Até células comportadas precisam se dividir para trabalhar.','O laudo descreve o que viu. Não é vidente, apesar da pressão popular.'],
+  mapa:['Se parece um prato de espaguete, provavelmente é porque alguém confundiu conexão com decoração.','Mapa mental: agora com menos nós em crise existencial.'],
+  matriz:['Classifique o achado. Não classifique a sua ansiedade.','A dúvida bem delimitada vale mais que uma certeza fabricada em promoção.'],
+  sintese:['Conclusão honesta: o terror está nos fatos; o melodrama fica por nossa conta.','Caso encerrado? Não. Raciocínio encerrado? Também não.']
+ };
+ const labels={panorama:'01 / CENA DO IMPACTO',cronologia:'02 / RELÓGIO DOS ACONTECIMENTOS',diagnostico:'03 / SALA DE HIPÓTESES',atm:'04 / ENGENHARIA DA MANDÍBULA',video:'05 / MOVIMENTO SUSPEITO',biomecanica:'06 / FÍSICA SEM ADVOGADO',reparo:'07 / O CANTEIRO DE OBRAS',laudo:'08 / LEITURA DO FRAGMENTO',mapa:'09 / QUADRO DE INVESTIGAÇÃO',matriz:'10 / INTERROGATÓRIO DOS ACHADOS',sintese:'11 / VEREDITO PROVISÓRIO'};
+ Object.entries(labels).forEach(([id,label])=>{const sec=document.getElementById(id);if(sec){sec.dataset.dossier=label;}});
+ Object.entries(notes).forEach(([id,arr],i)=>{
+  const sec=document.getElementById(id);if(!sec)return;
+  const wrap=sec.querySelector('.wrap');if(!wrap)return;
+  const note=document.createElement('aside');note.className='margin-note';note.textContent=arr[i%arr.length];note.setAttribute('aria-label','Nota editorial bem-humorada');
+  const ruler=document.createElement('div');ruler.className='section-ruler';ruler.setAttribute('aria-hidden','true');
+  wrap.append(note,ruler);
+ });
+ // Selos de arquivo em alguns painéis: carimbo visual, não decoração aleatória.
+ document.querySelectorAll('#cronologia .tl-card').forEach((card,i)=>{
+   const stamp=document.createElement('span');stamp.className='dossier-sticker';stamp.textContent=['IMPACTO','EVOLUÇÃO','INTERCORRÊNCIA','HIPÓTESE','ACHADO','PERGUNTA'][i]||'REGISTRO';card.append(stamp);
+ });
+ // Pequeno letreiro de segurança na matriz: humor direcionado ao método, nunca ao paciente.
+ const matrix=document.querySelector('#matriz .sec-sub');
+ if(matrix){const w=document.createElement('div');w.className='warning-tape';w.textContent='ATENÇÃO: NÃO ALIMENTAR CONCLUSÕES PRECIPITADAS';matrix.insertAdjacentElement('afterend',w);}
+ // Um carimbo flutuante de dossier que acompanha o leitor sem disputar atenção.
+ const seal=document.createElement('div');seal.className='case-seal';seal.textContent='OBSERVAR · CORRELACIONAR · NÃO INVENTAR';seal.setAttribute('aria-hidden','true');document.body.append(seal);
+ const style=document.createElement('style');style.textContent='.case-seal{position:fixed;z-index:8;left:12px;bottom:18px;padding:7px 9px;border:1px solid rgba(198,106,74,.32);background:rgba(8,10,10,.72);color:rgba(216,203,176,.62);font:8px var(--fm);letter-spacing:.15em;writing-mode:vertical-rl;transform:rotate(180deg);pointer-events:none;backdrop-filter:blur(5px)}@media(max-width:760px){.case-seal{display:none}}';document.head.append(style);
+ if(!reduced){
+   // Pequena oscilação da luz do espécime, sem parallax frenético.
+   const fig=document.querySelector('.hero-figure');
+   if(fig){let raf=0;window.addEventListener('pointermove',e=>{if(!matchMedia('(pointer:fine)').matches||raf)return;raf=requestAnimationFrame(()=>{const r=fig.getBoundingClientRect();const dx=(e.clientX-(r.left+r.width/2))/r.width;const dy=(e.clientY-(r.top+r.height/2))/r.height;fig.style.setProperty('--spec-x',(dx*5).toFixed(2)+'px');fig.style.setProperty('--spec-y',(dy*5).toFixed(2)+'px');raf=0;});},{passive:true});}
+ }
+})();
+</script>
+
+
+<style id="cronicaCss">
+/* ============================================================
+   ⚔ A CRÔNICA DA QUEDA — camada de apresentação (deck medieval)
+   ============================================================ */
+:root{
+  --gold:#d8b36a; --gold2:#f0d9a8; --parch:#e8dcc0; --blood:#8e3b2f; --moss:#6f7d5a;
+}
+#deckStage{position:relative}
+#fairy{position:fixed;inset:0;z-index:250;pointer-events:none}
+
+/* ---------- HUD do deck ---------- */
+#deckHud{position:fixed;inset:0;z-index:260;pointer-events:none;font-family:'MedievalSharp',var(--fh)}
+#deckHud>*{pointer-events:auto}
+.dh-arrow{position:fixed;top:50%;transform:translateY(-50%);width:52px;height:76px;border:1px solid rgba(216,179,106,.4);border-radius:6px;background:linear-gradient(180deg,rgba(24,20,14,.9),rgba(10,9,7,.94));color:var(--gold);font:30px 'Cinzel Decorative',serif;cursor:pointer;transition:.3s;backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px -16px #000,inset 0 0 0 1px rgba(232,220,192,.05)}
+.dh-arrow:hover{border-color:var(--gold);color:var(--gold2);transform:translateY(-50%) scale(1.06);box-shadow:0 0 26px rgba(216,179,106,.3)}
+#dhPrev{left:14px}#dhNext{right:14px}
+#dhZoom{position:fixed;left:70px;bottom:20px;display:flex;gap:6px;align-items:center}
+.dh-btn{font-family:'MedievalSharp',var(--fh);font-size:12px;letter-spacing:.06em;color:#d8cbb0;background:linear-gradient(180deg,rgba(24,20,14,.92),rgba(10,9,7,.95));border:1px solid rgba(216,179,106,.38);border-radius:4px;padding:9px 12px;cursor:pointer;transition:.28s;box-shadow:0 10px 26px -14px #000}
+.dh-btn:hover{border-color:var(--gold);color:var(--gold2);transform:translateY(-2px);box-shadow:0 0 20px rgba(216,179,106,.28)}
+.dh-btn.dh-wide{color:var(--gold)}
+#dhZoomReset{min-width:56px;font-variant-numeric:tabular-nums}
+#dhDots{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:11px;align-items:center}
+#dhDots button{width:11px;height:11px;border-radius:50%;border:1px solid rgba(216,179,106,.45);background:rgba(20,17,12,.85);cursor:pointer;transition:.3s;padding:0}
+#dhDots button:hover{transform:scale(1.35);border-color:var(--gold)}
+#dhDots button.on{background:radial-gradient(circle at 40% 35%,#f0d9a8,#c9992e);border-color:var(--gold2);box-shadow:0 0 14px rgba(216,179,106,.75);transform:scale(1.3)}
+
+/* ---------- arauto ---------- */
+#herald{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:255;max-width:min(760px,74vw);display:flex;gap:12px;align-items:center;padding:10px 18px;background:linear-gradient(180deg,rgba(26,22,15,.94),rgba(11,10,8,.96));border:1px solid rgba(216,179,106,.42);border-radius:4px;box-shadow:0 20px 44px -18px #000,inset 0 0 0 1px rgba(232,220,192,.05),0 0 0 4px rgba(11,10,8,.4);backdrop-filter:blur(8px);font-family:'MedievalSharp',var(--fh)}
+#herald::before{content:"⚜";color:var(--gold);font-size:15px;flex:none}
+#heraldNum{font-size:10px;letter-spacing:.2em;color:var(--gold);white-space:nowrap;border-right:1px solid rgba(216,179,106,.3);padding-right:12px}
+#heraldLine{font-size:12.5px;line-height:1.45;color:#cfc3a4}
+
+/* ---------- mapa do reino ---------- */
+#realmMap{position:fixed;inset:0;z-index:270;background:rgba(6,5,4,.92);backdrop-filter:blur(12px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:40px 30px;overflow:auto;font-family:'MedievalSharp',var(--fh)}
+#realmMap[hidden]{display:none}
+.rm-head{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center}
+.rm-head .rm-crown{font-size:26px;color:var(--gold)}
+.rm-head h3{font-family:'Cinzel Decorative',serif;font-size:clamp(20px,3vw,30px);color:var(--parch);letter-spacing:.04em;margin:0}
+.rm-head p{margin:0;font-size:12px;color:#a99c82;letter-spacing:.08em}
+.rm-grid{display:grid;grid-template-columns:repeat(4,minmax(200px,1fr));gap:14px;max-width:1020px;width:100%}
+.rm-card{text-align:left;background:linear-gradient(160deg,rgba(32,27,19,.96),rgba(14,12,9,.97));border:1px solid rgba(216,179,106,.3);border-radius:5px;padding:16px 16px 14px;cursor:pointer;transition:.3s;position:relative;overflow:hidden}
+.rm-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(216,179,106,.35)}
+.rm-card .rm-num{font-family:'Cinzel Decorative',serif;font-size:20px;color:var(--gold)}
+.rm-card .rm-name{font-size:14px;color:var(--parch);margin:6px 0 5px}
+.rm-card .rm-sub{font-size:11px;line-height:1.5;color:#a3977d;font-family:var(--fm)}
+@media(max-width:900px){.rm-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- toast ---------- */
+#deckToast{position:fixed;top:76px;left:50%;transform:translateX(-50%);z-index:280;max-width:min(680px,92vw);background:linear-gradient(180deg,rgba(28,24,16,.96),rgba(12,10,8,.97));border:1px solid rgba(216,179,106,.5);border-radius:5px;padding:13px 20px;font:12.5px/1.6 'MedievalSharp',var(--fh);color:var(--parch);box-shadow:0 24px 60px -20px #000;text-align:center}
+#deckToast b{color:var(--gold)}
+
+/* ---------- transição entre atos ---------- */
+.deck-enter .wrap{animation:deckIn .8s cubic-bezier(.16,1,.3,1) both}
+@keyframes deckIn{from{transform:scale(1.055) translateY(28px);opacity:.2;filter:blur(4px)}to{transform:none;opacity:1;filter:none}}
+
+/* ---------- ornamentos do reino ---------- */
+.castle{position:absolute;left:0;right:0;bottom:0;height:210px;pointer-events:none;z-index:0;opacity:.75}
+.castle .tower{position:absolute;bottom:0;background:linear-gradient(180deg,#0d1014,#080a0d)}
+.castle .tower::before{content:"";position:absolute;top:-9px;left:0;right:0;height:9px;background:repeating-linear-gradient(90deg,#0d1014 0 11px,transparent 11px 19px)}
+.castle .flag{position:absolute;font-size:15px;animation:flagWave 3.4s ease-in-out infinite;transform-origin:left bottom}
+@keyframes flagWave{0%,100%{transform:rotate(-4deg) skewX(0deg)}50%{transform:rotate(6deg) skewX(-6deg)}}
+.castle .hill{position:absolute;left:-4%;right:-4%;bottom:-2px;height:44px;background:radial-gradient(120% 100% at 50% 100%,#0a0c0f 60%,transparent 61%)}
+
+.knight{position:absolute;z-index:1;pointer-events:none;filter:drop-shadow(0 12px 22px rgba(0,0,0,.6))}
+.knight .plume{animation:plumeSway 4.2s ease-in-out infinite;transform-origin:70px 46px}
+@keyframes plumeSway{0%,100%{transform:rotate(0)}50%{transform:rotate(-7deg)}}
+.hero-knight{left:calc((100vw - 1180px)/2 - 40px);bottom:120px;width:130px;opacity:.85;animation:knightBreathe 7s ease-in-out infinite}
+@keyframes knightBreathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@media(max-width:1330px){.hero-knight{left:8px;opacity:.4}}
+@media(max-width:760px){.hero-knight{display:none}}
+
+.graveyard{margin:44px auto 0;max-width:960px;display:flex;gap:30px;justify-content:center;align-items:flex-end;flex-wrap:wrap;position:relative}
+.grave-title{width:100%;text-align:center;font-family:'MedievalSharp',var(--fh);font-size:11px;letter-spacing:.3em;color:rgba(216,179,106,.55);margin-bottom:8px}
+.tomb{width:172px;padding:22px 14px 16px;background:linear-gradient(180deg,#23241f,#131411);border:1px solid rgba(216,179,106,.22);border-bottom-width:3px;border-radius:86px 86px 5px 5px;text-align:center;position:relative;transition:.4s;transform:rotate(var(--tilt,0deg))}
+.tomb:hover{transform:rotate(var(--tilt,0deg)) translateY(-6px);border-color:rgba(216,179,106,.5)}
+.tomb .cross{font-family:'Cinzel Decorative',serif;font-size:24px;color:rgba(216,179,106,.6);display:block;margin-bottom:8px}
+.tomb .tname{font-family:'MedievalSharp',var(--fh);font-size:12.5px;color:#cfc3a4;line-height:1.35}
+.tomb .tepi{font:10px/1.5 var(--fm);color:#8a8069;margin-top:8px;letter-spacing:.04em}
+.tomb .grass{position:absolute;left:8px;right:8px;bottom:-9px;height:9px;background:repeating-linear-gradient(90deg,transparent 0 12px,#1d2416 12px 15px,#1a2013 15px 17px,transparent 17px 26px);opacity:.8}
+.ghostship{position:absolute;right:-8px;top:-104px;width:150px;opacity:.6;animation:shipBob 6.5s ease-in-out infinite;transform-origin:50% 80%;pointer-events:none}
+@keyframes shipBob{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(3.5deg) translateY(-9px)}}
+
+.unicorn-badge{margin:26px auto 0;max-width:860px;display:flex;gap:18px;align-items:center;border:1px dashed rgba(216,179,106,.4);border-radius:6px;padding:16px 22px;background:linear-gradient(100deg,rgba(216,179,106,.07),rgba(142,59,47,.06) 60%,transparent);position:relative;overflow:hidden}
+.unicorn-badge svg{width:74px;flex:none;animation:uniBob 5.6s ease-in-out infinite}
+@keyframes uniBob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-6px) rotate(2deg)}}
+.unicorn-badge .ut{font-family:'MedievalSharp',var(--fh)}
+.unicorn-badge .ut b{display:block;font-size:13.5px;color:var(--gold2);letter-spacing:.04em;margin-bottom:4px}
+.unicorn-badge .ut span{font-size:12px;color:#b3a88d;line-height:1.55}
+.unicorn-badge .tw{position:absolute;color:var(--gold);animation:twk 2.6s ease-in-out infinite}
+@keyframes twk{0%,100%{opacity:.15;transform:scale(.7) rotate(0)}50%{opacity:.95;transform:scale(1.15) rotate(22deg)}}
+
+.sintese-arms{margin:34px auto 0;max-width:760px;display:flex;gap:24px;align-items:center;justify-content:center;border:1px solid rgba(216,179,106,.28);border-radius:6px;padding:20px 26px;background:linear-gradient(180deg,rgba(24,20,14,.75),rgba(12,10,8,.85));position:relative}
+.sintese-arms svg{width:110px;flex:none}
+.sintese-arms .sa-t{font-family:'MedievalSharp',var(--fh);font-size:13px;color:#cfc3a4;line-height:1.7}
+.sintese-arms .sa-t b{color:var(--gold2)}
+
+.brand-crown{color:var(--gold);margin-left:2px;font-size:12px}
+@media(max-width:760px){
+  .dh-arrow,#dhDots{display:none}
+  #herald{bottom:12px;max-width:94vw;padding:9px 12px}
+  #heraldLine{font-size:11px}
+  #dhZoom{left:12px;bottom:70px;flex-wrap:wrap;max-width:60vw}
+  .ghostship{top:-84px;width:110px;right:2px}
+  .unicorn-badge{padding:14px}
+  .rm-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  .ghostship,.unicorn-badge svg,.knight,.castle .flag,.tw{animation:none!important}
+  .deck-enter .wrap{animation:none!important}
+  #fairy{display:none}
+}
+
+</style>
+<script id="cronicaJs">
+/* ================================================================
+   ⚔ A CRÔNICA DA QUEDA — deck de apresentação + reino mórbido
+   ================================================================ */
+(function(){
+'use strict';
+if(window.__Cronica) return;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $  = (s,c)=>(c||document).querySelector(s);
+const $$ = (s,c)=>[...(c||document).querySelectorAll(s)];
+
+const IDS=['inicio','panorama','cronologia','diagnostico','atm','video','biomecanica','reparo','laudo','mapa','matriz','sintese'];
+const ROM=['I','II','III','IV','V','VI','VII','VIII','IX','X','XI'];
+const secs=IDS.map(id=>document.getElementById(id)).filter(Boolean);
+const NAMES={inicio:'Prólogo',panorama:'Cena do impacto',cronologia:'Relógio dos acontecimentos',diagnostico:'Sala de hipóteses',atm:'Engenharia da mandíbula',video:'Movimento suspeito',biomecanica:'Física sem advogado',reparo:'Canteiro de obras',laudo:'Leitura do fragmento',mapa:'Quadro de investigação',matriz:'Interrogatório dos achados',sintese:'Veredito provisório'};
+const SUBS={inicio:'O cavaleiro, a montada de ferro e o chão',panorama:'Três tecidos entram em cena',cronologia:'Cinco semanas, um calendário impiedoso',diagnostico:'Hipóteses entram; evidências decidem',atm:'Duas articulações, zero diplomacia',video:'A articulação recusou a entrevista',biomecanica:'A física não aceita suborno',reparo:'Obra sem engenheiro, prazo ou licitação',laudo:'O fragmento depõe sob juramento',mapa:'Menos espaguete amaldiçoado',matriz:'Confesse a categoria — ou a lacuna',sintese:'O terror está nos fatos; a pompa, aqui'};
+const HERALD={
+ inicio:'Ajustem as coronas. A crônica começa com um queixo, um chão e um cavaleiro de montada de ferro — spoiler: o chão venceu.',
+ panorama:'Ato I — O impacto foi instantâneo para o queixo e crônico para a papelada. Três tecidos convocados; nenhum assinou consentimento.',
+ cronologia:'Ato II — Cinco semanas de luto documental. A nau dos exames perdidos singra estas águas: a radiografia foi convocada e jamais se apresentou.',
+ diagnostico:'Ato III — Hipóteses entram pela porta grande e saem pelo olho da fechadura. Nenhuma será coroada sem evidência — mando real, não sugestão.',
+ atm:'Ato IV — Dois côndilos, uma coroa óssea, zero diplomacia. O reino da mandíbula governa por rotatividade forçada.',
+ video:'Ato V — Encenação científica do movimento suspeito. A articulação teve dublê; o dublê também reclama de dor.',
+ biomecanica:'Ato VI — A física é a rainha mais implacável deste reino: não aceita suborno, presente, rogação nem lágrima.',
+ reparo:'Ato VII — O corpo constrói sem licitação, sem planta e sem engenheiro responsável — e ainda cobra impostos de tempo.',
+ laudo:'Ato VIII — O fragmento depôs sob juramento. Mitose não é crime: é expediente de obra. Os unicornios patólogos aprovam.',
+ mapa:'Ato IX — O mapa do reino, reorganizado: menos espaguete amaldiçoado, mais estratégia de guerra.',
+ matriz:'Ato X — Interrogatório formal dos achados: cada um confessará sua categoria — ou invocará o direito sagrado à lacuna.',
+ sintese:'Ato XI — Veredito provisório. As armas repousam; a evidência governa; a dúvida segue bem alimentada no estábulo real.'
+};
+const NOTES={
+ panorama:'O cavaleiro caiu do coursier de ferro. O queixo assinou a rendição; o chão exigiu testemunhas e a papelada, jejum.',
+ cronologia:'Cinco semanas de luto documental. A radiografia foi convocada e nunca compareceu — fuga, feitiço ou preguiça de ônibus?',
+ diagnostico:'Aqui hipóteses entram pela porta grande e saem pela fechadura. O cemitério fica logo ali, ao lado da evidência.',
+ atm:'O reino da mandíbula tem dois vizinhos que nunca se entendem. A coroa (discarticular) trabalha em silêncio heróico.',
+ video:'Teatro de sombras com selo científico. Nenhuma articulação real foi ferida durante a encenação — apenas dublês.',
+ biomecanica:'A física não negocia. O queixo desvia sete milímetros; a explicação, nenhum. Ponto para a rainha Física.',
+ reparo:'O corpo é um canteiro de obras medievais: sem projeto, sem cronograma, sem engenheiro — e ainda entrega no prazo.',
+ laudo:'O fragmento depôs sob juramento. Mitose não é vilã por existir; é o martelo batendo na forja do reparo.',
+ mapa:'Mapa do reino redesenhado: menos espaguete amaldiçoado, mais estratégia. As rotas levam a evidência — ou à lacuna.',
+ matriz:'Cadeirão de interrogatórios: dez achados sob suspeita. Confissão válida somente com lastro de evidência.',
+ sintese:'Fim do ato: o terror permanece nos fatos; a pompa, nos cavaleiros; a dúvida, eternamente alimentada a pão e método.'
+};
+
+/* ================= PÓ DE PIRIMPILIM ================= */
+const Fairy=(function(){
+  const cv=$('#fairy'); if(!cv) return {burst(){},trail(){}};
+  if(reduce){cv.style.display='none'; return {burst(){},trail(){}};}
+  const ctx=cv.getContext('2d'); let W,H,raf=0,P=[];
+  const COLS=['#ffe9a8','#ffd166','#f6e7c8','#d8b4fe','#a8f0e8'];
+  const rs=()=>{const d=Math.min(devicePixelRatio||1,1.75);W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);};
+  rs();addEventListener('resize',rs);
+  function star(x,y,o={}){
+    if(P.length>260)return;
+    P.push({x,y,vx:o.vx??(Math.random()-.5)*3.4,vy:o.vy??(Math.random()-.5)*3.4-.6,g:o.g??.07,
+      t:0,ttl:o.ttl??(900+Math.random()*800),s:o.s??(2+Math.random()*3.2),
+      c:o.c||COLS[Math.random()*COLS.length|0],rot:Math.random()*6.28,vr:(Math.random()-.5)*.16,
+      tw:4+Math.random()*5,kind:o.kind||'star'});
+  }
+  function burst(x,y,n=70){
+    for(let i=0;i<n;i++){const a=Math.random()*6.28,sp=1.4+Math.random()*5.6;
+      star(x+Math.cos(a)*6,y+Math.sin(a)*6,{vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-1.1,g:.065,s:1.6+Math.random()*3.6,ttl:800+Math.random()*900});}
+    for(let i=0;i<10;i++)star(x+(Math.random()-.5)*70,y+(Math.random()-.5)*40,{kind:'mote',s:1+Math.random()*1.6,vy:-(.3+Math.random()*.5),vx:(Math.random()-.5)*.5,g:0,ttl:1600});
+  }
+  function trail(x,y){star(x,y,{vx:(Math.random()-.5)*.9,vy:.25+Math.random()*.4,g:.012,s:1+Math.random()*1.9,ttl:520+Math.random()*380});}
+  function ambient(){
+    if(P.length<240&&Math.random()<.75)
+      star(Math.random()*W,H+8,{kind:'mote',s:.8+Math.random()*1.7,vy:-(.22+Math.random()*.5),vx:(Math.random()-.5)*.3,g:0,ttl:4200+Math.random()*2600,c:Math.random()<.7?'#ffe9a8':COLS[3+Math.random()*2|0]});
+  }
+  function draw(){
+    raf=requestAnimationFrame(draw);
+    if(document.hidden){return;}
+    ctx.clearRect(0,0,W,H);
+    for(let i=P.length-1;i>=0;i--){const p=P[i];p.t+=16.7;
+      if(p.t>=p.ttl){P.splice(i,1);continue;}
+      p.vy+=p.g;p.x+=p.vx;p.y+=p.vy;
+      const k=1-p.t/p.ttl, tw=.55+.45*Math.sin(p.t/1000*p.tw);
+      const a=Math.max(0,k*tw);
+      if(p.kind==='mote'){
+        ctx.globalAlpha=a*.8;ctx.fillStyle=p.c;ctx.shadowColor=p.c;ctx.shadowBlur=6;
+        ctx.beginPath();ctx.arc(p.x,p.y,p.s,0,6.29);ctx.fill();
+      }else{
+        ctx.globalAlpha=a;ctx.fillStyle=p.c;ctx.shadowColor=p.c;ctx.shadowBlur=8;
+        ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot+=p.vr);const s=p.s;
+        ctx.beginPath();ctx.moveTo(0,-s*1.9);ctx.lineTo(s*.42,-s*.42);ctx.lineTo(s*1.9,0);ctx.lineTo(s*.42,s*.42);
+        ctx.lineTo(0,s*1.9);ctx.lineTo(-s*.42,s*.42);ctx.lineTo(-s*1.9,0);ctx.lineTo(-s*.42,-s*.42);ctx.closePath();ctx.fill();
+        ctx.restore();
+      }
+      ctx.globalAlpha=1;ctx.shadowBlur=0;
+    }
+  }
+  setInterval(ambient,420);draw();
+  if(matchMedia('(pointer:fine)').matches){
+    let lt=0;addEventListener('pointermove',e=>{const n=performance.now();if(n-lt<36)return;lt=n;trail(e.clientX,e.clientY);},{passive:true});
+  }
+  return {burst,trail};
+})();
+
+/* ================= PALCO (wrapper p/ zoom real) ================= */
+const nav=document.getElementById('nav');
+const stage=document.createElement('main');stage.id='deckStage';
+nav.parentNode.insertBefore(stage,nav.nextSibling);
+['field-note'].concat(IDS).forEach(id=>{const el=document.getElementById(id);if(el)stage.appendChild(el);});
+
+/* ================= ESTADO / UI ================= */
+let cur=0,lock=false,zoomZ=1;
+const dots=$('#dhDots'),heraldNum=$('#heraldNum'),heraldLine=$('#heraldLine');
+IDS.forEach((id,i)=>{
+  const b=document.createElement('button');b.type='button';b.title=(i? 'Ato '+ROM[i-1]+' — ':'')+NAMES[id];
+  b.setAttribute('aria-label',b.title);
+  b.addEventListener('click',()=>goTo(i));dots.appendChild(b);
+});
+function syncUI(){
+  heraldNum.textContent=cur===0?'PRÓLOGO':'ATO '+ROM[cur-1]+' DE XI';
+  heraldLine.textContent=HERALD[IDS[cur]]||'';
+  $$('#dhDots button').forEach((b,i)=>b.classList.toggle('on',i===cur));
+}
+function burstAt(el,n=64){if(reduce)return;const r=el.getBoundingClientRect();Fairy.burst(r.left+r.width/2,Math.min(Math.max(r.top+r.height/2,60),innerHeight-40),n);}
+function goTo(i,opts={}){
+  i=Math.max(0,Math.min(secs.length-1,i));cur=i;const s=secs[i];
+  s.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+  if(!reduce){s.classList.remove('deck-enter');void s.offsetWidth;s.classList.add('deck-enter');}
+  syncUI();
+  if(opts.burst!==false&&!reduce)Fairy.burst(innerWidth/2,innerHeight*.44,70);
+  try{history.replaceState(null,'','#'+IDS[i]);}catch(e){}
+}
+
+/* roda do mouse: navegação nas bordas + zoom com Ctrl */
+addEventListener('wheel',e=>{
+  if(!$('#realmMap').hidden){return;}
+  if(e.target.closest('#mmSvg'))return;
+  if(e.ctrlKey){e.preventDefault();zoomStep(e.deltaY<0?1:-1);return;}
+  if(lock){e.preventDefault();return;}
+  const r=secs[cur].getBoundingClientRect(),down=e.deltaY>0;
+  const atEdge=down? r.bottom<=innerHeight+6 : r.top>=-6;
+  if(atEdge){
+    if(down&&cur===secs.length-1)return;
+    e.preventDefault();lock=true;goTo(cur+(down?1:-1));
+    setTimeout(()=>lock=false,950);
+  }
+},{passive:false});
+
+/* teclado */
+addEventListener('keydown',e=>{
+  if(e.target.closest('input,textarea,select,[contenteditable="true"]'))return;
+  const mapOpen=!$('#realmMap').hidden;
+  switch(e.key){
+    case 'ArrowRight': case 'PageDown': e.preventDefault();goTo(cur+1);break;
+    case 'ArrowLeft':  case 'PageUp':   e.preventDefault();goTo(cur-1);break;
+    case ' ': if(e.target===document.body){e.preventDefault();goTo(cur+(e.shiftKey?-1:1));}break;
+    case 'Home': e.preventDefault();goTo(0);break;
+    case 'End':  e.preventDefault();goTo(secs.length-1);break;
+    case 'f': case 'F': toggleFull();break;
+    case 'g': case 'G': toggleMap();break;
+    case '0': zoomZ=1;applyZoom();break;
+    case '+': case '=': zoomStep(1);break;
+    case '-': zoomStep(-1);break;
+    case '?': showToast(true);break;
+    case 'Escape': if(mapOpen)closeMap();break;
+  }
+});
+
+/* sincroniza ao rolar livremente */
+let sTick=false;
+addEventListener('scroll',()=>{if(sTick)return;sTick=true;
+  requestAnimationFrame(()=>{sTick=false;
+    let best=0,bd=1e9;
+    secs.forEach((s,i)=>{const d=Math.abs(s.getBoundingClientRect().top);if(d<bd){bd=d;best=i;}});
+    if(best!==cur){cur=best;syncUI();}
+  });
+},{passive:true});
+
+/* swipe no toque */
+let tS=null;
+addEventListener('touchstart',e=>{
+  if(e.target.closest('.mm-shell,.mtx-scroll,.nlinks,#realmMap,#mtx'))return;
+  tS={x:e.touches[0].clientX,y:e.touches[0].clientY};
+},{passive:true});
+addEventListener('touchend',e=>{
+  if(!tS)return;const dx=e.changedTouches[0].clientX-tS.x,dy=e.changedTouches[0].clientY-tS.y;tS=null;
+  if(Math.abs(dx)>72&&Math.abs(dy)<95)goTo(cur+(dx<0?1:-1));
+},{passive:true});
+
+/* zoom */
+const zLbl=$('#dhZoomReset');
+function applyZoom(){stage.style.zoom=zoomZ;zLbl.textContent=Math.round(zoomZ*100)+'%';
+  secs[cur].scrollIntoView({behavior:'auto',block:'start'});}
+function zoomStep(d){zoomZ=Math.max(.7,Math.min(1.6,zoomZ*(d>0?1.12:1/1.12)));applyZoom();}
+$('#dhZoomIn').addEventListener('click',()=>zoomStep(1));
+$('#dhZoomOut').addEventListener('click',()=>zoomStep(-1));
+zLbl.addEventListener('click',()=>{zoomZ=1;applyZoom();});
+$('#dhPrev').addEventListener('click',()=>goTo(cur-1));
+$('#dhNext').addEventListener('click',()=>goTo(cur+1));
+$('#dhFull').addEventListener('click',toggleFull);
+$('#dhMap').addEventListener('click',()=>toggleMap());
+$('#dhHelp').addEventListener('click',()=>showToast(true));
+$('#rmClose').addEventListener('click',closeMap);
+function toggleFull(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.().catch(()=>{});}
+
+/* mapa do reino */
+const grid=$('#rmGrid');
+secs.forEach((s,i)=>{
+  const c=document.createElement('button');c.type='button';c.className='rm-card';
+  c.innerHTML='<span class="rm-num">'+(i===0?'⚜':ROM[i-1])+'</span><div class="rm-name">'+NAMES[IDS[i]]+'</div><div class="rm-sub">'+SUBS[IDS[i]]+'</div>';
+  c.addEventListener('click',()=>{closeMap();goTo(i);});
+  grid.appendChild(c);
+});
+function toggleMap(){const m=$('#realmMap');m.hidden=!m.hidden;if(!m.hidden)Fairy.burst(innerWidth/2,innerHeight/2,90);}
+function closeMap(){$('#realmMap').hidden=true;}
+
+/* toast */
+let toastT=0;
+function showToast(manual){
+  const t=$('#deckToast');clearTimeout(toastT);
+  t.innerHTML='⚔ <b>MODO CRÔNICA</b> — <b>← →</b> ou roda: avançar atos · <b>Ctrl+roda</b>: pó de zoom · <b>G</b>: Mapa do Reino · <b>F</b>: tela cheia · <b>?</b>: esta pergamina';
+  t.hidden=false;toastT=setTimeout(()=>t.hidden=true,manual?10000:7200);
+}
+
+/* poof nos títulos que entram em cena */
+const tIO=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){burstAt(en.target,42);tIO.unobserve(en.target);}}),{threshold:.5});
+$$('.sec-title').forEach(t=>tIO.observe(t));
+
+/* ================= ORNAMENTOS DO REINO ================= */
+/* castelo no prólogo */
+const castle=document.createElement('div');castle.className='castle';castle.setAttribute('aria-hidden','true');
+castle.innerHTML=
+  '<div class="tower" style="left:5%;width:74px;height:118px"></div>'+
+  '<div class="tower" style="left:12%;width:46px;height:152px"><span class="flag" style="left:-2px;top:-30px">🚩</span></div>'+
+  '<div class="tower" style="left:47%;width:130px;height:92px"></div>'+
+  '<div class="tower" style="left:78%;width:66px;height:128px"></div>'+
+  '<div class="tower" style="left:87%;width:42px;height:98px"><span class="flag" style="left:-2px;top:-30px">⚜</span></div>'+
+  '<div class="hill"></div>';
+secs[0].appendChild(castle);
+
+/* cavaleiro da Ordem da Mandíbula (prólogo) */
+const KNIGHT='<svg viewBox="0 0 160 300" class="knight hero-knight" aria-hidden="true">'+
+ '<defs><linearGradient id="ksteel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#565c66"/><stop offset="1" stop-color="#22252b"/></linearGradient></defs>'+
+ '<line x1="130" y1="34" x2="130" y2="252" stroke="#6b5433" stroke-width="4"/>'+
+ '<path d="M130 40 L130 112 L98 102 L130 90" fill="#7d2f26" stroke="#d8b36a" stroke-width="1"/>'+
+ '<g class="plume"><path d="M74 44 q2 -20 16 -26" stroke="#b03a2e" stroke-width="6" fill="none" stroke-linecap="round"/></g>'+
+ '<rect x="50" y="44" width="46" height="54" rx="16" fill="url(#ksteel)"/>'+
+ '<rect x="57" y="64" width="32" height="6" rx="3" fill="#0a0b0d"/>'+
+ '<rect x="48" y="100" width="50" height="72" rx="15" fill="url(#ksteel)"/>'+
+ '<rect x="48" y="130" width="50" height="9" fill="#3a2c1c"/>'+
+ '<rect x="53" y="172" width="17" height="60" rx="8" fill="#2b2f35"/>'+
+ '<rect x="76" y="172" width="17" height="60" rx="8" fill="#2b2f35"/>'+
+ '<path d="M14 122 h38 v28 q0 22 -19 29 q-19 -7 -19 -29 Z" fill="#7d2f26" stroke="#d8b36a" stroke-width="2"/>'+
+ '<path d="M27 128 q13 -9 24 0 q5 9 -2 14 l-4 13 q-2 5 -5 0 l-3 -9 -3 9 q-3 5 -5 0 l-4 -13 q-7 -5 -2 -14 z" fill="#e8dcc0"/>'+
+ '<line x1="106" y1="150" x2="106" y2="70" stroke="#c9c9c9" stroke-width="4"/>'+
+ '<line x1="95" y1="80" x2="117" y2="80" stroke="#6b5433" stroke-width="5"/>'+
+ '</svg>';
+secs[0].insertAdjacentHTML('beforeend',KNIGHT);
+
+/* cemitério das lacunas + nau fantasma (cronologia) */
+const SHIP='<svg class="ghostship" viewBox="0 0 150 120" aria-hidden="true">'+
+ '<path d="M16 84 L134 84 L118 104 L32 104 Z" fill="#191b1e" stroke="#3a3226" stroke-width="1.5"/>'+
+ '<line x1="75" y1="84" x2="75" y2="16" stroke="#3a3226" stroke-width="3.5"/>'+
+ '<path d="M75 22 Q40 30 48 66 L75 58 Z" fill="#232019" stroke="#2e2a20"/>'+
+ '<path d="M75 22 Q110 28 104 60 L75 52 Z" fill="#1d1a14" stroke="#2e2a20"/>'+
+ '<path d="M75 14 l16 5 -16 5 Z" fill="#5a1f18"/>'+
+ '<path d="M8 112 q14 -8 28 0 t28 0 t28 0 t28 0 t28 0" fill="none" stroke="rgba(140,207,199,.28)" stroke-width="2" stroke-dasharray="6 7"/>'+
+ '</svg>';
+const graves=[
+ ['AQUI JAZ','a radiografia','pedida no D2 · vista por ninguém · 2026–2026','-.12'],
+ ['AQUI JAZ','o caderno de esterilização','páginas em branco, honras negadas','.08'],
+ ['AQUI JAZ','a certeza precoce','morta ao nascer, como manda o método','-.05']
+];
+const gy=document.createElement('div');gy.className='graveyard';
+gy.innerHTML='<div class="grave-title">✦ CEMITÉRIO DAS LACUNAS DOCUMENTAIS ✦</div>'+SHIP+
+ graves.map(g=>'<div class="tomb" style="--tilt:'+g[3]+'deg"><span class="cross">†</span><div class="tname">'+g[0]+'<br><b>'+g[1]+'</b></div><div class="tepi">'+g[2]+'</div><span class="grass"></span></div>').join('');
+const tl=$('#tl'); if(tl)tl.parentNode.insertBefore(gy,tl.nextSibling);
+
+/* unicórnio patólogo (matriz) */
+const UNI='<svg viewBox="0 0 120 120" aria-hidden="true">'+
+ '<path d="M44 34 L60 4 L64 38 Z" fill="#d8b36a"/><path d="M48 30 L58 12 M51 32 L59 20" stroke="#a9823f" stroke-width="1.6" fill="none"/>'+
+ '<path d="M30 98 Q20 72 38 58 Q28 42 46 36 L50 46 Q62 32 80 38 Q98 44 96 64 Q94 86 74 96 Q52 106 30 98 Z" fill="#e8dcc0" stroke="#c9b88f" stroke-width="1.5"/>'+
+ '<path d="M74 42 q18 -8 28 6 q-11 2 -15 11 q-9 -8 -13 -17" fill="#c98da6"/>'+
+ '<circle cx="68" cy="60" r="8" fill="none" stroke="#3a3a3a" stroke-width="2.4"/>'+
+ '<circle cx="86" cy="62" r="8" fill="none" stroke="#3a3a3a" stroke-width="2.4"/>'+
+ '<line x1="76" y1="60" x2="79" y2="61" stroke="#3a3a3a" stroke-width="2.4"/>'+
+ '<circle cx="68" cy="60" r="2.4" fill="#1a1a1a"/><circle cx="86" cy="62" r="2.4" fill="#1a1a1a"/>'+
+ '<path d="M60 82 q10 6 22 2" stroke="#c98da6" stroke-width="3" fill="none" stroke-linecap="round"/>'+
+ '</svg>';
+const mtxWrap=document.querySelector('#matriz .wrap');
+if(mtxWrap){
+  const ub=document.createElement('div');ub.className='unicorn-badge';
+  ub.innerHTML=UNI+'<div class="ut"><b>🦄 UNICORNOSCÓPIO REAL — calibrado para achados não classificáveis</b>'+
+   '<span>Quando o bicho recusa classificar, não é birra: é método. Falta imagem, tempo, exame ou correlação — e declarar a lacuna vale mais que uma certeza fabricada em promoção. Pó de pirimpiplim não substitui biópsia.</span></div>'+
+   '<span class="tw" style="top:10px;right:26px">✦</span><span class="tw" style="bottom:12px;right:60px;animation-delay:1.2s">✦</span><span class="tw" style="top:38%;right:14px;animation-delay:.6s">✧</span>';
+  mtxWrap.appendChild(ub);
+}
+
+/* armas repousando (síntese) */
+const ARMS='<svg viewBox="0 0 140 160" aria-hidden="true">'+
+ '<line x1="70" y1="26" x2="70" y2="122" stroke="#b9bec6" stroke-width="5" stroke-linecap="round"/>'+
+ '<line x1="52" y1="48" x2="88" y2="48" stroke="#6b5433" stroke-width="7" stroke-linecap="round"/>'+
+ '<circle cx="70" cy="22" r="5" fill="#d8b36a"/>'+
+ '<rect x="52" y="118" width="36" height="26" rx="10" fill="#565c66"/>'+
+ '<rect x="58" y="124" width="24" height="5" rx="2.5" fill="#0a0b0d"/>'+
+ '<path d="M16 140 q54 -12 108 0" stroke="#2c3423" stroke-width="3" fill="none" stroke-dasharray="7 6"/>'+
+ '</svg>';
+const syWrap=document.querySelector('#sintese .wrap');
+if(syWrap){
+  const sa=document.createElement('div');sa.className='sintese-arms';
+  sa.innerHTML=ARMS+'<div class="sa-t"><b>⚔ AS ARMAS REPOUSAM.</b> Nenhum diagnóstico foi coroado sem evidência; nenhum cavaleiro promoveu dado a interpretação.<br>Nau, cavaleiro e unicórnio seguem destacados para o próximo dossiê. A dúvida fica de sentinela. ✦</div>';
+  syWrap.appendChild(sa);
+}
+
+/* kickers viram atos; margin notes viram crônica; coroa na marca */
+secs.forEach((s,i)=>{
+  if(i===0)return;
+  const k=s.querySelector('.kicker');
+  if(k&&!k.dataset.cronica){k.dataset.cronica='1';k.textContent='⚔ ATO '+ROM[i-1]+' · '+k.textContent;}
+});
+Object.entries(NOTES).forEach(([id,txt])=>{
+  const s=document.getElementById(id);if(!s)return;
+  const n=s.querySelector('.margin-note');if(n&&!n.dataset.cronica){n.dataset.cronica='1';n.textContent=txt;}
+});
+const brand=$('.brand');if(brand&&!brand.dataset.cronica){brand.dataset.cronica='1';brand.insertAdjacentHTML('beforeend','<span class="brand-crown">⚜</span>');}
+const pres=$('.pre-s');if(pres)pres.textContent='Equipe 1 · PBL Odontologia · crônica sancionada sob protesto do real';
+
+/* início */
+syncUI();
+addEventListener('load',()=>{if(!reduce)setTimeout(()=>Fairy.burst(innerWidth/2,innerHeight*.4,110),900);setTimeout(()=>showToast(false),1400);});
+if(document.readyState==='complete'){dispatchEvent(new Event('load'));}
+
+window.Cronica={goTo,zoomStep,state:()=>({cur,ids:IDS,zoom:zoomZ}),burstAt};
+})();
+
+</script>
+</body>
+</html>
